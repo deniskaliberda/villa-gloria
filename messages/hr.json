@@ -68,15 +68,50 @@
     "amenities": "Oprema"
   },
   "gallery": {
-    "title": "Galerija",
-    "description": "Dojmovi iz Ville Gloria al Padre",
+    "title": "Obilazak",
+    "description": "Uđite – virtualni obilazak Ville Gloria al Padre",
     "all": "Sve",
     "exterior": "Vanjski prostor i bazen",
     "living": "Dnevni boravak i kuhinja",
     "bedrooms": "Spavaće sobe",
     "bathrooms": "Kupaonice",
     "apartmentCat": "Apartman",
-    "garden": "Vrt i sport"
+    "garden": "Vrt i sport",
+    "sections": {
+      "arrival": {
+        "title": "Dobrodošli",
+        "description": "Villa Gloria al Padre dočekuje vas šarmantnom fasadom od cigle, bujnim vrtom i privatnim parkingom. Već po dolasku osjećate: ovdje počinje vaš odmor."
+      },
+      "pool": {
+        "title": "Bazen i terasa",
+        "description": "Srce vile: bazen 12×8 m s panoramskim pogledom na more i istarski krajolik. Ležaljke, vanjski tuš i natkriveni roštilj pozivaju na uživanje."
+      },
+      "living": {
+        "title": "Dnevni boravak",
+        "description": "Otvoreni prizemlje povezuje dnevni boravak, blagovaonicu i potpuno opremljenu kuhinju. Drvene grede, veliki prozori i stropni ventilator stvaraju mediteranski ugođaj."
+      },
+      "kitchen": {
+        "title": "Kuhinja",
+        "description": "Kuhajte kao na odmoru: plinski štednjak, prostrana radna ploča i sve što vam treba. Izravni pristup terasi čini doručak uz bazen posebnim doživljajem."
+      },
+      "bedrooms": {
+        "title": "Spavaće sobe",
+        "description": "Tri spavaće sobe u glavnoj kući – sve s klimom, kvalitetnim madracima i obiljem dnevnog svjetla. Svaka soba je utočište za sebe."
+      },
+      "bathrooms": {
+        "title": "Kupaonice",
+        "description": "Dvije moderne kupaonice s walk-in tuševima, jedna s perilom rublja. Sve čisto, svijetlo i održavano."
+      },
+      "apartment": {
+        "title": "Apartman uz bazen",
+        "description": "U suterenu: samostalni apartman sa spavaćom sobom, čajnom kuhinjom i vlastitom kupaonicom – savršen kao utočište za bake i djedove ili kao zasebni apartman u izvansezonskom razdoblju."
+      },
+      "garden": {
+        "title": "Vrt i sport",
+        "description": "2.000 m² okućnice s terenom za odbojku/badminton, košarkaškim košem, paviljonom s ružama i natkrivenim roštiljem. Beskrajni prostor – za djecu i odrasle."
+      }
+    },
+    "cta": "Uvjereni? Rezervirajte svoj odmor iz snova"
   },
   "booking": {
     "title": "Rezervacija",

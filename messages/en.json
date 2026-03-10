@@ -68,15 +68,50 @@
     "amenities": "Amenities"
   },
   "gallery": {
-    "title": "Gallery",
-    "description": "Impressions of Villa Gloria al Padre",
+    "title": "Virtual Tour",
+    "description": "Step inside – a visual tour through Villa Gloria al Padre",
     "all": "All",
     "exterior": "Exterior & Pool",
     "living": "Living & Kitchen",
     "bedrooms": "Bedrooms",
     "bathrooms": "Bathrooms",
     "apartmentCat": "Apartment",
-    "garden": "Garden & Sports"
+    "garden": "Garden & Sports",
+    "sections": {
+      "arrival": {
+        "title": "Welcome",
+        "description": "Villa Gloria al Padre welcomes you with a charming brick facade, lush gardens and private parking. From the moment you arrive, you know: your holiday has begun."
+      },
+      "pool": {
+        "title": "Pool & Terrace",
+        "description": "The heart of the villa: a 12×8 m pool with panoramic views of the sea and the Istrian countryside. Sun loungers, outdoor shower and covered BBQ area invite you to linger."
+      },
+      "living": {
+        "title": "Living & Dining",
+        "description": "The open ground floor connects living room, dining area and fully equipped kitchen. Wooden beams, large windows and a ceiling fan create Mediterranean flair."
+      },
+      "kitchen": {
+        "title": "The Kitchen",
+        "description": "Cook like you're on holiday: gas stove, spacious worktop and everything you need. Direct access to the terrace makes breakfast by the pool an experience."
+      },
+      "bedrooms": {
+        "title": "Bedrooms",
+        "description": "Three bedrooms in the main house – all with air conditioning, premium mattresses and plenty of natural light. Each room is a retreat in itself."
+      },
+      "bathrooms": {
+        "title": "Bathrooms",
+        "description": "Two modern bathrooms with walk-in showers, one with a washing machine. Everything clean, bright and well-maintained."
+      },
+      "apartment": {
+        "title": "The Pool Apartment",
+        "description": "On the lower level: a self-contained apartment with bedroom, kitchenette and private bathroom – perfect as a retreat for grandparents or as a separate holiday flat in low season."
+      },
+      "garden": {
+        "title": "Garden & Sports",
+        "description": "2,000 m² of grounds with volleyball/badminton court, basketball hoop, rose pavilion and covered BBQ area. Endless space – for children and adults alike."
+      }
+    },
+    "cta": "Convinced? Book your dream holiday now"
   },
   "booking": {
     "title": "Book",

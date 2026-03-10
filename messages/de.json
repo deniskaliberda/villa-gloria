@@ -68,15 +68,50 @@
     "amenities": "Ausstattung"
   },
   "gallery": {
-    "title": "Galerie",
-    "description": "Eindrücke der Villa Gloria al Padre",
+    "title": "Rundgang",
+    "description": "Treten Sie ein – ein visueller Rundgang durch die Villa Gloria al Padre",
     "all": "Alle",
     "exterior": "Außen & Pool",
     "living": "Wohnen & Küche",
     "bedrooms": "Schlafzimmer",
     "bathrooms": "Bäder",
     "apartmentCat": "Apartment",
-    "garden": "Garten & Sport"
+    "garden": "Garten & Sport",
+    "sections": {
+      "arrival": {
+        "title": "Willkommen",
+        "description": "Die Villa Gloria al Padre empfängt Sie mit einer charmanten Backsteinfassade, üppigem Garten und eigenem Parkplatz. Schon bei der Ankunft spüren Sie: Hier beginnt Ihr Urlaub."
+      },
+      "pool": {
+        "title": "Pool & Terrasse",
+        "description": "Das Herzstück der Villa: ein 12×8 m großer Pool mit Panoramablick auf das Meer und die istrische Landschaft. Sonnenliegen, Outdoor-Dusche und überdachter BBQ-Bereich laden zum Verweilen ein."
+      },
+      "living": {
+        "title": "Wohnen & Essen",
+        "description": "Das offene Erdgeschoss verbindet Wohnzimmer, Essbereich und voll ausgestattete Küche. Holzbalken, große Fenster und ein Deckenventilator schaffen mediterranes Flair."
+      },
+      "kitchen": {
+        "title": "Die Küche",
+        "description": "Kochen wie im Urlaub: Gasherd, große Arbeitsfläche und alles, was Sie brauchen. Der direkte Zugang zur Terrasse macht das Frühstück am Pool zum Erlebnis."
+      },
+      "bedrooms": {
+        "title": "Schlafzimmer",
+        "description": "Drei Schlafzimmer im Haupthaus – alle mit Klimaanlage, hochwertigen Matratzen und viel Tageslicht. Jeder Raum ist ein Rückzugsort für sich."
+      },
+      "bathrooms": {
+        "title": "Badezimmer",
+        "description": "Zwei moderne Bäder mit bodentiefen Duschen, eines davon mit Waschmaschine. Alles sauber, hell und gepflegt."
+      },
+      "apartment": {
+        "title": "Die Poolwohnung",
+        "description": "Im Souterrain: ein eigenständiges Apartment mit Schlafzimmer, Küchenzeile und eigenem Bad – perfekt als Rückzugsort für Großeltern oder als separate Ferienwohnung in der Nebensaison."
+      },
+      "garden": {
+        "title": "Garten & Sport",
+        "description": "2.000 m² Grundstück mit Volleyball-/Badmintonfeld, Basketballkorb, Rosenpavillon und überdachtem Grillplatz. Platz ohne Ende – für Kinder und Erwachsene."
+      }
+    },
+    "cta": "Überzeugt? Jetzt Ihren Traumurlaub buchen"
   },
   "booking": {
     "title": "Buchen",
