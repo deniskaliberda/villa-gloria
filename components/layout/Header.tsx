@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -19,19 +19,26 @@ const navLinks = [
 
 export function Header() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // On subpages: always solid white header
+  // On homepage: transparent initially, solid after scroll
+  const isSolid = !isHomePage || isScrolled;
+
   useEffect(() => {
+    if (!isHomePage) return;
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isSolid
           ? "bg-white/95 shadow-md backdrop-blur-sm"
           : "bg-transparent"
       }`}
@@ -41,7 +48,7 @@ export function Header() {
         <Link href="/" className="z-10">
           <span
             className={`font-display text-2xl font-bold transition-colors ${
-              isScrolled ? "text-dark" : "text-white"
+              isSolid ? "text-dark" : "text-white"
             }`}
           >
             Villa Gloria
@@ -55,7 +62,7 @@ export function Header() {
               key={link.key}
               href={link.href}
               className={`font-accent text-sm font-semibold transition-colors hover:text-terracotta-500 ${
-                isScrolled ? "text-dark" : "text-white"
+                isSolid ? "text-dark" : "text-white"
               }`}
             >
               {t(link.key)}
@@ -65,7 +72,7 @@ export function Header() {
 
         {/* Right side: Language + CTA */}
         <div className="hidden items-center gap-4 lg:flex">
-          <LanguageSwitcher isScrolled={isScrolled} />
+          <LanguageSwitcher isScrolled={isSolid} />
           <Link href="/buchen">
             <Button size="sm">{t("bookNow")}</Button>
           </Link>
@@ -75,7 +82,7 @@ export function Header() {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`z-10 lg:hidden ${
-            isMobileMenuOpen || isScrolled ? "text-dark" : "text-white"
+            isMobileMenuOpen || isSolid ? "text-dark" : "text-white"
           }`}
           aria-label="Menu"
         >

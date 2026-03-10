@@ -16,7 +16,7 @@ function ImprintContent() {
   const t = useTranslations("legal");
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-20">
+    <main className="mx-auto max-w-3xl px-4 pt-28 pb-20">
       <h1 className="font-display text-4xl font-bold text-dark">
         {t("imprint")}
       </h1>
