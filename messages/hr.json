@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "home": "Početna",
+    "house": "Kuća",
+    "gallery": "Galerija",
+    "book": "Rezervacija",
+    "surroundings": "Okolica",
+    "reviews": "Recenzije",
+    "contact": "Kontakt",
+    "bookNow": "Rezerviraj"
+  },
+  "common": {
+    "bookNow": "Rezerviraj",
+    "checkAvailability": "Provjeri dostupnost",
+    "guests": "Gosti",
+    "bedrooms": "Spavaće sobe",
+    "bathrooms": "Kupaonice",
+    "pool": "Bazen",
+    "seaView": "Pogled na more",
+    "perNight": "po noći",
+    "from": "od",
+    "nights": "noći",
+    "readMore": "Saznaj više",
+    "backToTop": "Na vrh"
+  },
+  "home": {
+    "hero": {
+      "title": "Villa Gloria al Padre",
+      "subtitle": "Vaša privatna luksuzna vila u Istri",
+      "description": "180 m² stambenog prostora, privatni bazen i pogled na more – vaše savršeno utočište u Kašteliru, Hrvatska"
+    },
+    "quickFacts": {
+      "title": "Pregled"
+    },
+    "rentalOptions": {
+      "title": "Dvije opcije najma",
+      "wholeHouse": {
+        "title": "Cijela kuća",
+        "description": "Glavna kuća + apartman uz bazen, do 9 gostiju, dostupno cijele godine",
+        "details": "4 spavaće sobe · 3 kupaonice · 180 m²"
+      },
+      "apartment": {
+        "title": "Vrtni apartman",
+        "description": "Odvojeni apartman s pristupom bazenu, do 3 gosta, listopad – travanj",
+        "details": "1 spavaća soba · 1 kupaonica · Čajna kuhinja"
+      }
+    },
+    "highlights": {
+      "title": "Značajke vile"
+    },
+    "reviewSnippet": {
+      "title": "Što kažu naši gosti",
+      "rating": "4.9 od 5",
+      "allReviews": "Pročitaj sve recenzije"
+    },
+    "cta": {
+      "title": "Rezervirajte izravno – najbolja cijena zajamčena",
+      "subtitle": "Bez provizije, osobni kontakt, fleksibilno otkazivanje"
+    }
+  },
+  "house": {
+    "title": "Kuća",
+    "description": "Otkrijte Villu Gloria al Padre u detalje",
+    "groundFloor": "Prizemlje",
+    "upperFloor": "Kat",
+    "apartment": "Apartman uz bazen",
+    "outdoor": "Vanjski prostor",
+    "amenities": "Oprema"
+  },
+  "gallery": {
+    "title": "Galerija",
+    "description": "Dojmovi iz Ville Gloria al Padre",
+    "all": "Sve",
+    "exterior": "Vanjski prostor i bazen",
+    "living": "Dnevni boravak i kuhinja",
+    "bedrooms": "Spavaće sobe",
+    "bathrooms": "Kupaonice",
+    "apartmentCat": "Apartman",
+    "garden": "Vrt i sport"
+  },
+  "booking": {
+    "title": "Rezervacija",
+    "description": "Provjerite dostupnost i rezervirajte svoj boravak",
+    "selectDates": "Odaberite datume",
+    "selectProperty": "Odaberite smještaj",
+    "checkIn": "Prijava",
+    "checkOut": "Odjava",
+    "guestDetails": "Vaši podaci",
+    "name": "Ime i prezime",
+    "email": "E-mail adresa",
+    "phone": "Telefon (opcionalno)",
+    "country": "Država",
+    "message": "Poruka (opcionalno)",
+    "adults": "Odrasli",
+    "children": "Djeca",
+    "pets": "Dovođenje kućnog ljubimca",
+    "petFee": "Naknada za ljubimca: 50 €",
+    "acceptTerms": "Prihvaćam uvjete korištenja",
+    "priceBreakdown": "Pregled cijena",
+    "nightlyRate": "Cijena po noći",
+    "cleaningFee": "Završno čišćenje",
+    "total": "Ukupna cijena",
+    "deposit": "Polog (25%)",
+    "remaining": "Ostatak (6 tjedana prije dolaska)",
+    "bookAndPay": "Rezerviraj i plati polog",
+    "unavailable": "Nije dostupno",
+    "minNights": "Minimalni boravak: {min} noći",
+    "confirmation": {
+      "title": "Rezervacija potvrđena!",
+      "thankYou": "Hvala vam na rezervaciji",
+      "bookingNumber": "Broj rezervacije",
+      "nextSteps": "Sljedeći koraci",
+      "emailSent": "Uskoro ćete primiti e-mail s potvrdom.",
+      "remainingPayment": "Preostali iznos dospijeva 6 tjedana prije dolaska."
+    }
+  },
+  "surroundings": {
+    "title": "Okolica",
+    "description": "Otkrijte Istru oko Ville Gloria",
+    "distances": "Udaljenosti",
+    "activities": "Aktivnosti",
+    "sights": "Znamenitosti",
+    "restaurants": "Preporuke restorana"
+  },
+  "reviews": {
+    "title": "Recenzije",
+    "description": "Iskustva gostiju u Villi Gloria",
+    "overallRating": "Ukupna ocjena",
+    "outOf": "od 5",
+    "basedOn": "na temelju {count} recenzija",
+    "categories": {
+      "equipment": "Oprema",
+      "value": "Vrijednost",
+      "service": "Usluga",
+      "location": "Lokacija",
+      "cleanliness": "Čistoća"
+    },
+    "convinced": "Uvjereni? Rezervirajte odmah!"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Imate pitanja? Javite nam se!",
+    "form": {
+      "name": "Vaše ime",
+      "email": "E-mail adresa",
+      "subject": "Predmet",
+      "message": "Vaša poruka",
+      "send": "Pošalji poruku",
+      "success": "Poruka uspješno poslana!",
+      "error": "Greška pri slanju. Pokušajte ponovo."
+    },
+    "info": {
+      "title": "Kontakt podaci",
+      "directions": "Upute za dolazak"
+    }
+  },
+  "legal": {
+    "imprint": "Impresum",
+    "privacy": "Zaštita podataka",
+    "terms": "Uvjeti korištenja"
+  },
+  "footer": {
+    "quickLinks": "Brzi linkovi",
+    "contactInfo": "Kontakt",
+    "legalLinks": "Pravno",
+    "copyright": "© {year} Villa Gloria al Padre. Sva prava pridržana.",
+    "directBooking": "Izravna rezervacija – najbolja cijena zajamčena"
+  },
+  "cookie": {
+    "text": "Ova web stranica koristi kolačiće kako bi vam pružila najbolje iskustvo.",
+    "privacyLink": "Politika privatnosti",
+    "accept": "Prihvati",
+    "decline": "Odbij"
+  },
+  "meta": {
+    "home": {
+      "title": "Villa Gloria al Padre – Luksuzna vila s bazenom u Istri, Hrvatska",
+      "description": "Ekskluzivna vila za odmor s privatnim bazenom, pogledom na more i 4 spavaće sobe u Kašteliru, Istra. Do 9 gostiju. Rezervirajte izravno po najboljoj cijeni."
+    },
+    "house": {
+      "title": "Kuća – Villa Gloria al Padre",
+      "description": "Luksuzna vila od 180 m² s 4 spavaće sobe, 3 kupaonice, potpuno opremljenom kuhinjom, kaminom i odvojenim apartmanom uz bazen."
+    },
+    "gallery": {
+      "title": "Galerija – Villa Gloria al Padre",
+      "description": "Foto galerija Ville Gloria al Padre u Kašteliru, Istra – interijer, bazen, vrt i pogled na more."
+    },
+    "booking": {
+      "title": "Rezervacija – Villa Gloria al Padre",
+      "description": "Provjerite dostupnost i rezervirajte boravak u Villi Gloria al Padre. Rezervirajte izravno – najbolja cijena zajamčena."
+    },
+    "surroundings": {
+      "title": "Okolica – Villa Gloria al Padre",
+      "description": "Otkrijte Istru: plaže, povijesni gradovi, aktivnosti i restorani u blizini Ville Gloria u Kašteliru."
+    },
+    "reviews": {
+      "title": "Recenzije – Villa Gloria al Padre",
+      "description": "Pročitajte iskustva naših gostiju. 4.9 od 5 zvjezdica – Villa Gloria al Padre u Kašteliru, Istra."
+    },
+    "contact": {
+      "title": "Kontakt – Villa Gloria al Padre",
+      "description": "Kontaktirajte nas za pitanja ili upite o rezervaciji Ville Gloria al Padre u Kašteliru, Istra."
+    }
+  }
+}

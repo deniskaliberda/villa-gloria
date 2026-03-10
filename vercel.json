@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/ical-sync",
+      "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/cron/cleanup-notify",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/reminder",
+      "schedule": "0 7 * * *"
+    }
+  ]
+}

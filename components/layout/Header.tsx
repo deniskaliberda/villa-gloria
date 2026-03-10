@@ -1,0 +1,119 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Button } from "@/components/ui/Button";
+
+const navLinks = [
+  { href: "/das-haus", key: "house" },
+  { href: "/galerie", key: "gallery" },
+  { href: "/buchen", key: "book" },
+  { href: "/umgebung", key: "surroundings" },
+  { href: "/bewertungen", key: "reviews" },
+  { href: "/kontakt", key: "contact" },
+] as const;
+
+export function Header() {
+  const t = useTranslations("nav");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 shadow-md backdrop-blur-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+        {/* Logo */}
+        <Link href="/" className="z-10">
+          <span
+            className={`font-display text-2xl font-bold transition-colors ${
+              isScrolled ? "text-dark" : "text-white"
+            }`}
+          >
+            Villa Gloria
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 lg:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.key}
+              href={link.href}
+              className={`font-accent text-sm font-semibold transition-colors hover:text-terracotta-500 ${
+                isScrolled ? "text-dark" : "text-white"
+              }`}
+            >
+              {t(link.key)}
+            </Link>
+          ))}
+        </div>
+
+        {/* Right side: Language + CTA */}
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher isScrolled={isScrolled} />
+          <Link href="/buchen">
+            <Button size="sm">{t("bookNow")}</Button>
+          </Link>
+        </div>
+
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`z-10 lg:hidden ${
+            isMobileMenuOpen || isScrolled ? "text-dark" : "text-white"
+          }`}
+          aria-label="Menu"
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-white lg:hidden"
+          >
+            <div className="flex h-full flex-col items-center justify-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-display text-2xl font-bold text-dark transition-colors hover:text-terracotta-500"
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+              <div className="mt-4">
+                <LanguageSwitcher isScrolled={true} />
+              </div>
+              <Link href="/buchen" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button size="lg">{t("bookNow")}</Button>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}

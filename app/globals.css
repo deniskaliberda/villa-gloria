@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-terracotta-50: #fdf5ef;
+  --color-terracotta-100: #fae8d9;
+  --color-terracotta-200: #f4cdb2;
+  --color-terracotta-300: #edac81;
+  --color-terracotta-400: #e4874e;
+  --color-terracotta-500: #c2703e;
+  --color-terracotta-600: #d15a28;
+  --color-terracotta-700: #ae4523;
+  --color-terracotta-800: #8b3922;
+  --color-terracotta-900: #71311f;
+
+  --color-olive-50: #f4f6f0;
+  --color-olive-100: #e6ebdd;
+  --color-olive-200: #ced8be;
+  --color-olive-300: #aebf96;
+  --color-olive-400: #8ea572;
+  --color-olive-500: #4a5d3a;
+  --color-olive-600: #5a7148;
+  --color-olive-700: #475938;
+  --color-olive-800: #3a4830;
+  --color-olive-900: #323d2b;
+
+  --color-adriatic-50: #eef7fb;
+  --color-adriatic-100: #d5ecf5;
+  --color-adriatic-200: #b0d9eb;
+  --color-adriatic-300: #79bfdc;
+  --color-adriatic-400: #3d9fc5;
+  --color-adriatic-500: #2e7da8;
+  --color-adriatic-600: #256a92;
+  --color-adriatic-700: #225677;
+  --color-adriatic-800: #214963;
+  --color-adriatic-900: #203e54;
+
+  --color-sand: #FAF7F2;
+  --color-warm: #E8DFD3;
+  --color-dark: #2D2A26;
+  --color-dark-light: #4A4640;
+
+  /* Fonts */
+  --font-display: var(--font-playfair-display), serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-accent: var(--font-josefin-sans), sans-serif;
+
+  /* Border Radius */
+  --radius-card: 12px;
+  --radius-button: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-sand);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-terracotta-200);
+  color: var(--color-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta-300);
 }

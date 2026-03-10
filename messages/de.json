@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "home": "Home",
+    "house": "Das Haus",
+    "gallery": "Galerie",
+    "book": "Buchen",
+    "surroundings": "Umgebung",
+    "reviews": "Bewertungen",
+    "contact": "Kontakt",
+    "bookNow": "Jetzt buchen"
+  },
+  "common": {
+    "bookNow": "Jetzt buchen",
+    "checkAvailability": "Verfügbarkeit prüfen",
+    "guests": "Gäste",
+    "bedrooms": "Schlafzimmer",
+    "bathrooms": "Bäder",
+    "pool": "Pool",
+    "seaView": "Meerblick",
+    "perNight": "pro Nacht",
+    "from": "ab",
+    "nights": "Nächte",
+    "readMore": "Mehr erfahren",
+    "backToTop": "Nach oben"
+  },
+  "home": {
+    "hero": {
+      "title": "Villa Gloria al Padre",
+      "subtitle": "Ihre private Luxusvilla in Istrien",
+      "description": "180 m² Wohnfläche, privater Pool und Meerblick – Ihr perfekter Rückzugsort in Kaštelir, Kroatien"
+    },
+    "quickFacts": {
+      "title": "Auf einen Blick"
+    },
+    "rentalOptions": {
+      "title": "Zwei Mietoptionen",
+      "wholeHouse": {
+        "title": "Gesamtes Haus",
+        "description": "Haupthaus + Poolwohnung, bis 9 Gäste, ganzjährig verfügbar",
+        "details": "4 Schlafzimmer · 3 Bäder · 180 m²"
+      },
+      "apartment": {
+        "title": "Souterrainwohnung",
+        "description": "Separates Apartment mit Poolzugang, bis 3 Gäste, Oktober – April",
+        "details": "1 Schlafzimmer · 1 Bad · Küchenzeile"
+      }
+    },
+    "highlights": {
+      "title": "Highlights der Villa"
+    },
+    "reviewSnippet": {
+      "title": "Was unsere Gäste sagen",
+      "rating": "4.9 von 5",
+      "allReviews": "Alle Bewertungen lesen"
+    },
+    "cta": {
+      "title": "Buchen Sie direkt – bester Preis garantiert",
+      "subtitle": "Keine Vermittlungsgebühren, persönlicher Kontakt, flexible Stornierung"
+    }
+  },
+  "house": {
+    "title": "Das Haus",
+    "description": "Entdecken Sie die Villa Gloria al Padre im Detail",
+    "groundFloor": "Erdgeschoss",
+    "upperFloor": "Obergeschoss",
+    "apartment": "Poolwohnung / Souterrain",
+    "outdoor": "Außenbereich",
+    "amenities": "Ausstattung"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "description": "Eindrücke der Villa Gloria al Padre",
+    "all": "Alle",
+    "exterior": "Außen & Pool",
+    "living": "Wohnen & Küche",
+    "bedrooms": "Schlafzimmer",
+    "bathrooms": "Bäder",
+    "apartmentCat": "Apartment",
+    "garden": "Garten & Sport"
+  },
+  "booking": {
+    "title": "Buchen",
+    "description": "Prüfen Sie die Verfügbarkeit und buchen Sie Ihren Aufenthalt",
+    "selectDates": "Datum wählen",
+    "selectProperty": "Unterkunft wählen",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guestDetails": "Ihre Daten",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefon (optional)",
+    "country": "Land",
+    "message": "Nachricht (optional)",
+    "adults": "Erwachsene",
+    "children": "Kinder",
+    "pets": "Haustier mitbringen",
+    "petFee": "Haustiergebühr: 50 €",
+    "acceptTerms": "Ich akzeptiere die AGB",
+    "priceBreakdown": "Preisübersicht",
+    "nightlyRate": "Nachtpreis",
+    "cleaningFee": "Endreinigung",
+    "total": "Gesamtpreis",
+    "deposit": "Anzahlung (25%)",
+    "remaining": "Restzahlung (6 Wochen vor Check-in)",
+    "bookAndPay": "Buchen & Anzahlung zahlen",
+    "unavailable": "Nicht verfügbar",
+    "minNights": "Mindestaufenthalt: {min} Nächte",
+    "confirmation": {
+      "title": "Buchung bestätigt!",
+      "thankYou": "Vielen Dank für Ihre Buchung",
+      "bookingNumber": "Buchungsnummer",
+      "nextSteps": "Nächste Schritte",
+      "emailSent": "Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
+      "remainingPayment": "Die Restzahlung ist 6 Wochen vor Check-in fällig."
+    }
+  },
+  "surroundings": {
+    "title": "Umgebung",
+    "description": "Entdecken Sie Istrien rund um die Villa Gloria",
+    "distances": "Entfernungen",
+    "activities": "Aktivitäten",
+    "sights": "Sehenswürdigkeiten",
+    "restaurants": "Restaurant-Tipps"
+  },
+  "reviews": {
+    "title": "Bewertungen",
+    "description": "Erfahrungen unserer Gäste in der Villa Gloria",
+    "overallRating": "Gesamtbewertung",
+    "outOf": "von 5",
+    "basedOn": "basierend auf {count} Bewertungen",
+    "categories": {
+      "equipment": "Ausstattung",
+      "value": "Preis-Leistung",
+      "service": "Service",
+      "location": "Lage",
+      "cleanliness": "Sauberkeit"
+    },
+    "convinced": "Überzeugt? Jetzt buchen!"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Haben Sie Fragen? Kontaktieren Sie uns!",
+    "form": {
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "subject": "Betreff",
+      "message": "Ihre Nachricht",
+      "send": "Nachricht senden",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Fehler beim Senden. Bitte versuchen Sie es erneut."
+    },
+    "info": {
+      "title": "Kontaktdaten",
+      "directions": "Anfahrt"
+    }
+  },
+  "legal": {
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB"
+  },
+  "footer": {
+    "quickLinks": "Schnellzugriff",
+    "contactInfo": "Kontakt",
+    "legalLinks": "Rechtliches",
+    "copyright": "© {year} Villa Gloria al Padre. Alle Rechte vorbehalten.",
+    "directBooking": "Direktbuchung – bester Preis garantiert"
+  },
+  "cookie": {
+    "text": "Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten.",
+    "privacyLink": "Datenschutzerklärung",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
+  },
+  "meta": {
+    "home": {
+      "title": "Villa Gloria al Padre – Luxusvilla mit Pool in Istrien, Kroatien",
+      "description": "Exklusive Ferienvilla mit privatem Pool, Meerblick und 4 Schlafzimmern in Kaštelir, Istrien. Bis zu 9 Gäste. Direkt buchen zum besten Preis."
+    },
+    "house": {
+      "title": "Das Haus – Villa Gloria al Padre",
+      "description": "180 m² Luxusvilla mit 4 Schlafzimmern, 3 Bädern, voll ausgestatteter Küche, Kamin und separater Poolwohnung."
+    },
+    "gallery": {
+      "title": "Galerie – Villa Gloria al Padre",
+      "description": "Bildergalerie der Villa Gloria al Padre in Kaštelir, Istrien – Innenräume, Pool, Garten und Meerblick."
+    },
+    "booking": {
+      "title": "Buchen – Villa Gloria al Padre",
+      "description": "Prüfen Sie die Verfügbarkeit und buchen Sie Ihren Aufenthalt in der Villa Gloria al Padre. Direkt buchen – bester Preis garantiert."
+    },
+    "surroundings": {
+      "title": "Umgebung – Villa Gloria al Padre",
+      "description": "Entdecken Sie Istrien: Strände, historische Städte, Aktivitäten und Restaurants rund um die Villa Gloria in Kaštelir."
+    },
+    "reviews": {
+      "title": "Bewertungen – Villa Gloria al Padre",
+      "description": "Lesen Sie die Erfahrungen unserer Gäste. 4.9 von 5 Sternen – Villa Gloria al Padre in Kaštelir, Istrien."
+    },
+    "contact": {
+      "title": "Kontakt – Villa Gloria al Padre",
+      "description": "Kontaktieren Sie uns für Fragen oder Buchungsanfragen zur Villa Gloria al Padre in Kaštelir, Istrien."
+    }
+  }
+}

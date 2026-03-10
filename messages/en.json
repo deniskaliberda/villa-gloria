@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "home": "Home",
+    "house": "The House",
+    "gallery": "Gallery",
+    "book": "Book",
+    "surroundings": "Surroundings",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "bookNow": "Book now"
+  },
+  "common": {
+    "bookNow": "Book now",
+    "checkAvailability": "Check availability",
+    "guests": "Guests",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "pool": "Pool",
+    "seaView": "Sea view",
+    "perNight": "per night",
+    "from": "from",
+    "nights": "nights",
+    "readMore": "Read more",
+    "backToTop": "Back to top"
+  },
+  "home": {
+    "hero": {
+      "title": "Villa Gloria al Padre",
+      "subtitle": "Your private luxury villa in Istria",
+      "description": "180 m² living space, private pool and sea view – your perfect retreat in Kaštelir, Croatia"
+    },
+    "quickFacts": {
+      "title": "At a Glance"
+    },
+    "rentalOptions": {
+      "title": "Two Rental Options",
+      "wholeHouse": {
+        "title": "Entire House",
+        "description": "Main house + pool apartment, up to 9 guests, available year-round",
+        "details": "4 Bedrooms · 3 Bathrooms · 180 m²"
+      },
+      "apartment": {
+        "title": "Garden Apartment",
+        "description": "Separate apartment with pool access, up to 3 guests, October – April",
+        "details": "1 Bedroom · 1 Bathroom · Kitchenette"
+      }
+    },
+    "highlights": {
+      "title": "Villa Highlights"
+    },
+    "reviewSnippet": {
+      "title": "What Our Guests Say",
+      "rating": "4.9 out of 5",
+      "allReviews": "Read all reviews"
+    },
+    "cta": {
+      "title": "Book directly – best price guaranteed",
+      "subtitle": "No booking fees, personal contact, flexible cancellation"
+    }
+  },
+  "house": {
+    "title": "The House",
+    "description": "Discover Villa Gloria al Padre in detail",
+    "groundFloor": "Ground Floor",
+    "upperFloor": "Upper Floor",
+    "apartment": "Pool Apartment / Garden Level",
+    "outdoor": "Outdoor Area",
+    "amenities": "Amenities"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "Impressions of Villa Gloria al Padre",
+    "all": "All",
+    "exterior": "Exterior & Pool",
+    "living": "Living & Kitchen",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "apartmentCat": "Apartment",
+    "garden": "Garden & Sports"
+  },
+  "booking": {
+    "title": "Book",
+    "description": "Check availability and book your stay",
+    "selectDates": "Select dates",
+    "selectProperty": "Select property",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guestDetails": "Your details",
+    "name": "Full name",
+    "email": "Email address",
+    "phone": "Phone (optional)",
+    "country": "Country",
+    "message": "Message (optional)",
+    "adults": "Adults",
+    "children": "Children",
+    "pets": "Bringing a pet",
+    "petFee": "Pet fee: €50",
+    "acceptTerms": "I accept the terms and conditions",
+    "priceBreakdown": "Price breakdown",
+    "nightlyRate": "Nightly rate",
+    "cleaningFee": "Cleaning fee",
+    "total": "Total price",
+    "deposit": "Deposit (25%)",
+    "remaining": "Remaining (due 6 weeks before check-in)",
+    "bookAndPay": "Book & pay deposit",
+    "unavailable": "Not available",
+    "minNights": "Minimum stay: {min} nights",
+    "confirmation": {
+      "title": "Booking confirmed!",
+      "thankYou": "Thank you for your booking",
+      "bookingNumber": "Booking number",
+      "nextSteps": "Next steps",
+      "emailSent": "You will receive a confirmation email shortly.",
+      "remainingPayment": "The remaining payment is due 6 weeks before check-in."
+    }
+  },
+  "surroundings": {
+    "title": "Surroundings",
+    "description": "Discover Istria around Villa Gloria",
+    "distances": "Distances",
+    "activities": "Activities",
+    "sights": "Sights",
+    "restaurants": "Restaurant tips"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "description": "Guest experiences at Villa Gloria",
+    "overallRating": "Overall rating",
+    "outOf": "out of 5",
+    "basedOn": "based on {count} reviews",
+    "categories": {
+      "equipment": "Equipment",
+      "value": "Value",
+      "service": "Service",
+      "location": "Location",
+      "cleanliness": "Cleanliness"
+    },
+    "convinced": "Convinced? Book now!"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Have questions? Get in touch!",
+    "form": {
+      "name": "Your name",
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send message",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    },
+    "info": {
+      "title": "Contact details",
+      "directions": "Directions"
+    }
+  },
+  "legal": {
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact",
+    "legalLinks": "Legal",
+    "copyright": "© {year} Villa Gloria al Padre. All rights reserved.",
+    "directBooking": "Direct booking – best price guaranteed"
+  },
+  "cookie": {
+    "text": "This website uses cookies to provide you with the best experience.",
+    "privacyLink": "Privacy Policy",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "meta": {
+    "home": {
+      "title": "Villa Gloria al Padre – Luxury Villa with Pool in Istria, Croatia",
+      "description": "Exclusive holiday villa with private pool, sea view and 4 bedrooms in Kaštelir, Istria. Up to 9 guests. Book directly for the best price."
+    },
+    "house": {
+      "title": "The House – Villa Gloria al Padre",
+      "description": "180 m² luxury villa with 4 bedrooms, 3 bathrooms, fully equipped kitchen, fireplace and separate pool apartment."
+    },
+    "gallery": {
+      "title": "Gallery – Villa Gloria al Padre",
+      "description": "Photo gallery of Villa Gloria al Padre in Kaštelir, Istria – interiors, pool, garden and sea view."
+    },
+    "booking": {
+      "title": "Book – Villa Gloria al Padre",
+      "description": "Check availability and book your stay at Villa Gloria al Padre. Book directly – best price guaranteed."
+    },
+    "surroundings": {
+      "title": "Surroundings – Villa Gloria al Padre",
+      "description": "Discover Istria: beaches, historic towns, activities and restaurants around Villa Gloria in Kaštelir."
+    },
+    "reviews": {
+      "title": "Reviews – Villa Gloria al Padre",
+      "description": "Read our guest experiences. 4.9 out of 5 stars – Villa Gloria al Padre in Kaštelir, Istria."
+    },
+    "contact": {
+      "title": "Contact – Villa Gloria al Padre",
+      "description": "Contact us for questions or booking inquiries about Villa Gloria al Padre in Kaštelir, Istria."
+    }
+  }
+}
