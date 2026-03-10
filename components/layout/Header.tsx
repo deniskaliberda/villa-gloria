@@ -81,7 +81,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`z-10 lg:hidden ${
+          className={`z-50 lg:hidden ${
             isMobileMenuOpen || isSolid ? "text-dark" : "text-white"
           }`}
           aria-label="Menu"
