@@ -80,7 +80,7 @@
     "sections": {
       "arrival": {
         "title": "Willkommen",
-        "description": "Die Villa Gloria al Padre empfängt Sie mit einer charmanten Backsteinfassade, üppigem Garten und eigenem Parkplatz. Schon bei der Ankunft spüren Sie: Hier beginnt Ihr Urlaub."
+        "description": "Die Villa Gloria al Padre empfängt Sie mit einer landestypischen Natursteinfassade, üppigem Garten und eigenem Parkplatz. Schon bei der Ankunft spüren Sie: Hier beginnt Ihr Urlaub."
       },
       "pool": {
         "title": "Pool & Terrasse",
@@ -88,7 +88,7 @@
       },
       "living": {
         "title": "Wohnen & Essen",
-        "description": "Das offene Erdgeschoss verbindet Wohnzimmer, Essbereich und voll ausgestattete Küche. Holzbalken, große Fenster und ein Deckenventilator schaffen mediterranes Flair."
+        "description": "Das offene Erdgeschoss verbindet Wohnzimmer, Essbereich und voll ausgestattete Küche. Holzbalken, große Fenster, Klimaanlage und ein Deckenventilator schaffen mediterranes Flair."
       },
       "kitchen": {
         "title": "Die Küche",
@@ -96,19 +96,19 @@
       },
       "bedrooms": {
         "title": "Schlafzimmer",
-        "description": "Drei Schlafzimmer im Haupthaus – alle mit Klimaanlage, hochwertigen Matratzen und viel Tageslicht. Jeder Raum ist ein Rückzugsort für sich."
+        "description": "Drei Schlafzimmer im Haupthaus – mit Klimaanlage im Flur, hochwertigen Matratzen und viel Tageslicht. Alle Fenster mit Fliegengittern. Jeder Raum ist ein Rückzugsort für sich."
       },
       "bathrooms": {
         "title": "Badezimmer",
-        "description": "Zwei moderne Bäder mit bodentiefen Duschen, eines davon mit Waschmaschine. Alles sauber, hell und gepflegt."
+        "description": "Bad im EG mit Dusche, WC, Waschbecken, Waschmaschine und Föhn. Bad im OG mit Dusche, WC, Bidet, Waschbecken und Föhn."
       },
       "apartment": {
         "title": "Die Poolwohnung",
-        "description": "Im Souterrain: ein eigenständiges Apartment mit Schlafzimmer, Küchenzeile und eigenem Bad – perfekt als Rückzugsort für Großeltern oder als separate Ferienwohnung in der Nebensaison."
+        "description": "Im Souterrain: ein eigenständiges Apartment mit Schlafzimmer, Aufbettung (Schlafcouch), Küchenzeile mit Spülmaschine und eigenem Bad – perfekt für Erwachsene und Kinder oder als separate Ferienwohnung in der Nebensaison."
       },
       "garden": {
         "title": "Garten & Sport",
-        "description": "2.000 m² Grundstück mit Volleyball-/Badmintonfeld, Basketballkorb, Rosenpavillon und überdachtem Grillplatz. Platz ohne Ende – für Kinder und Erwachsene."
+        "description": "1.000 m² komplett eingezäuntes Grundstück mit Volleyball-/Badmintonfeld, Basketballkorb, Rosenpavillon und überdachtem Grillplatz. Platz ohne Ende – für Kinder und Erwachsene."
       }
     },
     "cta": "Überzeugt? Jetzt Ihren Traumurlaub buchen"
@@ -151,7 +151,7 @@
   },
   "surroundings": {
     "title": "Umgebung",
-    "description": "Entdecken Sie Istrien rund um die Villa Gloria",
+    "description": "Entdecken Sie Istrien rund um die Villa Gloria al Padre",
     "distances": "Entfernungen",
     "activities": "Aktivitäten",
     "sights": "Sehenswürdigkeiten",
@@ -159,7 +159,7 @@
   },
   "reviews": {
     "title": "Bewertungen",
-    "description": "Erfahrungen unserer Gäste in der Villa Gloria",
+    "description": "Erfahrungen unserer Gäste in der Villa Gloria al Padre",
     "overallRating": "Gesamtbewertung",
     "outOf": "von 5",
     "basedOn": "basierend auf {count} Bewertungen",
@@ -226,7 +226,7 @@
     },
     "surroundings": {
       "title": "Umgebung – Villa Gloria al Padre",
-      "description": "Entdecken Sie Istrien: Strände, historische Städte, Aktivitäten und Restaurants rund um die Villa Gloria in Kaštelir."
+      "description": "Entdecken Sie Istrien: Strände, historische Städte, Aktivitäten und Restaurants rund um die Villa Gloria al Padre in Kaštelir."
     },
     "reviews": {
       "title": "Bewertungen – Villa Gloria al Padre",

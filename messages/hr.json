@@ -80,7 +80,7 @@
     "sections": {
       "arrival": {
         "title": "Dobrodošli",
-        "description": "Villa Gloria al Padre dočekuje vas šarmantnom fasadom od cigle, bujnim vrtom i privatnim parkingom. Već po dolasku osjećate: ovdje počinje vaš odmor."
+        "description": "Villa Gloria al Padre dočekuje vas tradicionalnom fasadom od prirodnog kamena, bujnim vrtom i privatnim parkingom. Već po dolasku osjećate: ovdje počinje vaš odmor."
       },
       "pool": {
         "title": "Bazen i terasa",
@@ -88,7 +88,7 @@
       },
       "living": {
         "title": "Dnevni boravak",
-        "description": "Otvoreni prizemlje povezuje dnevni boravak, blagovaonicu i potpuno opremljenu kuhinju. Drvene grede, veliki prozori i stropni ventilator stvaraju mediteranski ugođaj."
+        "description": "Otvoreni prizemlje povezuje dnevni boravak, blagovaonicu i potpuno opremljenu kuhinju. Drvene grede, veliki prozori, klima uređaj i stropni ventilator stvaraju mediteranski ugođaj."
       },
       "kitchen": {
         "title": "Kuhinja",
@@ -96,19 +96,19 @@
       },
       "bedrooms": {
         "title": "Spavaće sobe",
-        "description": "Tri spavaće sobe u glavnoj kući – sve s klimom, kvalitetnim madracima i obiljem dnevnog svjetla. Svaka soba je utočište za sebe."
+        "description": "Tri spavaće sobe u glavnoj kući – s klima uređajem u hodniku, kvalitetnim madracima i obiljem dnevnog svjetla. Svi prozori s mrežicama protiv insekata. Svaka soba je utočište za sebe."
       },
       "bathrooms": {
         "title": "Kupaonice",
-        "description": "Dvije moderne kupaonice s walk-in tuševima, jedna s perilom rublja. Sve čisto, svijetlo i održavano."
+        "description": "Kupaonica u prizemlju s tušem, WC-om, umivaonikom, perilom rublja i sušilom za kosu. Kupaonica na katu s tušem, WC-om, bideom, umivaonikom i sušilom za kosu."
       },
       "apartment": {
         "title": "Apartman uz bazen",
-        "description": "U suterenu: samostalni apartman sa spavaćom sobom, čajnom kuhinjom i vlastitom kupaonicom – savršen kao utočište za bake i djedove ili kao zasebni apartman u izvansezonskom razdoblju."
+        "description": "U suterenu: samostalni apartman sa spavaćom sobom, rasklopivim kaučem, čajnom kuhinjom s perilom posuđa i vlastitom kupaonicom – savršen za odrasle i djecu ili kao zasebni apartman u izvansezonskom razdoblju."
       },
       "garden": {
         "title": "Vrt i sport",
-        "description": "2.000 m² okućnice s terenom za odbojku/badminton, košarkaškim košem, paviljonom s ružama i natkrivenim roštiljem. Beskrajni prostor – za djecu i odrasle."
+        "description": "1.000 m² potpuno ograđene okućnice s terenom za odbojku/badminton, košarkaškim košem, paviljonom s ružama i natkrivenim roštiljem. Beskrajni prostor – za djecu i odrasle."
       }
     },
     "cta": "Uvjereni? Rezervirajte svoj odmor iz snova"
@@ -151,7 +151,7 @@
   },
   "surroundings": {
     "title": "Okolica",
-    "description": "Otkrijte Istru oko Ville Gloria",
+    "description": "Otkrijte Istru oko Ville Gloria al Padre",
     "distances": "Udaljenosti",
     "activities": "Aktivnosti",
     "sights": "Znamenitosti",
@@ -159,7 +159,7 @@
   },
   "reviews": {
     "title": "Recenzije",
-    "description": "Iskustva gostiju u Villi Gloria",
+    "description": "Iskustva gostiju u Villi Gloria al Padre",
     "overallRating": "Ukupna ocjena",
     "outOf": "od 5",
     "basedOn": "na temelju {count} recenzija",
@@ -226,7 +226,7 @@
     },
     "surroundings": {
       "title": "Okolica – Villa Gloria al Padre",
-      "description": "Otkrijte Istru: plaže, povijesni gradovi, aktivnosti i restorani u blizini Ville Gloria u Kašteliru."
+      "description": "Otkrijte Istru: plaže, povijesni gradovi, aktivnosti i restorani u blizini Ville Gloria al Padre u Kašteliru."
     },
     "reviews": {
       "title": "Recenzije – Villa Gloria al Padre",

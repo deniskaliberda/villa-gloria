@@ -24,10 +24,10 @@ const tourSections: TourSection[] = [
     id: "arrival",
     translationKey: "arrival",
     heroImage: "/images/exterior/villa-front.jpg",
-    heroAlt: "Villa Gloria – Ankunft",
+    heroAlt: "Villa Gloria al Padre – Ankunft",
     layout: "hero-left",
     images: [
-      { src: "/images/exterior/haus-fassade.jpg", alt: "Backsteinfassade mit Garten" },
+      { src: "/images/exterior/haus-fassade.jpg", alt: "Natursteinfassade mit Garten" },
       { src: "/images/exterior/haus-garten-tor.jpg", alt: "Einfahrt und Parkplatz" },
       { src: "/images/exterior/haus-garten-2.jpg", alt: "Üppiger Garten" },
       { src: "/images/exterior/haus-garten-3.jpg", alt: "Gartenansicht" },

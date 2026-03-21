@@ -44,20 +44,6 @@ export default async function HomePage({ params }: Props) {
       value: 180,
       unitCode: "MTK",
     },
-    amenityFeature: [
-      { "@type": "LocationFeatureSpecification", name: "Pool", value: true },
-      {
-        "@type": "LocationFeatureSpecification",
-        name: "Sea View",
-        value: true,
-      },
-      { "@type": "LocationFeatureSpecification", name: "WiFi", value: true },
-      {
-        "@type": "LocationFeatureSpecification",
-        name: "Air Conditioning",
-        value: true,
-      },
-    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: 4.9,
@@ -66,6 +52,15 @@ export default async function HomePage({ params }: Props) {
     },
     checkinTime: "17:00",
     checkoutTime: "10:00",
+    amenityFeature: [
+      { "@type": "LocationFeatureSpecification", name: "Pool", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Sea View", value: true },
+      { "@type": "LocationFeatureSpecification", name: "WiFi", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Wheelchair Accessible", value: false },
+      { "@type": "LocationFeatureSpecification", name: "Fenced Property", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Pool Heating", value: true },
+    ],
   };
 
   return (

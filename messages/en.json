@@ -80,7 +80,7 @@
     "sections": {
       "arrival": {
         "title": "Welcome",
-        "description": "Villa Gloria al Padre welcomes you with a charming brick facade, lush gardens and private parking. From the moment you arrive, you know: your holiday has begun."
+        "description": "Villa Gloria al Padre welcomes you with a traditional natural stone facade, lush gardens and private parking. From the moment you arrive, you know: your holiday has begun."
       },
       "pool": {
         "title": "Pool & Terrace",
@@ -88,7 +88,7 @@
       },
       "living": {
         "title": "Living & Dining",
-        "description": "The open ground floor connects living room, dining area and fully equipped kitchen. Wooden beams, large windows and a ceiling fan create Mediterranean flair."
+        "description": "The open ground floor connects living room, dining area and fully equipped kitchen. Wooden beams, large windows, air conditioning and a ceiling fan create Mediterranean flair."
       },
       "kitchen": {
         "title": "The Kitchen",
@@ -96,19 +96,19 @@
       },
       "bedrooms": {
         "title": "Bedrooms",
-        "description": "Three bedrooms in the main house – all with air conditioning, premium mattresses and plenty of natural light. Each room is a retreat in itself."
+        "description": "Three bedrooms in the main house – with air conditioning in the hallway, premium mattresses and plenty of natural light. All windows fitted with fly screens. Each room is a retreat in itself."
       },
       "bathrooms": {
         "title": "Bathrooms",
-        "description": "Two modern bathrooms with walk-in showers, one with a washing machine. Everything clean, bright and well-maintained."
+        "description": "Ground floor bathroom with shower, WC, basin, washing machine and hairdryer. Upper floor bathroom with shower, WC, bidet, basin and hairdryer."
       },
       "apartment": {
         "title": "The Pool Apartment",
-        "description": "On the lower level: a self-contained apartment with bedroom, kitchenette and private bathroom – perfect as a retreat for grandparents or as a separate holiday flat in low season."
+        "description": "On the lower level: a self-contained apartment with bedroom, sofa bed, kitchenette with dishwasher and private bathroom – perfect for adults and children or as a separate holiday flat in low season."
       },
       "garden": {
         "title": "Garden & Sports",
-        "description": "2,000 m² of grounds with volleyball/badminton court, basketball hoop, rose pavilion and covered BBQ area. Endless space – for children and adults alike."
+        "description": "1,000 m² of fully fenced grounds with volleyball/badminton court, basketball hoop, rose pavilion and covered BBQ area. Endless space – for children and adults alike."
       }
     },
     "cta": "Convinced? Book your dream holiday now"
@@ -151,7 +151,7 @@
   },
   "surroundings": {
     "title": "Surroundings",
-    "description": "Discover Istria around Villa Gloria",
+    "description": "Discover Istria around Villa Gloria al Padre",
     "distances": "Distances",
     "activities": "Activities",
     "sights": "Sights",
@@ -159,7 +159,7 @@
   },
   "reviews": {
     "title": "Reviews",
-    "description": "Guest experiences at Villa Gloria",
+    "description": "Guest experiences at Villa Gloria al Padre",
     "overallRating": "Overall rating",
     "outOf": "out of 5",
     "basedOn": "based on {count} reviews",
@@ -226,7 +226,7 @@
     },
     "surroundings": {
       "title": "Surroundings – Villa Gloria al Padre",
-      "description": "Discover Istria: beaches, historic towns, activities and restaurants around Villa Gloria in Kaštelir."
+      "description": "Discover Istria: beaches, historic towns, activities and restaurants around Villa Gloria al Padre in Kaštelir."
     },
     "reviews": {
       "title": "Reviews – Villa Gloria al Padre",

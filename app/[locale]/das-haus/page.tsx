@@ -17,6 +17,8 @@ import {
   BedDouble,
   Home,
   Building2,
+  Fence,
+  AlertCircle,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -48,9 +50,11 @@ const amenities = [
   { icon: CookingPot, label: "Voll ausgest. Küche" },
   { icon: Car, label: "2 Parkplätze" },
   { icon: Waves, label: "Pool 12×8m" },
-  { icon: TreePine, label: "Garten 3000m²" },
+  { icon: TreePine, label: "Garten 1000m²" },
   { icon: Volleyball, label: "Volleyballfeld" },
   { icon: Baby, label: "Kinderbett verfügbar" },
+  { icon: Fence, label: "Grundstück eingezäunt" },
+  { icon: AlertCircle, label: "Nicht rollstuhlgerecht" },
 ];
 
 function HouseContent() {
@@ -95,13 +99,13 @@ function HouseContent() {
                 <p className="text-lg text-dark-light">
                   Das Erdgeschoss besticht durch offenes Wohnen mit direktem
                   Zugang zur Terrasse und Meerblick. Der großzügige
-                  Wohn-Essbereich mit Kamin schafft eine warme Atmosphäre. Die
+                  Wohn-Essbereich mit Kamin und Klimaanlage schafft eine warme Atmosphäre. Die
                   voll ausgestattete Küche lässt keine Wünsche offen.
                 </p>
                 <ul className="mt-6 space-y-2 text-dark-light">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
-                    Offener Wohn-Essbereich mit Kamin
+                    Offener Wohn-Essbereich mit Kamin und Klimaanlage
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
@@ -109,7 +113,7 @@ function HouseContent() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
-                    Badezimmer mit Dusche und Waschmaschine
+                    Badezimmer mit Dusche, WC, Waschbecken, Waschmaschine und Föhn
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
@@ -138,10 +142,11 @@ function HouseContent() {
             <ScrollReveal delay={0.1}>
               <div className="flex flex-col justify-center">
                 <p className="text-lg text-dark-light">
-                  Das Obergeschoss beherbergt drei komfortable Schlafzimmer und
-                  ein weiteres Badezimmer. Der besondere Clou: ein kleiner
-                  Aussichtsturm mit 360°-Panoramablick über Istrien und die
-                  Adria.
+                  Das Obergeschoss beherbergt drei komfortable Schlafzimmer mit
+                  Klimaanlage im Flur und ein weiteres Badezimmer mit Dusche, WC, Bidet,
+                  Waschbecken und Föhn. Alle Fenster sind mit Fliegengittern ausgestattet.
+                  Der besondere Clou: ein kleiner Aussichtsturm mit 360°-Panoramablick
+                  über Istrien und die Adria.
                 </p>
 
                 {/* Bedroom table */}
@@ -165,7 +170,7 @@ function HouseContent() {
                         <td className="px-4 py-3">SZ 1</td>
                         <td className="px-4 py-3">Doppelbett 160×200</td>
                         <td className="hidden px-4 py-3 sm:table-cell">
-                          Klima, Kleiderschrank
+                          Kleiderschrank
                         </td>
                       </tr>
                       <tr>
@@ -226,10 +231,10 @@ function HouseContent() {
               <div className="flex flex-col justify-center">
                 <p className="text-lg text-dark-light">
                   Die Souterrainwohnung mit separatem Eingang ist das perfekte
-                  Apartment für Paare oder kleine Familien. Mit eigenem
-                  Schlafzimmer, Wohnküche, Bad und direktem Poolzugang bietet
+                  Apartment für Erwachsene und Kinder. Mit eigenem
+                  Schlafzimmer, Aufbettung (Schlafcouch 140×200), Wohnküche, Bad und direktem Poolzugang bietet
                   sie vollständige Unabhängigkeit. In der Nebensaison (Oktober
-                  bis April) auch separat buchbar.
+                  bis April) auch separat buchbar (Mindestaufenthalt 7 Nächte).
                 </p>
                 <ul className="mt-6 space-y-2 text-dark-light">
                   <li className="flex items-center gap-2">
@@ -238,11 +243,11 @@ function HouseContent() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-adriatic-500" />
-                    Doppelbett 160×200 + Kleiderschrank
+                    Doppelbett 160×200 + Aufbettung Schlafcouch 140×200
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-adriatic-500" />
-                    Voll ausgestattete Küchenzeile
+                    Voll ausgestattete Küchenzeile mit Spülmaschine
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-adriatic-500" />
@@ -303,10 +308,11 @@ function HouseContent() {
 
           <ScrollReveal delay={0.25}>
             <p className="mt-8 text-lg text-dark-light">
-              Das weitläufige Grundstück von 3.000 m² bietet reichlich Platz für
-              Erholung und Aktivitäten: Ein beheizter Pool (12×8 m) mit
+              Das komplett eingezäunte Grundstück von 1.000 m² bietet reichlich Platz für
+              Erholung und Aktivitäten: Ein Pool (12×8 m) mit
               Sonnenliegen, ein Volleyballfeld, ein Basketballkorb, ein
               romantischer Rosenpavillon und ein überdachter Grillplatz.
+              Poolheizung auf Anfrage (Tagessatz 58,– €). 2 Reserve-Gasflaschen für den Grill vorrätig.
               Doppelparkplatz direkt am Haus.
             </p>
           </ScrollReveal>

@@ -47,11 +47,11 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="z-10">
           <span
-            className={`font-display text-2xl font-bold transition-colors ${
+            className={`font-display text-2xl font-bold transition-colors md:text-3xl ${
               isSolid ? "text-dark" : "text-white"
             }`}
           >
-            Villa Gloria
+            Villa Gloria <span className="font-normal italic">al Padre</span>
           </span>
         </Link>
 
