@@ -38,12 +38,17 @@ function formatEuro(cents: number): string {
 
 const statusLabels: Record<string, { label: string; color: string }> = {
   pending: { label: "Ausstehend", color: "bg-yellow-100 text-yellow-700" },
+  awaiting_approval: {
+    label: "Wartet auf Bestätigung",
+    color: "bg-orange-100 text-orange-700",
+  },
   deposit_paid: {
     label: "Anzahlung bezahlt",
     color: "bg-blue-100 text-blue-700",
   },
-  fully_paid: { label: "Voll bezahlt", color: "bg-green-100 text-green-700" },
   confirmed: { label: "Bestätigt", color: "bg-green-100 text-green-700" },
+  fully_paid: { label: "Voll bezahlt", color: "bg-green-100 text-green-700" },
+  rejected: { label: "Abgelehnt", color: "bg-red-100 text-red-700" },
   cancelled: { label: "Storniert", color: "bg-red-100 text-red-700" },
 };
 
@@ -84,6 +89,24 @@ export default function BookingsPage() {
       b.guest_email.toLowerCase().includes(search.toLowerCase())
   );
 
+  async function approveBooking(id: string) {
+    const booking = bookings.find((b) => b.id === id);
+    if (!booking) return;
+    const token = (booking as unknown as Record<string, unknown>).approval_token;
+    if (token) {
+      window.open(`/api/admin/booking/${id}/approve?token=${token}`, "_blank");
+    }
+  }
+
+  async function rejectBooking(id: string) {
+    const booking = bookings.find((b) => b.id === id);
+    if (!booking) return;
+    const token = (booking as unknown as Record<string, unknown>).approval_token;
+    if (token) {
+      window.open(`/api/admin/booking/${id}/reject?token=${token}`, "_blank");
+    }
+  }
+
   async function updateStatus(id: string, newStatus: string) {
     await supabase
       .from("bookings")
@@ -92,6 +115,12 @@ export default function BookingsPage() {
         updated_at: new Date().toISOString(),
         ...(newStatus === "cancelled"
           ? { cancelled_at: new Date().toISOString() }
+          : {}),
+        ...(newStatus === "confirmed"
+          ? { approved_at: new Date().toISOString(), confirmed_at: new Date().toISOString() }
+          : {}),
+        ...(newStatus === "rejected"
+          ? { rejected_at: new Date().toISOString() }
           : {}),
       })
       .eq("id", id);
@@ -318,9 +347,29 @@ export default function BookingsPage() {
               <hr className="border-gray-200" />
 
               <div>
+                {selected.status === "awaiting_approval" && (
+                  <div className="mb-4">
+                    <p className="mb-2 font-medium text-orange-700">Buchung wartet auf Bestätigung</p>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => approveBooking(selected.id)}
+                        className="rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
+                      >
+                        Buchung bestätigen
+                      </button>
+                      <button
+                        onClick={() => rejectBooking(selected.id)}
+                        className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
+                      >
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <p className="mb-2 text-gray-500">Status ändern</p>
                 <div className="flex flex-wrap gap-2">
-                  {["deposit_paid", "fully_paid", "confirmed", "cancelled"].map(
+                  {["confirmed", "fully_paid", "rejected", "cancelled"].map(
                     (s) => {
                       const st = statusLabels[s];
                       return (

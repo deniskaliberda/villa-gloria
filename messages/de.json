@@ -7,6 +7,7 @@
     "surroundings": "Umgebung",
     "reviews": "Bewertungen",
     "contact": "Kontakt",
+    "blog": "Blog",
     "bookNow": "Jetzt buchen"
   },
   "common": {
@@ -235,6 +236,10 @@
     "contact": {
       "title": "Kontakt – Villa Gloria al Padre",
       "description": "Kontaktieren Sie uns für Fragen oder Buchungsanfragen zur Villa Gloria al Padre in Kaštelir, Istrien."
+    },
+    "blog": {
+      "title": "Blog – Villa Gloria al Padre",
+      "description": "Tipps und Inspiration für Ihren Istrien-Urlaub"
     }
   }
 }

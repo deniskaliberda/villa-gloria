@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { sendEmail, notifyAdmin } from "@/lib/resend";
-import { BookingConfirmation } from "@/emails/BookingConfirmation";
-import { LandlordNotification } from "@/emails/LandlordNotification";
+import { notifyOwner } from "@/lib/resend";
+import { ApprovalRequest } from "@/emails/ApprovalRequest";
 
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -52,22 +51,21 @@ export async function POST(request: Request) {
       if (!bookingId) break;
 
       if (paymentType === "deposit") {
-        // Deposit payment completed
+        // Deposit payment completed — set to awaiting_approval (owner must confirm)
         await supabase
           .from("bookings")
           .update({
-            status: "deposit_paid",
+            status: "awaiting_approval",
             deposit_paid: true,
             stripe_payment_intent_id:
               typeof session.payment_intent === "string"
                 ? session.payment_intent
                 : session.payment_intent?.id,
-            confirmed_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
           })
           .eq("id", bookingId);
 
-        // Send confirmation emails
+        // Send approval request to owner (NOT confirmation to guest yet)
         const { data: booking } = await supabase
           .from("bookings")
           .select("*")
@@ -75,42 +73,27 @@ export async function POST(request: Request) {
           .single();
 
         if (booking) {
-          const lang = (booking.guest_language as "de" | "en") || "de";
+          const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://villa-gloria.com";
+          const approveUrl = `${baseUrl}/api/admin/booking/${booking.id}/approve?token=${booking.approval_token}`;
+          const rejectUrl = `${baseUrl}/api/admin/booking/${booking.id}/reject?token=${booking.approval_token}`;
 
-          // Guest confirmation
-          await sendEmail({
-            to: booking.guest_email,
-            subject:
-              lang === "en"
-                ? `Booking confirmed – ${booking.booking_number}`
-                : `Buchung bestätigt – ${booking.booking_number}`,
-            react: BookingConfirmation({
-              bookingNumber: booking.booking_number,
-              guestName: booking.guest_name,
-              checkIn: booking.check_in,
-              checkOut: booking.check_out,
-              nights: booking.nights,
-              propertyType: booking.property_type,
-              totalPrice: booking.total_price,
-              depositAmount: booking.deposit_amount,
-              remainingAmount: booking.remaining_amount,
-              lang,
-            }),
-            bookingId: booking.id,
-            emailType: "booking_confirmation",
+          const checkInDate = new Date(booking.check_in).toLocaleDateString("de-DE", {
+            day: "numeric", month: "long", year: "numeric",
+          });
+          const checkOutDate = new Date(booking.check_out).toLocaleDateString("de-DE", {
+            day: "numeric", month: "long", year: "numeric",
           });
 
-          // Landlord notification
-          await notifyAdmin(
-            `Neue Buchung: ${booking.booking_number}`,
-            LandlordNotification({
+          await notifyOwner(
+            `Neue Buchungsanfrage: ${booking.booking_number} – Bitte bestätigen`,
+            ApprovalRequest({
               bookingNumber: booking.booking_number,
               guestName: booking.guest_name,
               guestEmail: booking.guest_email,
               guestPhone: booking.guest_phone || undefined,
               guestCountry: booking.guest_country,
-              checkIn: booking.check_in,
-              checkOut: booking.check_out,
+              checkIn: checkInDate,
+              checkOut: checkOutDate,
               nights: booking.nights,
               propertyType: booking.property_type,
               guestsAdults: booking.guests_adults,
@@ -119,13 +102,15 @@ export async function POST(request: Request) {
               totalPrice: booking.total_price,
               depositAmount: booking.deposit_amount,
               guestMessage: booking.guest_message || undefined,
+              approveUrl,
+              rejectUrl,
             }),
             booking.id,
-            "landlord_notification"
+            "approval_request"
           );
         }
 
-        console.log(`Deposit paid for booking ${bookingId}`);
+        console.log(`Deposit paid, awaiting approval for booking ${bookingId}`);
       } else if (paymentType === "remaining") {
         // Remaining payment completed
         await supabase

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { DayPicker } from "react-day-picker";
 import { de, enUS, hr } from "date-fns/locale";
@@ -29,6 +29,14 @@ export function AvailabilityCalendar({
 }: AvailabilityCalendarProps) {
   const t = useTranslations("booking");
   const { isDateBlocked, loading } = useAvailability(propertyType);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const today = useMemo(() => {
     const d = new Date();
@@ -86,7 +94,7 @@ export function AvailabilityCalendar({
           onSelect={onSelect}
           locale={localeMap[locale] || de}
           disabled={disabledDays}
-          numberOfMonths={2}
+          numberOfMonths={isMobile ? 1 : 2}
           showOutsideDays={false}
           fromDate={today}
           classNames={{

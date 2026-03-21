@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image with parallax-like effect */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center md:bg-fixed"
         style={{
           backgroundImage: "url('/images/hero/villa-pool-seaview.jpg')",
         }}
@@ -27,7 +27,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-5xl font-bold text-white md:text-7xl lg:text-8xl"
+          className="font-display text-4xl font-bold text-white sm:text-5xl md:text-7xl lg:text-8xl"
         >
           {t("title")}
         </motion.h1>
@@ -45,7 +45,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-white/80"
+          className="mx-auto mt-6 max-w-2xl text-base text-white/80 sm:text-lg"
         >
           {t("description")}
         </motion.p>

@@ -94,7 +94,7 @@ export default function BookingPage() {
 
           {/* Right column: Price Calculator (sticky) */}
           <div className="lg:col-span-1">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
               <ScrollReveal delay={0.2}>
                 <Card>
                   <CardContent className="p-6">

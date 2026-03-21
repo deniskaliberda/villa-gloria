@@ -17,7 +17,7 @@ export function MobileBookButton() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-warm bg-white p-3 shadow-lg lg:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-warm bg-white p-3 pb-safe shadow-lg lg:hidden">
       <Link
         href="/buchen"
         className="block w-full rounded-button bg-terracotta-500 py-3 text-center font-accent text-lg font-semibold text-white transition-colors hover:bg-terracotta-600"

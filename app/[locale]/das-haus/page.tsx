@@ -150,7 +150,7 @@ function HouseContent() {
                 </p>
 
                 {/* Bedroom table */}
-                <div className="mt-6 overflow-hidden rounded-card border border-warm">
+                <div className="mt-6 overflow-x-auto rounded-card border border-warm">
                   <table className="w-full text-left text-sm">
                     <thead className="bg-sand">
                       <tr>

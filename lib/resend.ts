@@ -113,3 +113,45 @@ export async function notifyAdmin(
     emailType,
   });
 }
+
+/**
+ * Send approval request to owner (Wieland Oswald).
+ */
+export async function notifyOwner(
+  subject: string,
+  react: React.ReactElement,
+  bookingId?: string,
+  emailType: string = "approval_request"
+) {
+  const ownerEmail = process.env.OWNER_EMAIL || process.env.ADMIN_EMAIL || "info@villa-gloria.com";
+  return sendEmail({
+    to: ownerEmail,
+    subject,
+    react,
+    bookingId,
+    emailType,
+  });
+}
+
+/**
+ * Send booking notification to on-site caretaker (Betreuerin).
+ */
+export async function notifyCaretaker(
+  subject: string,
+  react: React.ReactElement,
+  bookingId?: string,
+  emailType: string = "caretaker_notification"
+) {
+  const caretakerEmail = process.env.CARETAKER_EMAIL;
+  if (!caretakerEmail) {
+    console.log("CARETAKER_EMAIL not set, skipping caretaker notification");
+    return { success: true, skipped: true };
+  }
+  return sendEmail({
+    to: caretakerEmail,
+    subject,
+    react,
+    bookingId,
+    emailType,
+  });
+}

@@ -134,7 +134,7 @@ function ReviewsContent() {
                 <div className="flex-1 space-y-3">
                   {categoryRatings.map((cat) => (
                     <div key={cat.key} className="flex items-center gap-4">
-                      <span className="w-28 font-accent text-sm text-dark-light">
+                      <span className="w-20 shrink-0 font-accent text-xs text-dark-light sm:w-28 sm:text-sm">
                         {t(`categories.${cat.key}`)}
                       </span>
                       <div className="flex-1">

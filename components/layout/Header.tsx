@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/buchen", key: "book" },
   { href: "/umgebung", key: "surroundings" },
   { href: "/bewertungen", key: "reviews" },
+  { href: "/blog", key: "blog" },
   { href: "/kontakt", key: "contact" },
 ] as const;
 
@@ -98,7 +99,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-white lg:hidden"
+            className="fixed inset-0 z-40 bg-white pt-safe lg:hidden"
           >
             <div className="flex h-full flex-col items-center justify-center gap-8">
               {navLinks.map((link) => (

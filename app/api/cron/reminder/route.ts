@@ -39,7 +39,7 @@ export async function GET(request: Request) {
   const { data: paymentBookings } = await supabase
     .from("bookings")
     .select("*")
-    .eq("status", "deposit_paid")
+    .eq("status", "confirmed")
     .eq("remaining_paid", false)
     .eq("check_in", sixWeeksDate);
 
@@ -110,7 +110,7 @@ export async function GET(request: Request) {
   const { data: checkinBookings } = await supabase
     .from("bookings")
     .select("*")
-    .in("status", ["deposit_paid", "fully_paid"])
+    .in("status", ["confirmed", "fully_paid"])
     .eq("check_in", threeDaysDate);
 
   for (const booking of checkinBookings || []) {
@@ -143,7 +143,7 @@ export async function GET(request: Request) {
   const { data: reviewBookings } = await supabase
     .from("bookings")
     .select("*")
-    .in("status", ["deposit_paid", "fully_paid"])
+    .in("status", ["confirmed", "fully_paid"])
     .eq("check_out", threeDaysAgoDate);
 
   for (const booking of reviewBookings || []) {
