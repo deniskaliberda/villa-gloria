@@ -86,7 +86,7 @@ export function BlogArticle({
       {/* Article Content */}
       <article className="mx-auto max-w-4xl px-4 py-12">
         <ScrollReveal>
-          <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-dark prose-p:text-dark-light prose-a:text-terracotta-500 prose-a:no-underline hover:prose-a:underline prose-strong:text-dark prose-li:text-dark-light">
+          <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-dark prose-h2:mt-12 prose-h2:mb-4 prose-p:text-dark-light prose-a:text-terracotta-500 prose-a:no-underline hover:prose-a:underline prose-strong:text-dark prose-li:text-dark-light [&>h2]:after:mt-3 [&>h2]:after:block [&>h2]:after:h-0.5 [&>h2]:after:w-16 [&>h2]:after:bg-terracotta-300 [&>h2]:after:content-['']">
             {children}
           </div>
         </ScrollReveal>

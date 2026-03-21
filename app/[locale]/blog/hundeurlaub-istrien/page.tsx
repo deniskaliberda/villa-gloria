@@ -1,9 +1,29 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { BlogArticle } from "@/components/blog/BlogArticle";
+import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
+import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
+import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
+import { BlogQuote } from "@/components/blog/BlogQuote";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
+import {
+  FileText,
+  Cpu,
+  Shield,
+  CheckCircle,
+  Trees,
+  Unlock,
+  Clock,
+  Package,
+  Fence,
+  Flower2,
+  UtensilsCrossed,
+  Waves,
+  MapPin,
+  BadgeEuro,
+} from "lucide-react";
 
 const SLUG = "hundeurlaub-istrien";
 
@@ -73,38 +93,63 @@ export default async function HundeurlaubPage({ params }: Props) {
           wissen müssen.
         </p>
 
+        <BlogImageGrid
+          images={[
+            {
+              src: "/images/garden/garten-volleyball.jpg",
+              alt: "Weitläufiger Garten der Villa Gloria — perfekt für Hunde",
+              caption: "Weitläufiger Garten mit viel Auslauf",
+            },
+            {
+              src: "/images/exterior/villa-pool-palmen.jpg",
+              alt: "Villa Gloria Pool und Garten mit Palmen",
+              caption: "Eingezäuntes Grundstück mit Pool",
+            },
+          ]}
+        />
+
         <h2>Einreisebestimmungen für Hunde nach Kroatien</h2>
         <p>
           Kroatien ist EU-Mitglied, was die Einreise mit Hund deutlich
           vereinfacht. Folgende Dokumente und Voraussetzungen benötigen Sie:
         </p>
-        <ul>
-          <li>
-            <strong>EU-Heimtierausweis</strong> — Das blaue Dokument ist
-            Pflicht. Es enthält alle Impfungen und die Chipnummer Ihres Hundes.
-            Den Ausweis stellt Ihr Tierarzt aus.
-          </li>
-          <li>
-            <strong>Mikrochip</strong> — Ihr Hund muss mit einem
-            ISO-Mikrochip (15-stellig) gekennzeichnet sein. Ohne Chip keine
-            Einreise.
-          </li>
-          <li>
-            <strong>Tollwutimpfung</strong> — Die Impfung muss mindestens 21
-            Tage vor der Einreise erfolgt sein. Eine jährliche Auffrischung wird
-            empfohlen.
-          </li>
-          <li>
-            <strong>Keine Quarantäne</strong> — Mit gültigen Dokumenten
-            gibt es keine Wartezeit an der Grenze. Die Einreise über Slowenien
-            ist unkompliziert.
-          </li>
-        </ul>
-        <p>
-          <strong>Tipp:</strong> Lassen Sie die Dokumente 4-6 Wochen vor der
-          Reise vom Tierarzt prüfen. So bleibt genug Zeit, falls eine Impfung
-          aufgefrischt werden muss.
-        </p>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <FileText className="h-5 w-5" />,
+              title: "EU-Heimtierausweis",
+              description:
+                "Das blaue Dokument ist Pflicht. Es enthält alle Impfungen und die Chipnummer Ihres Hundes. Den Ausweis stellt Ihr Tierarzt aus.",
+            },
+            {
+              icon: <Cpu className="h-5 w-5" />,
+              title: "Mikrochip",
+              description:
+                "Ihr Hund muss mit einem ISO-Mikrochip (15-stellig) gekennzeichnet sein. Ohne Chip keine Einreise.",
+            },
+            {
+              icon: <Shield className="h-5 w-5" />,
+              title: "Tollwutimpfung",
+              description:
+                "Die Impfung muss mindestens 21 Tage vor der Einreise erfolgt sein. Eine jährliche Auffrischung wird empfohlen.",
+            },
+            {
+              icon: <CheckCircle className="h-5 w-5" />,
+              title: "Keine Quarantäne",
+              description:
+                "Mit gültigen Dokumenten gibt es keine Wartezeit an der Grenze. Die Einreise über Slowenien ist unkompliziert.",
+            },
+          ]}
+        />
+
+        <BlogInfoBox variant="tip" title="Tipp: Rechtzeitig vorbereiten">
+          <p>
+            Lassen Sie die Dokumente 4-6 Wochen vor der Reise vom Tierarzt
+            prüfen. So bleibt genug Zeit, falls eine Impfung aufgefrischt werden
+            muss.
+          </p>
+        </BlogInfoBox>
 
         <h2>Hundefreundliche Strände in Istrien</h2>
         <p>
@@ -127,6 +172,21 @@ export default async function HundeurlaubPage({ params }: Props) {
             Kaštelir entfernt. Ein offiziell ausgewiesener Bereich mit
             Kieselgrund und klarem Wasser. Ideal für einen Tagesausflug.
           </li>
+        </ul>
+
+        <BlogImageGrid
+          columns={1}
+          images={[
+            {
+              src: "/images/pool/pool-panorama.jpg",
+              alt: "Panoramablick vom Pool der Villa Gloria",
+              caption:
+                "Panoramablick — die istrische Küste ist nur 10 Minuten entfernt",
+            },
+          ]}
+        />
+
+        <ul>
           <li>
             <strong>Crveni Otok, Rovinj</strong> — Die Strände auf der Roten
             Insel sind teilweise für Hunde freigegeben. Die Überfahrt mit der
@@ -154,24 +214,35 @@ export default async function HundeurlaubPage({ params }: Props) {
           </Link>{" "}
           bietet dagegen entscheidende Vorteile:
         </p>
-        <ul>
-          <li>
-            <strong>Eigener Garten</strong> — Ihr Hund kann frei laufen, spielen
-            und sich entspannen, ohne andere Gäste zu stören.
-          </li>
-          <li>
-            <strong>Keine Leinenpflicht auf dem Grundstück</strong> — Im
-            eingezäunten Garten darf Ihr Hund ohne Leine toben.
-          </li>
-          <li>
-            <strong>Eigene Tagesstruktur</strong> — Fütterungszeiten,
-            Spaziergänge und Ruhephasen bestimmen Sie selbst.
-          </li>
-          <li>
-            <strong>Platz für Ausrüstung</strong> — Hundebett, Napf, Spielzeug —
-            im Ferienhaus ist genug Raum für alles.
-          </li>
-        </ul>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Trees className="h-5 w-5" />,
+              title: "Eigener Garten",
+              description:
+                "Ihr Hund kann frei laufen, spielen und sich entspannen, ohne andere Gäste zu stören.",
+            },
+            {
+              icon: <Unlock className="h-5 w-5" />,
+              title: "Keine Leinenpflicht auf dem Grundstück",
+              description:
+                "Im eingezäunten Garten darf Ihr Hund ohne Leine toben.",
+            },
+            {
+              icon: <Clock className="h-5 w-5" />,
+              title: "Eigene Tagesstruktur",
+              description:
+                "Fütterungszeiten, Spaziergänge und Ruhephasen bestimmen Sie selbst.",
+            },
+            {
+              icon: <Package className="h-5 w-5" />,
+              title: "Platz für Ausrüstung",
+              description:
+                "Hundebett, Napf, Spielzeug — im Ferienhaus ist genug Raum für alles.",
+            },
+          ]}
+        />
 
         <h2>
           Villa Gloria: Eingezäuntes Grundstück, großer Garten, Pool — perfekt
@@ -185,86 +256,163 @@ export default async function HundeurlaubPage({ params }: Props) {
           in Kaštelir wurde mit Blick auf Hundebesitzer konzipiert. Was die Villa
           besonders hundefreundlich macht:
         </p>
-        <ul>
-          <li>
-            <strong>1.000 m² komplett eingezäuntes Grundstück</strong> — Ihr
-            Hund kann sich frei bewegen, ohne dass Sie sich Sorgen machen
-            müssen. Der Zaun ist blickdicht und ausreichend hoch.
-          </li>
-          <li>
-            <strong>Großer Garten mit Rasenfläche</strong> — Perfekt zum
-            Spielen, Rennen und Entspannen. Mit Volleyball- und Badmintonfeld
-            haben auch die Zweibeiner ihren Spaß.
-          </li>
-          <li>
-            <strong>Überdachter Grillplatz</strong> — Abendessen im Freien,
-            während der Hund im Garten liegt — was gibt es Schöneres?
-          </li>
-          <li>
-            <strong>Pool (12×8 m)</strong> — Viele Hunde lieben Wasser. Der
-            große Pool bietet Abkühlung für die ganze Familie.
-          </li>
-          <li>
-            <strong>Ruhige Lage</strong> — Kaštelir ist kein Touristenhotspot.
-            Spaziergänge durch Olivenhaine und Weinberge beginnen direkt vor der
-            Haustür.
-          </li>
-          <li>
-            <strong>Haustiergebühr: nur 50 €</strong> — Keine versteckten Kosten.
-            Pauschal für den gesamten Aufenthalt.
-          </li>
-        </ul>
+
+        <BlogImageGrid
+          images={[
+            {
+              src: "/images/garden/rosenpavillon.jpg",
+              alt: "Rosenpavillon im Garten der Villa Gloria",
+              caption: "Schattige Plätze im mediterranen Garten",
+            },
+            {
+              src: "/images/pool/pool-sonnenliegen.jpg",
+              alt: "Pool mit Sonnenliegen der Villa Gloria",
+              caption: "12x8 m Pool — Abkühlung für die ganze Familie",
+            },
+          ]}
+        />
+
+        <BlogFeatureCard
+          columns={3}
+          features={[
+            {
+              icon: <Fence className="h-5 w-5" />,
+              title: "1.000 m² eingezäunt",
+              description:
+                "Ihr Hund kann sich frei bewegen. Der Zaun ist blickdicht und ausreichend hoch.",
+            },
+            {
+              icon: <Flower2 className="h-5 w-5" />,
+              title: "Großer Garten",
+              description:
+                "Perfekt zum Spielen, Rennen und Entspannen. Mit Volleyball- und Badmintonfeld.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Überdachter Grillplatz",
+              description:
+                "Abendessen im Freien, während der Hund im Garten liegt — was gibt es Schöneres?",
+            },
+            {
+              icon: <Waves className="h-5 w-5" />,
+              title: "Pool (12x8 m)",
+              description:
+                "Viele Hunde lieben Wasser. Der große Pool bietet Abkühlung für die ganze Familie.",
+            },
+            {
+              icon: <MapPin className="h-5 w-5" />,
+              title: "Ruhige Lage",
+              description:
+                "Spaziergänge durch Olivenhaine und Weinberge beginnen direkt vor der Haustür.",
+            },
+            {
+              icon: <BadgeEuro className="h-5 w-5" />,
+              title: "Haustiergebühr: nur 50 €",
+              description:
+                "Keine versteckten Kosten. Pauschal für den gesamten Aufenthalt.",
+            },
+          ]}
+        />
 
         <h2>Tierärzte in der Nähe</h2>
         <p>
           Für den Notfall oder eine Routineuntersuchung finden Sie in der Nähe
           kompetente Tierärzte:
         </p>
-        <ul>
-          <li>
-            <strong>Veterinarska ambulanta Poreč</strong> — In Poreč, ca.
-            10 km von der Villa entfernt. Modernes Equipment und
-            englischsprachiges Personal.
-          </li>
-          <li>
-            <strong>Veterinarska stanica Pazin</strong> — Etwas weiter
-            (ca. 25 km), dafür mit 24-Stunden-Notdienst und chirurgischer
-            Abteilung.
-          </li>
-          <li>
-            <strong>Apotheken</strong> — Grundlegende Tiermedikamente
-            (Zeckenschutz, Durchfallmittel) sind in Apotheken in Poreč und
-            Kaštelir erhältlich.
-          </li>
-        </ul>
-        <p>
-          <strong>Tipp:</strong> Packen Sie die Telefonnummer des lokalen
-          Tierarztes ins Handy, bevor Sie ankommen. Wir senden Ihnen auf
-          Anfrage gerne eine Liste mit allen wichtigen Nummern.
-        </p>
+
+        <BlogInfoBox variant="info" title="Tierärztliche Versorgung vor Ort">
+          <ul className="mt-2 list-none space-y-2 p-0">
+            <li>
+              <strong>Veterinarska ambulanta Poreč</strong> — Ca. 10 km
+              entfernt. Modernes Equipment und englischsprachiges Personal.
+            </li>
+            <li>
+              <strong>Veterinarska stanica Pazin</strong> — Ca. 25 km, dafür
+              mit 24-Stunden-Notdienst und chirurgischer Abteilung.
+            </li>
+            <li>
+              <strong>Apotheken</strong> — Grundlegende Tiermedikamente
+              (Zeckenschutz, Durchfallmittel) in Poreč und Kaštelir erhältlich.
+            </li>
+          </ul>
+          <p className="mt-3">
+            <strong>Tipp:</strong> Packen Sie die Telefonnummer des lokalen
+            Tierarztes ins Handy, bevor Sie ankommen. Wir senden Ihnen auf
+            Anfrage gerne eine Liste mit allen wichtigen Nummern.
+          </p>
+        </BlogInfoBox>
 
         <h2>Packliste für den Hundeurlaub</h2>
         <p>
           Damit Sie nichts vergessen, hier unsere bewährte Packliste für den
           Urlaub mit Hund in Kroatien:
         </p>
-        <ul>
-          <li>EU-Heimtierausweis mit gültiger Tollwutimpfung</li>
-          <li>Leine und Halsband/Geschirr (Maulkorb für öffentliche Verkehrsmittel)</li>
-          <li>Futter für die gesamte Reisedauer (gewohntes Futter!)</li>
-          <li>Wassernapf und Trinkflasche für unterwegs</li>
-          <li>Hundebett oder Decke (vertrauter Geruch beruhigt)</li>
-          <li>Zeckenschutz und Sonnenschutz für empfindliche Nasen</li>
-          <li>Kotbeutel</li>
-          <li>Erste-Hilfe-Set für Hunde</li>
-          <li>Lieblingsspielzeug</li>
-          <li>Handtuch zum Abtrocknen nach dem Schwimmen</li>
-        </ul>
-        <p>
+        <div className="not-prose my-8 rounded-card bg-sand p-6 md:p-8">
+          <h4 className="mb-4 font-display text-lg font-bold text-dark">
+            Packliste Hundeurlaub Istrien
+          </h4>
+          <ul className="grid gap-2 text-dark-light md:grid-cols-2">
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>EU-Heimtierausweis mit gültiger Tollwutimpfung</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>
+                Leine und Halsband/Geschirr (Maulkorb für öffentliche
+                Verkehrsmittel)
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>
+                Futter für die gesamte Reisedauer (gewohntes Futter!)
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>Wassernapf und Trinkflasche für unterwegs</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>
+                Hundebett oder Decke (vertrauter Geruch beruhigt)
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>
+                Zeckenschutz und Sonnenschutz für empfindliche Nasen
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>Kotbeutel</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>Erste-Hilfe-Set für Hunde</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>Lieblingsspielzeug</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-olive-500" />
+              <span>Handtuch zum Abtrocknen nach dem Schwimmen</span>
+            </li>
+          </ul>
+        </div>
+
+        <BlogQuote>
           Istrien ist ein Paradies für Hundebesitzer — und die Villa Gloria al
           Padre der ideale Ausgangspunkt. Eingezäuntes Grundstück, ruhige Lage
           und Strände in der Nähe: Ihr Hund wird den Urlaub genauso genießen
-          wie Sie. Schauen Sie sich die{" "}
+          wie Sie.
+        </BlogQuote>
+
+        <p>
+          Schauen Sie sich die{" "}
           <Link href="/buchen" className="text-terracotta-500">
             Verfügbarkeit
           </Link>{" "}

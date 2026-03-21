@@ -1,9 +1,20 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { BlogArticle } from "@/components/blog/BlogArticle";
+import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
+import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
+import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
+import { BlogQuote } from "@/components/blog/BlogQuote";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
+import {
+  Wine,
+  MapPin,
+  UtensilsCrossed,
+  Waves,
+  Users,
+} from "lucide-react";
 
 const SLUG = "weinurlaub-istrien";
 
@@ -73,6 +84,21 @@ export default async function WeinurlaubPage({ params }: Props) {
           und Erholung auf einzigartige Weise.
         </p>
 
+        <BlogImageGrid
+          images={[
+            {
+              src: "/images/exterior/villa-front.jpg",
+              alt: "Villa Gloria Frontansicht",
+              caption: "Villa Gloria — Ihr Ausgangspunkt für Weintouren",
+            },
+            {
+              src: "/images/garden/rosenpavillon.jpg",
+              alt: "Rosenpavillon im Garten der Villa Gloria",
+              caption: "Mediterraner Garten mit Rosenpavillon",
+            },
+          ]}
+        />
+
         <h2>Istrien: Kroatiens Weinregion Nr. 1</h2>
         <p>
           Die istrische Halbinsel profitiert von einem mediterranen Klima mit
@@ -94,6 +120,13 @@ export default async function WeinurlaubPage({ params }: Props) {
           Zwei Rebsorten dominieren die istrische Weinlandschaft und sollten
           bei keinem Weinurlaub fehlen:
         </p>
+
+        <BlogQuote>
+          Malvazija Istarska und Teran — zwei autochthone Rebsorten, die
+          nirgendwo auf der Welt so gut gedeihen wie auf der roten Erde
+          Istriens. Sie sind das flüssige Terroir der Halbinsel.
+        </BlogQuote>
+
         <ul>
           <li>
             <strong>Malvazija Istarska</strong> — Der Star unter den
@@ -128,56 +161,68 @@ export default async function WeinurlaubPage({ params }: Props) {
           Autominuten:
         </p>
 
-        <h3>1. Kozlović (Momjan) — ca. 30 Min.</h3>
-        <p>
-          Eines der renommiertesten Weingüter Kroatiens. Die Familie Kozlović
-          produziert seit Generationen preisgekrönte Weine. Ihre Malvazija
-          „Santa Lucia" gehört zu den besten Weißweinen des Landes. Moderne
-          Architektur trifft auf Tradition — die Verkostung mit Blick über die
-          Weinberge ist ein Erlebnis. Reservierung empfohlen.
-        </p>
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Wine className="h-5 w-5" />,
+              title: "Kozlović (Momjan) — ca. 30 Min.",
+              description:
+                "Eines der renommiertesten Weingüter Kroatiens. Die Malvazija \u201ESanta Lucia\u201C gehört zu den besten Weißweinen des Landes. Moderne Architektur trifft auf Tradition — Verkostung mit Blick über die Weinberge.",
+            },
+            {
+              icon: <Wine className="h-5 w-5" />,
+              title: "Matošević (Krunčići) — ca. 20 Min.",
+              description:
+                "Ivica Matošević gilt als Pionier der istrischen Weinrevolution. Sein \u201EAlba\u201C Malvazija ist international mehrfach ausgezeichnet. Intime Verkostungen mit persönlicher Beratung.",
+            },
+            {
+              icon: <Wine className="h-5 w-5" />,
+              title: "Degrassi (Savudrija) — ca. 35 Min.",
+              description:
+                "Weinbau mit atemberaubendem Blick auf die Adria. Bekannt für elegante Malvazija und samtige Merlots. Verkostung direkt am Meer — Sonnenuntergang inklusive.",
+            },
+            {
+              icon: <Wine className="h-5 w-5" />,
+              title: "Trapan (Šišan bei Pula) — ca. 50 Min.",
+              description:
+                "Eines der modernsten Weingüter Istriens. \u201EPonente\u201C Malvazija und \u201ESyrah\u201C sind Geheimtipps unter Kennern. Architektonisch beeindruckend, mit regionaler Küche.",
+            },
+            {
+              icon: <Wine className="h-5 w-5" />,
+              title: "Kabola (Momjan) — ca. 30 Min.",
+              description:
+                "Vorreiter des Naturweins in Kroatien. \u201EAmphora\u201C Malvazija — in Tonamphoren vergoren — ist einzigartig. Ausgezeichnete Verkostungen mit Käse und Olivenöl.",
+            },
+          ]}
+        />
 
-        <h3>2. Matošević (Krunčići) — ca. 20 Min.</h3>
-        <p>
-          Ivica Matošević gilt als Pionier der istrischen Weinrevolution. Sein
-          „Alba" Malvazija ist international mehrfach ausgezeichnet. Das
-          Weingut liegt malerisch im Hinterland und bietet intime Verkostungen
-          mit persönlicher Beratung. Hier spürt man die Leidenschaft in jedem
-          Schluck.
-        </p>
-
-        <h3>3. Degrassi (Savudrija) — ca. 35 Min.</h3>
-        <p>
-          Das Weingut Degrassi liegt an der Nordwestküste Istriens und
-          verbindet Weinbau mit einem atemberaubenden Blick auf die Adria.
-          Bekannt für elegante Malvazija und samtige Merlots. Die Verkostung
-          findet direkt am Meer statt — Weingenuss mit Sonnenuntergang
-          inklusive.
-        </p>
-
-        <h3>4. Trapan (Šišan bei Pula) — ca. 50 Min.</h3>
-        <p>
-          Bruno Trapan hat innerhalb weniger Jahre eines der modernsten
-          Weingüter Istriens aufgebaut. Seine „Ponente" Malvazija und der
-          „Syrah" gehören zu den Geheimtipps unter Kennern. Das architektonisch
-          beeindruckende Weingut bietet auch kulinarische Erlebnisse mit
-          regionaler Küche.
-        </p>
-
-        <h3>5. Kabola (Momjan) — ca. 30 Min.</h3>
-        <p>
-          Kabola setzt auf biodynamischen Weinbau und gehört zu den
-          Vorreitern des Naturweins in Kroatien. Ihr „Amphora" Malvazija —
-          in Tonamphoren vergoren — ist einzigartig. Das Weingut bietet
-          ausgezeichnete Verkostungen mit Käse und Olivenöl aus eigener
-          Produktion.
-        </p>
+        <BlogInfoBox variant="tip" title="Tipp: Vorab reservieren">
+          <p>
+            Planen Sie einen Fahrer ein oder buchen Sie eine geführte Weintour.
+            Die Straßen sind kurvig und die Verkostungen großzügig. Reservieren
+            Sie die Verkostungen mindestens einige Tage im Voraus — besonders
+            in der Hochsaison.
+          </p>
+        </BlogInfoBox>
 
         <h2>Istrische Weinstraßen — Routen für Genießer</h2>
         <p>
           Istrien hat mehrere offizielle Weinstraßen eingerichtet, die durch
           die schönsten Weingebiete führen:
         </p>
+
+        <BlogImageGrid
+          columns={1}
+          images={[
+            {
+              src: "/images/exterior/haus-fassade.jpg",
+              alt: "Istrische Steinfassade der Villa Gloria",
+              caption:
+                "Istrische Architektur — Stein, Wärme und Charakter",
+            },
+          ]}
+        />
+
         <ul>
           <li>
             <strong>Weinstraße Buje — Momjan — Grožnjan</strong> — Die
@@ -195,11 +240,6 @@ export default async function WeinurlaubPage({ params }: Props) {
             gelegen. Hier dominieren Rotweine und exzellentes Olivenöl.
           </li>
         </ul>
-        <p>
-          <strong>Tipp:</strong> Planen Sie einen Fahrer ein oder buchen Sie
-          eine geführte Weintour. Die Straßen sind kurvig und die Verkostungen
-          großzügig.
-        </p>
 
         <h2>
           Olivenöl &amp; Trüffel — Istriens kulinarische Dreifaltigkeit
@@ -208,27 +248,25 @@ export default async function WeinurlaubPage({ params }: Props) {
           Ein Weinurlaub in Istrien wäre unvollständig ohne die anderen beiden
           kulinarischen Stars der Region:
         </p>
-        <ul>
-          <li>
-            <strong>Olivenöl</strong> — Istrisches Olivenöl gehört zur
-            Weltspitze. Die Region produziert einige der am höchsten bewerteten
-            Öle weltweit. Verkostungen werden auf vielen Weingütern und in
-            spezialisierten Ölmühlen angeboten. Besonders empfehlenswert:
-            Chiavalon, Belic und Ipša.
-          </li>
-          <li>
-            <strong>Trüffel</strong> — Das Mirna-Tal bei Motovun ist das
-            Trüffelzentrum Istriens. Sowohl weiße als auch schwarze Trüffel
-            werden hier gefunden. Von Oktober bis Dezember ist Hochsaison für
-            den begehrten weißen Trüffel. Geführte Trüffeljagden mit Hunden
+
+        <BlogInfoBox variant="info" title="Kulinarisches Dreieck Istriens">
+          <p>
+            <strong>Olivenöl:</strong> Istrisches Olivenöl gehört zur
+            Weltspitze. Verkostungen auf Weingütern und in spezialisierten
+            Ölmühlen. Empfehlenswert: Chiavalon, Belic und Ipša.
+          </p>
+          <p className="mt-2">
+            <strong>Trüffel:</strong> Das Mirna-Tal bei Motovun ist das
+            Trüffelzentrum Istriens. Von Oktober bis Dezember ist Hochsaison
+            für den begehrten weißen Trüffel. Geführte Trüffeljagden mit Hunden
             sind ein unvergessliches Erlebnis.
-          </li>
-        </ul>
-        <p>
-          Die Kombination aus erstklassigem Wein, Olivenöl und Trüffel macht
-          Istrien zu einem kulinarischen Paradies, das sich mit der Toskana
-          messen kann — nur ohne die Massen und zu deutlich günstigeren Preisen.
-        </p>
+          </p>
+          <p className="mt-2">
+            Die Kombination macht Istrien zu einem kulinarischen Paradies, das
+            sich mit der Toskana messen kann — nur ohne die Massen und zu
+            deutlich günstigeren Preisen.
+          </p>
+        </BlogInfoBox>
 
         <h2>Villa Gloria als Ausgangspunkt für Weintouren</h2>
         <p>
@@ -238,34 +276,42 @@ export default async function WeinurlaubPage({ params }: Props) {
           </Link>{" "}
           in Kaštelir liegt ideal für Weintouren durch Istrien:
         </p>
-        <ul>
-          <li>
-            <strong>Zentrale Lage</strong> — Von Kaštelir erreichen Sie alle
-            wichtigen Weingebiete in 20-50 Minuten. Die{" "}
-            <Link href="/umgebung" className="text-terracotta-500">
-              Umgebung
-            </Link>{" "}
-            bietet perfekte Anbindung.
-          </li>
-          <li>
-            <strong>Großer Esstisch innen &amp; außen</strong> — Bringen Sie
-            Ihre Weinschätze mit und genießen Sie sie beim Abendessen auf der
-            Terrasse mit Meerblick.
-          </li>
-          <li>
-            <strong>Grill &amp; Outdoor-Küche</strong> — Der überdachte
-            Grillplatz lädt dazu ein, istrische Spezialitäten selbst
-            zuzubereiten — mit einem Glas Malvazija in der Hand.
-          </li>
-          <li>
-            <strong>Pool zur Erholung</strong> — Nach einem Tag voller
-            Verkostungen entspannen Sie am 12×8 m großen Pool.
-          </li>
-          <li>
-            <strong>Platz für Gruppen</strong> — Mit bis zu 9 Gästen eignet
-            sich die Villa perfekt für einen Weinurlaub mit Freunden.
-          </li>
-        </ul>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <MapPin className="h-5 w-5" />,
+              title: "Zentrale Lage",
+              description:
+                "Von Kaštelir erreichen Sie alle wichtigen Weingebiete in 20-50 Minuten. Perfekte Anbindung.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Großer Esstisch innen & außen",
+              description:
+                "Bringen Sie Ihre Weinschätze mit und genießen Sie sie beim Abendessen auf der Terrasse mit Meerblick.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Grill & Outdoor-Küche",
+              description:
+                "Der überdachte Grillplatz lädt ein, istrische Spezialitäten selbst zuzubereiten — mit Malvazija in der Hand.",
+            },
+            {
+              icon: <Waves className="h-5 w-5" />,
+              title: "Pool zur Erholung",
+              description:
+                "Nach einem Tag voller Verkostungen entspannen Sie am 12x8 m großen Pool.",
+            },
+            {
+              icon: <Users className="h-5 w-5" />,
+              title: "Platz für Gruppen",
+              description:
+                "Mit bis zu 9 Gästen eignet sich die Villa perfekt für einen Weinurlaub mit Freunden.",
+            },
+          ]}
+        />
+
         <p>
           Planen Sie Ihren Weinurlaub in Istrien und erleben Sie die
           Gastfreundschaft, die diese Region so besonders macht. Prüfen Sie

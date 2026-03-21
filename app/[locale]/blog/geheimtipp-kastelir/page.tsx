@@ -1,9 +1,25 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { BlogArticle } from "@/components/blog/BlogArticle";
+import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
+import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
+import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
+import { BlogQuote } from "@/components/blog/BlogQuote";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
+import {
+  UtensilsCrossed,
+  MapPin,
+  Car,
+  ShoppingCart,
+  Waves as WavesIcon,
+  Home,
+  Droplets,
+  Flower2,
+  Flame,
+  Navigation,
+} from "lucide-react";
 
 const SLUG = "geheimtipp-kastelir";
 
@@ -72,6 +88,18 @@ export default async function GeheimtippPage({ params }: Props) {
           einer Ruhe, die man an der Küste vergeblich sucht.
         </p>
 
+        <BlogImageGrid
+          columns={1}
+          images={[
+            {
+              src: "/images/exterior/villa-pool-wide.jpg",
+              alt: "Villa Gloria mit Pool und Blick über die istrische Landschaft",
+              caption:
+                "Blick über die Hügel Istriens — Kaštelir liegt mitten im Herzen der Halbinsel",
+            },
+          ]}
+        />
+
         <h2>Kaštelir: Das authentische Istrien abseits der Touristenmassen</h2>
         <p>
           Kaštelir (kroatisch: Kaštelir-Labinci) ist eine kleine Gemeinde mit
@@ -109,31 +137,36 @@ export default async function GeheimtippPage({ params }: Props) {
           familiengeführt, immer authentisch. In und um Kaštelir finden Sie
           einige der besten:
         </p>
-        <ul>
-          <li>
-            <strong>Konoba Morgan</strong> — Direkt in Kaštelir. Rustikales
-            Ambiente, hausgemachte Pasta (Fuži, Pljukanci), gegrilltes
-            Fleisch und fangfrischer Fisch. Die Preise sind fair, die
-            Portionen großzügig.
-          </li>
-          <li>
-            <strong>Konoba Astarea</strong> — In der Nähe von Brtonigla.
-            Bekannt für ihre Trüffelgerichte und den hauseigenen Wein. Im
-            Sommer sitzt man im schattigen Innenhof unter einem
-            jahrhundertealten Feigenbaum.
-          </li>
-          <li>
-            <strong>Taverna Danijela</strong> — Zwischen Kaštelir und Poreč.
-            Meeresfrüchte und Fisch in erstklassiger Qualität. Die Fischplatte
-            für zwei ist legendär.
-          </li>
-          <li>
-            <strong>Konoba Daniela, Labinci</strong> — Nur wenige Minuten
-            entfernt. Spezialisiert auf istrische Klassiker: Maneštra
-            (Gemüseeintopf), Fritaja (Trüffel-Omelett) und hausgemachtes
-            Brot aus dem Steinofen.
-          </li>
-        </ul>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Konoba Morgan",
+              description:
+                "Direkt in Kaštelir. Rustikales Ambiente, hausgemachte Pasta (Fuži, Pljukanci), gegrilltes Fleisch und fangfrischer Fisch. Faire Preise, großzügige Portionen.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Konoba Astarea",
+              description:
+                "Nähe Brtonigla. Bekannt für Trüffelgerichte und hauseigenen Wein. Im Sommer im schattigen Innenhof unter jahrhundertealtem Feigenbaum.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Taverna Danijela",
+              description:
+                "Zwischen Kaštelir und Poreč. Meeresfrüchte und Fisch in erstklassiger Qualität. Die Fischplatte für zwei ist legendär.",
+            },
+            {
+              icon: <UtensilsCrossed className="h-5 w-5" />,
+              title: "Konoba Daniela, Labinci",
+              description:
+                "Nur wenige Minuten entfernt. Istrische Klassiker: Maneštra, Fritaja (Trüffel-Omelett) und hausgemachtes Brot aus dem Steinofen.",
+            },
+          ]}
+        />
+
         <p>
           <strong>Tipp:</strong> Reservieren Sie in der Hochsaison (Juli/August)
           immer einen Tag vorher. Die besten Konobas haben oft nur 20-30
@@ -146,56 +179,62 @@ export default async function GeheimtippPage({ params }: Props) {
           Istriens. Die Terra Rossa (rote Erde) und das mediterrane Klima
           erzeugen Olivenöle von Weltklasse-Qualität:
         </p>
-        <ul>
-          <li>
+
+        <BlogInfoBox variant="tip" title="Olivenöl-Tipp">
+          <p>
             <strong>OPG Špiranec</strong> — Ein Familienbetrieb direkt bei
-            Kaštelir. Sie können die Ölmühle besichtigen, eine Verkostung
-            machen und Öl in Flaschen direkt kaufen. Die Familie erklärt
-            gerne den gesamten Prozess — von der Ernte bis zur Pressung.
-          </li>
-          <li>
-            <strong>Olivenöl-Festivals</strong> — Im Frühling finden in der
-            Region regelmäßig Olivenöl-Festivals statt, bei denen Produzenten
-            ihre neuen Öle vorstellen.
-          </li>
-          <li>
-            <strong>Qualitätsmerkmal</strong> — Achten Sie auf die Bezeichnung
-            „Ekstra Djevičansko" (Extra Vergine). Istrisches Olivenöl wurde
-            vom Flos Olei Guide mehrfach unter die weltbesten gewählt.
-          </li>
-        </ul>
+            Kaštelir. Besichtigung der Ölmühle, Verkostung und Direktverkauf.
+            Die Familie erklärt den gesamten Prozess — von der Ernte bis zur
+            Pressung.
+          </p>
+          <p className="mt-2">
+            Achten Sie auf die Bezeichnung „Ekstra Djevičansko" (Extra
+            Vergine). Istrisches Olivenöl wurde vom Flos Olei Guide mehrfach
+            unter die weltbesten gewählt. Im Frühling finden regelmäßig
+            Olivenöl-Festivals in der Region statt.
+          </p>
+        </BlogInfoBox>
 
         <h2>Perfekte Lage: 10 Min. Poreč, 15 Min. Rovinj, 5 Min. Autobahn</h2>
         <p>
           Was Kaštelir besonders macht, ist die Kombination aus Ruhe und
           Erreichbarkeit. Von hier aus sind Sie in kürzester Zeit überall:
         </p>
-        <ul>
-          <li>
-            <strong>Poreč</strong> — 10 Minuten. Die UNESCO-Stadt mit
-            Euphrasius-Basilika, Altstadt und Strandpromenade. Perfekt für
-            einen halben Tag.
-          </li>
-          <li>
-            <strong>Rovinj</strong> — 15-20 Minuten. Die romantischste Stadt
-            Istriens. Enge Gassen, bunte Häuser und die Kirche der Heiligen
-            Euphemia auf dem Hügel.
-          </li>
-          <li>
-            <strong>Autobahn (Ipsilon)</strong> — 5 Minuten. Die
-            Autobahnauffahrt bei Baderna verbindet Sie schnell mit Pula
-            (Flughafen), Rijeka und dem Rest Kroatiens.
-          </li>
-          <li>
-            <strong>Einkaufen</strong> — Supermarkt, Bäckerei und Apotheke
-            sind in Kaštelir selbst (700 m). Größere Einkaufsmöglichkeiten in
-            Poreč (Konzum, Lidl, Kaufland).
-          </li>
-          <li>
-            <strong>Strand</strong> — Die nächsten Bademöglichkeiten sind in
-            8 km Entfernung. In 10 Autominuten sind Sie am Meer.
-          </li>
-        </ul>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <MapPin className="h-5 w-5" />,
+              title: "Poreč — 10 Minuten",
+              description:
+                "UNESCO-Stadt mit Euphrasius-Basilika, Altstadt und Strandpromenade. Perfekt für einen halben Tag.",
+            },
+            {
+              icon: <MapPin className="h-5 w-5" />,
+              title: "Rovinj — 15-20 Minuten",
+              description:
+                "Die romantischste Stadt Istriens. Enge Gassen, bunte Häuser und die Kirche der Heiligen Euphemia.",
+            },
+            {
+              icon: <Car className="h-5 w-5" />,
+              title: "Autobahn (Ipsilon) — 5 Min.",
+              description:
+                "Auffahrt bei Baderna verbindet Sie schnell mit Pula (Flughafen), Rijeka und dem Rest Kroatiens.",
+            },
+            {
+              icon: <ShoppingCart className="h-5 w-5" />,
+              title: "Einkaufen — 700 m",
+              description:
+                "Supermarkt, Bäckerei und Apotheke in Kaštelir selbst. Größere Einkäufe in Poreč (Konzum, Lidl, Kaufland).",
+            },
+            {
+              icon: <WavesIcon className="h-5 w-5" />,
+              title: "Strand — 10 Min.",
+              description:
+                "Die nächsten Bademöglichkeiten sind 8 km entfernt. In 10 Autominuten sind Sie am Meer.",
+            },
+          ]}
+        />
 
         <h2>Warum Ruhesuchende hier richtig sind</h2>
         <p>
@@ -227,6 +266,21 @@ export default async function GeheimtippPage({ params }: Props) {
           Sie Trubel wollen — und wann nicht.
         </p>
 
+        <BlogImageGrid
+          images={[
+            {
+              src: "/images/exterior/haus-garten-2.jpg",
+              alt: "Villa Gloria Garten und Außenbereich",
+              caption: "Mediterranes Flair im Garten der Villa",
+            },
+            {
+              src: "/images/living/terrasse-kueche-pool.jpg",
+              alt: "Terrasse mit Blick auf Pool",
+              caption: "Von der Terrasse direkt zum Pool",
+            },
+          ]}
+        />
+
         <h2>Villa Gloria: Ihr Zuhause in Kaštelir</h2>
         <p>
           Die{" "}
@@ -236,34 +290,49 @@ export default async function GeheimtippPage({ params }: Props) {
           verkörpert alles, was Kaštelir ausmacht: Ruhe, Großzügigkeit und
           istrischen Charme. Auf 1.000 m² eingezäuntem Grundstück finden Sie:
         </p>
-        <ul>
-          <li>
-            <strong>180 m² Wohnfläche</strong> — Vier Schlafzimmer, drei
-            Bäder, offener Wohn-/Essbereich mit voll ausgestatteter Küche.
-          </li>
-          <li>
-            <strong>Privater Pool (12×8 m)</strong> — Mit Panoramablick
-            über die istrische Landschaft bis zum Meer.
-          </li>
-          <li>
-            <strong>Mediterraner Garten</strong> — Olivenbäume, Lavendel,
-            Rosmarin und ein Rosenpavillon. Dazu Volleyball-/Badmintonfeld
-            und Basketballkorb.
-          </li>
-          <li>
-            <strong>Überdachter BBQ-Bereich</strong> — Grillen wie die
-            Einheimischen, mit Steinofen und ausreichend Sitzplätzen.
-          </li>
-          <li>
-            <strong>Ruhige Lage, dennoch zentral</strong> — 700 m zum
-            Ortskern, 10 Min. nach Poreč, 5 Min. zur Autobahn.
-          </li>
-        </ul>
-        <p>
+
+        <BlogFeatureCard
+          columns={3}
+          features={[
+            {
+              icon: <Home className="h-5 w-5" />,
+              title: "180 m² Wohnfläche",
+              description:
+                "Vier Schlafzimmer, drei Bäder, offener Wohn-/Essbereich mit voll ausgestatteter Küche.",
+            },
+            {
+              icon: <Droplets className="h-5 w-5" />,
+              title: "Privater Pool (12x8 m)",
+              description:
+                "Mit Panoramablick über die istrische Landschaft bis zum Meer.",
+            },
+            {
+              icon: <Flower2 className="h-5 w-5" />,
+              title: "Mediterraner Garten",
+              description:
+                "Olivenbäume, Lavendel, Rosmarin und Rosenpavillon. Dazu Volleyball und Basketball.",
+            },
+            {
+              icon: <Flame className="h-5 w-5" />,
+              title: "Überdachter BBQ-Bereich",
+              description:
+                "Grillen wie die Einheimischen, mit Steinofen und ausreichend Sitzplätzen.",
+            },
+            {
+              icon: <Navigation className="h-5 w-5" />,
+              title: "Ruhig, dennoch zentral",
+              description:
+                "700 m zum Ortskern, 10 Min. nach Poreč, 5 Min. zur Autobahn.",
+            },
+          ]}
+        />
+
+        <BlogQuote>
           Kaštelir ist der Ort, an den man zurückkehrt. Nicht weil es
           spektakulär ist, sondern weil es sich anfühlt wie zu Hause — nur mit
           besserem Wetter, besserem Essen und einem Pool im Garten.
-        </p>
+        </BlogQuote>
+
         <p>
           Entdecken Sie diesen Geheimtipp selbst und prüfen Sie die{" "}
           <Link href="/buchen" className="text-terracotta-500">
