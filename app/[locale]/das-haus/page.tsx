@@ -109,7 +109,7 @@ function HouseContent() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
-                    Voll ausgestattete Küche (Gasherd, Backofen, Spülmaschine)
+                    Voll ausgestattete Küche (Gasherd, Backofen, Kühlschrank)
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-terracotta-500" />
@@ -145,7 +145,7 @@ function HouseContent() {
                   Das Obergeschoss beherbergt drei komfortable Schlafzimmer mit
                   Klimaanlage im Flur und ein weiteres Badezimmer mit Dusche, WC, Bidet,
                   Waschbecken und Föhn. Alle Fenster sind mit Fliegengittern ausgestattet.
-                  Der besondere Clou: ein kleiner Aussichtsturm mit 360°-Panoramablick
+                  Der besondere Clou: ein kleiner Aussichtsturm mit Panoramablick
                   über Istrien und die Adria.
                 </p>
 
@@ -234,7 +234,7 @@ function HouseContent() {
                   Apartment für Erwachsene und Kinder. Mit eigenem
                   Schlafzimmer, Aufbettung (Schlafcouch 140×200), Wohnküche, Bad und direktem Poolzugang bietet
                   sie vollständige Unabhängigkeit. In der Nebensaison (Oktober
-                  bis April) auch separat buchbar (Mindestaufenthalt 7 Nächte).
+                  bis Oktober) auch separat buchbar (Mindestaufenthalt 6 Nächte).
                 </p>
                 <ul className="mt-6 space-y-2 text-dark-light">
                   <li className="flex items-center gap-2">
