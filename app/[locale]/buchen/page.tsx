@@ -30,12 +30,12 @@ export default function BookingPage() {
   const { price, loading: priceLoading, error: priceError } =
     usePriceCalculation(checkIn, checkOut, propertyType, hasPet);
 
-  // Apartment is only available Oct-Apr
+  // Apartment is available mid-March to mid-October
   const isApartmentAvailable = (() => {
     if (!dateRange?.from || !dateRange?.to) return true;
     const month = dateRange.from.getMonth(); // 0-indexed
-    // Available: Oct(9), Nov(10), Dec(11), Jan(0), Feb(1), Mar(2), Apr(3)
-    return month >= 9 || month <= 3;
+    // Available: Mar(2), Apr(3), May(4), Jun(5), Jul(6), Aug(7), Sep(8), Oct(9)
+    return month >= 2 && month <= 9;
   })();
 
   return (
