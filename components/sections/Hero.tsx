@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { motion } from "framer-motion";
@@ -11,12 +12,15 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background image with parallax-like effect */}
-      <div
-        className="absolute inset-0 bg-cover bg-center md:bg-fixed"
-        style={{
-          backgroundImage: "url('/images/hero/villa-pool-seaview.jpg')",
-        }}
+      {/* Background image — optimized with next/image */}
+      <Image
+        src="/images/hero/villa-pool-seaview.jpg"
+        alt="Villa Gloria al Padre — Pool mit Meerblick"
+        fill
+        priority
+        quality={75}
+        sizes="100vw"
+        className="object-cover"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
