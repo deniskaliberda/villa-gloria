@@ -80,6 +80,40 @@ export const blogPosts: BlogPost[] = [
       "Olivenöl Istrien",
     ],
   },
+  {
+    slug: "mountainbike-istrien",
+    title: "Mountainbiken in Istrien — Die besten Trails rund um Poreč und Kaštelir",
+    description:
+      "Istriens Hinterland ist ein MTB-Paradies: rote Erde, Singletrails durch Olivenhaine und Panorama-Routen mit Meerblick. Die besten Strecken und Tipps für Mountainbiker.",
+    date: "2026-03-20",
+    readingTime: "8 min",
+    image: "/images/exterior/haus-garten-3.jpg",
+    category: "Sport & Outdoor",
+    keywords: [
+      "Mountainbike Istrien",
+      "MTB Trails Kroatien",
+      "Mountainbiken Poreč",
+      "Radfahren Istrien",
+      "Singletrails Kroatien",
+    ],
+  },
+  {
+    slug: "rennrad-istrien",
+    title: "Rennradfahren in Istrien — Traumrouten zwischen Küste und Hinterland",
+    description:
+      "Istrien ist Europas Geheimtipp für Rennradfahrer: milde Temperaturen, wenig Verkehr, abwechslungsreiche Topografie. Die schönsten Routen und praktische Tipps.",
+    date: "2026-03-18",
+    readingTime: "7 min",
+    image: "/images/exterior/haus-fassade.jpg",
+    category: "Sport & Outdoor",
+    keywords: [
+      "Rennrad Istrien",
+      "Rennradfahren Kroatien",
+      "Radtouren Istrien",
+      "Rennrad Poreč",
+      "Radsport Kroatien",
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

@@ -16,6 +16,8 @@ const pages = [
   "/blog/weinurlaub-istrien",
   "/blog/familienurlaub-istrien",
   "/blog/geheimtipp-kastelir",
+  "/blog/mountainbike-istrien",
+  "/blog/rennrad-istrien",
   "/impressum",
   "/datenschutz",
   "/agb",
