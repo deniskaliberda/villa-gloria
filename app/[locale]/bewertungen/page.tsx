@@ -21,7 +21,7 @@ const reviewSchemaData = {
   "@context": "https://schema.org",
   "@type": "VacationRental",
   "name": "Villa Gloria al Padre",
-  "url": "https://villa-gloria-istrien.de",
+  "url": "https://www.villa-gloria-istrien.de",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",

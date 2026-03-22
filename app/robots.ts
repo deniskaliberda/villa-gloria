@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://villa-gloria-istrien.de";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.villa-gloria-istrien.de";
 
 export default function robots(): MetadataRoute.Robots {
   return {

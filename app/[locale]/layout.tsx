@@ -65,7 +65,7 @@ export async function generateMetadata({
     },
     description: t("description"),
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || "https://villa-gloria-istrien.de"
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.villa-gloria-istrien.de"
     ),
     openGraph: {
       type: "website",
