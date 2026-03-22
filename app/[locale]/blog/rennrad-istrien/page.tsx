@@ -90,13 +90,13 @@ export default async function RennradIstrienPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/exterior/haus-fassade.jpg",
-              alt: "Villa Gloria Fassade — Rennrad-Quartier in Istrien",
+              src: "/images/blog/rennrad-1.webp",
+              alt: "Rennradfahrer an der istrischen Küstenstraße",
               caption: "Villa Gloria — Ihr Radsport-Quartier in Kastelir",
             },
             {
-              src: "/images/exterior/villa-front.jpg",
-              alt: "Villa Gloria Frontansicht mit Einfahrt",
+              src: "/images/blog/rennrad-2.webp",
+              alt: "Rennradgruppe durch ein istrisches Dorf",
               caption: "Ruhige Lage im Hinterland — perfekt fuer Rennradfahrer",
             },
           ]}
@@ -301,8 +301,8 @@ export default async function RennradIstrienPage({ params }: Props) {
           columns={1}
           images={[
             {
-              src: "/images/pool/pool-panorama.jpg",
-              alt: "Panoramablick auf den Pool der Villa Gloria",
+              src: "/images/blog/rennrad-1.webp",
+              alt: "Rennrad an der Adriaküste in Istrien",
               caption:
                 "Regeneration am Pool — der perfekte Abschluss nach einer Rennradtour",
             },

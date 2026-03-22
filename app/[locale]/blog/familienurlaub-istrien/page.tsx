@@ -96,13 +96,13 @@ export default async function FamilienurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/pool/pool-sonnenliegen.jpg",
-              alt: "Pool mit Sonnenliegen der Villa Gloria",
+              src: "/images/blog/familienurlaub-1.webp",
+              alt: "Familie am Pool einer Villa in Istrien",
               caption: "Der 12x8 m Pool — Highlight für die ganze Familie",
             },
             {
-              src: "/images/garden/garten-volleyball.jpg",
-              alt: "Volleyball- und Badmintonfeld im Garten",
+              src: "/images/blog/familienurlaub-2.webp",
+              alt: "Kinder auf Wasserrutschen im Aquapark",
               caption: "Volleyball, Badminton und Basketball im Garten",
             },
           ]}
@@ -266,13 +266,13 @@ export default async function FamilienurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/pool/pool-panorama.jpg",
-              alt: "Pool der Villa Gloria mit Panoramablick",
+              src: "/images/blog/familienurlaub-1.webp",
+              alt: "Familienpool der Villa Gloria",
               caption: "Großer Pool — auch Teenager sind begeistert",
             },
             {
-              src: "/images/garden/grillplatz.jpg",
-              alt: "Überdachter Grillplatz der Villa Gloria",
+              src: "/images/blog/familienurlaub-2.webp",
+              alt: "Kinder im Wasserpark an der kroatischen Küste",
               caption: "BBQ-Abende für die ganze Familie",
             },
           ]}

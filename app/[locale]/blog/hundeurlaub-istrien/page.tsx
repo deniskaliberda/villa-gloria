@@ -96,13 +96,13 @@ export default async function HundeurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/garden/garten-volleyball.jpg",
-              alt: "Weitläufiger Garten der Villa Gloria — perfekt für Hunde",
+              src: "/images/blog/hundeurlaub-1.webp",
+              alt: "Hund am Kiesstrand in Kroatien",
               caption: "Weitläufiger Garten mit viel Auslauf",
             },
             {
-              src: "/images/exterior/villa-pool-palmen.jpg",
-              alt: "Villa Gloria Pool und Garten mit Palmen",
+              src: "/images/blog/hundeurlaub-2.webp",
+              alt: "Hund im Garten einer mediterranen Villa mit Pool",
               caption: "Eingezäuntes Grundstück mit Pool",
             },
           ]}
@@ -178,8 +178,8 @@ export default async function HundeurlaubPage({ params }: Props) {
           columns={1}
           images={[
             {
-              src: "/images/pool/pool-panorama.jpg",
-              alt: "Panoramablick vom Pool der Villa Gloria",
+              src: "/images/blog/hundeurlaub-1.webp",
+              alt: "Golden Retriever am Strand in Kroatien",
               caption:
                 "Panoramablick — die istrische Küste ist nur 10 Minuten entfernt",
             },
@@ -260,13 +260,13 @@ export default async function HundeurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/garden/rosenpavillon.jpg",
-              alt: "Rosenpavillon im Garten der Villa Gloria",
+              src: "/images/blog/hundeurlaub-2.webp",
+              alt: "Hund entspannt im mediterranen Garten",
               caption: "Schattige Plätze im mediterranen Garten",
             },
             {
-              src: "/images/pool/pool-sonnenliegen.jpg",
-              alt: "Pool mit Sonnenliegen der Villa Gloria",
+              src: "/images/blog/hundeurlaub-1.webp",
+              alt: "Hundefreundlicher Strand in Istrien",
               caption: "12x8 m Pool — Abkühlung für die ganze Familie",
             },
           ]}

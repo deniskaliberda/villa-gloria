@@ -92,8 +92,8 @@ export default async function GeheimtippPage({ params }: Props) {
           columns={1}
           images={[
             {
-              src: "/images/exterior/villa-pool-wide.jpg",
-              alt: "Villa Gloria mit Pool und Blick über die istrische Landschaft",
+              src: "/images/blog/kastelir-1.webp",
+              alt: "Istrisches Dorf Kaštelir mit Steinhäusern",
               caption:
                 "Blick über die Hügel Istriens — Kaštelir liegt mitten im Herzen der Halbinsel",
             },
@@ -269,13 +269,13 @@ export default async function GeheimtippPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/exterior/haus-garten-2.jpg",
-              alt: "Villa Gloria Garten und Außenbereich",
+              src: "/images/blog/kastelir-2.webp",
+              alt: "Konoba-Terrasse mit Weinreben in Istrien",
               caption: "Mediterranes Flair im Garten der Villa",
             },
             {
-              src: "/images/living/terrasse-kueche-pool.jpg",
-              alt: "Terrasse mit Blick auf Pool",
+              src: "/images/blog/kastelir-1.webp",
+              alt: "Gasse in Kaštelir mit Bougainvillea",
               caption: "Von der Terrasse direkt zum Pool",
             },
           ]}

@@ -87,14 +87,14 @@ export default async function WeinurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/exterior/villa-front.jpg",
-              alt: "Villa Gloria Frontansicht",
-              caption: "Villa Gloria — Ihr Ausgangspunkt für Weintouren",
+              src: "/images/blog/weinurlaub-1.webp",
+              alt: "Weinberge auf roter Erde in Istrien mit Blick auf die Adria",
+              caption: "Istrische Weinlandschaft bei Sonnenuntergang",
             },
             {
-              src: "/images/garden/rosenpavillon.jpg",
-              alt: "Rosenpavillon im Garten der Villa Gloria",
-              caption: "Mediterraner Garten mit Rosenpavillon",
+              src: "/images/blog/weinurlaub-2.webp",
+              alt: "Weinverkostung auf einer Konoba-Terrasse in Istrien",
+              caption: "Malvazija und Teran — istrische Weinverkostung",
             },
           ]}
         />
@@ -215,8 +215,8 @@ export default async function WeinurlaubPage({ params }: Props) {
           columns={1}
           images={[
             {
-              src: "/images/exterior/haus-fassade.jpg",
-              alt: "Istrische Steinfassade der Villa Gloria",
+              src: "/images/blog/weinurlaub-1.webp",
+              alt: "Weinberge in Istrien bei goldenem Licht",
               caption:
                 "Istrische Architektur — Stein, Wärme und Charakter",
             },
