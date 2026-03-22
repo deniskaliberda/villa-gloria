@@ -23,7 +23,7 @@ const pages = [
   "/agb",
 ];
 
-const locales = ["de", "en", "hr"];
+const locales = ["de", "en"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];

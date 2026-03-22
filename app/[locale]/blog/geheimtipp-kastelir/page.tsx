@@ -52,7 +52,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": `/de/blog/${SLUG}`,
         de: `/de/blog/${SLUG}`,
         en: `/en/blog/${SLUG}`,
-        hr: `/hr/blog/${SLUG}`,
       },
     },
   };

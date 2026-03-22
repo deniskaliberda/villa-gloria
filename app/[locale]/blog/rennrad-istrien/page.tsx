@@ -50,7 +50,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": `/de/blog/${SLUG}`,
         de: `/de/blog/${SLUG}`,
         en: `/en/blog/${SLUG}`,
-        hr: `/hr/blog/${SLUG}`,
       },
     },
   };
@@ -90,10 +89,10 @@ export default async function RennradIstrienPage({ params }: Props) {
       />
       <BlogArticle post={post} relatedPosts={relatedPosts} localizedTitle={t("title")}>
         <p className="text-xl font-bold leading-relaxed">
-          Istrien ist Europas Geheimtipp fuer Rennradfahrer. Milde Winter, kaum
-          Verkehr auf Nebenstrassen, abwechslungsreiche Topografie von der Kueste
-          bis ins huegelige Hinterland — und das alles ohne die
-          Touristenmassen von Mallorca. Ob Fruehjahrs-Trainingslager oder
+          Istrien ist Europas Geheimtipp für Rennradfahrer. Milde Winter, kaum
+          Verkehr auf Nebenstraßen, abwechslungsreiche Topografie von der Küste
+          bis ins hügelige Hinterland — und das alles ohne die
+          Touristenmassen von Mallorca. Ob Frühjahrs-Trainingslager oder
           entspannte Genusstour mit Konoba-Stopps: Die Halbinsel im Norden
           Kroatiens bietet alles, was das Rennradfahrer-Herz begehrt.
         </p>
@@ -116,7 +115,7 @@ export default async function RennradIstrienPage({ params }: Props) {
         <h2>Warum Rennradfahrer Istrien lieben</h2>
         <p>
           Immer mehr Rennradfahrer entdecken Istrien als Alternative zu den
-          ueberlaufenen Klassikern. Die Gruende liegen auf der Hand:
+          überlaufenen Klassikern. Die Gründe liegen auf der Hand:
         </p>
 
         <BlogFeatureCard
@@ -125,33 +124,33 @@ export default async function RennradIstrienPage({ params }: Props) {
               icon: <Sun className="h-5 w-5" />,
               title: "Klima",
               description:
-                "Ueber 240 Sonnentage im Jahr und milde Winter machen Istrien zum Ganzjahres-Revier. Die Saison laeuft von Maerz bis November — deutlich laenger als in den Alpen.",
+                "Über 240 Sonnentage im Jahr und milde Winter machen Istrien zum Ganzjahres-Revier. Die Saison läuft von März bis November — deutlich länger als in den Alpen.",
             },
             {
               icon: <Mountain className="h-5 w-5" />,
-              title: "Strassen",
+              title: "Straßen",
               description:
-                "Gut asphaltierte Nebenstrassen mit wenig Verkehr. Keine LKW-Kolonnen, keine Staus — nur Sie und die Strasse. Die Strassenqualitaet ist ueberraschend gut.",
+                "Gut asphaltierte Nebenstraßen mit wenig Verkehr. Keine LKW-Kolonnen, keine Staus — nur Sie und die Straße. Die Straßenqualität ist überraschend gut.",
             },
             {
               icon: <Map className="h-5 w-5" />,
               title: "Topografie",
               description:
-                "Flache Kuestenstrassen und huegelige Hinterlandrouten (300 bis 1.000 Hoehenmeter pro Tour). Fuer jeden Trainingsstand die passende Herausforderung.",
+                "Flache Küstenstraßen und hügelige Hinterlandrouten (300 bis 1.000 Höhenmeter pro Tour). Für jeden Trainingsstand die passende Herausforderung.",
             },
             {
               icon: <Heart className="h-5 w-5" />,
               title: "Kulinarik",
               description:
-                "Konobas (lokale Gasthaeuser) als Verpflegungsstopps mit Trueffelpasta, istrischem Olivenoel und einem Glas Malvazija. Radfahren und Genuss gehoeren hier zusammen.",
+                "Konobas (lokale Gasthäuser) als Verpflegungsstopps mit Trüffelpasta, istrischem Olivenöl und einem Glas Malvazija. Radfahren und Genuss gehören hier zusammen.",
             },
           ]}
         />
 
-        <h2>Top 4 Rennrad-Routen ab Kastelir</h2>
+        <h2>Top 4 Rennrad-Routen ab Kaštelir</h2>
         <p>
-          Kastelir liegt strategisch perfekt im Herzen Istriens. Von hier aus
-          erreichen Sie sowohl die Kueste als auch das Hinterland in wenigen
+          Kaštelir liegt strategisch perfekt im Herzen Istriens. Von hier aus
+          erreichen Sie sowohl die Küste als auch das Hinterland in wenigen
           Kilometern. Hier sind unsere vier Lieblingsrouten:
         </p>
 
@@ -160,37 +159,37 @@ export default async function RennradIstrienPage({ params }: Props) {
           features={[
             {
               icon: <MapPin className="h-5 w-5" />,
-              title: "Kastelir – Porec – Vrsar Kuestenrunde",
+              title: "Kaštelir – Poreč – Vrsar Küstenrunde",
               description:
-                "50 km, 400 Hm, leicht. Die perfekte Einrollrunde: Ueber Nebenstrassen nach Porec, entlang der Kueste nach Vrsar und zurueck ueber das Hinterland. Flaches Profil mit einzelnen kurzen Anstiegen. Ideal fuer den ersten Tag.",
+                "50 km, 400 Hm, leicht. Die perfekte Einrollrunde: Über Nebenstraßen nach Poreč, entlang der Küste nach Vrsar und zurück über das Hinterland. Flaches Profil mit einzelnen kurzen Anstiegen. Ideal für den ersten Tag.",
             },
             {
               icon: <MapPin className="h-5 w-5" />,
-              title: "Kastelir – Motovun – Groznjan Huegelrunde",
+              title: "Kaštelir – Motovun – Groznjan Hügelrunde",
               description:
-                "75 km, 900 Hm, mittel. Die Koenigsroute fuer ambitionierte Fahrer: Durch das Mirna-Tal hinauf nach Motovun (herrlicher Anstieg!), weiter nach Groznjan und zurueck. Spektakulaere Aussichten auf die Bergdoerfer.",
+                "75 km, 900 Hm, mittel. Die Königsroute für ambitionierte Fahrer: Durch das Mirna-Tal hinauf nach Motovun (herrlicher Anstieg!), weiter nach Groznjan und zurück. Spektakuläre Aussichten auf die Bergdörfer.",
             },
             {
               icon: <MapPin className="h-5 w-5" />,
-              title: "Kastelir – Rovinj – Limski Kanal",
+              title: "Kaštelir – Rovinj – Limski Kanal",
               description:
-                "65 km, 600 Hm, leicht bis mittel. Kuestenklassiker mit Kulturprogramm: Ueber Landstrassen nach Rovinj (Kaffeepause an der Hafenpromenade), zurueck ueber den beeindruckenden Limski-Fjord. Abwechslungsreich und fotogen.",
+                "65 km, 600 Hm, leicht bis mittel. Küstenklassiker mit Kulturprogramm: Über Landstraßen nach Rovinj (Kaffeepause an der Hafenpromenade), zurück über den beeindruckenden Limski-Fjord. Abwechslungsreich und fotogen.",
             },
             {
               icon: <MapPin className="h-5 w-5" />,
               title: "Gran Fondo Istrien-Runde",
               description:
-                "120 km, 1.500 Hm, anspruchsvoll. Die grosse Runde fuer trainierte Fahrer: Kastelir – Pazin – Buzet – Groznjan – Motovun – zurueck. Ein ganzer Tag im Sattel mit allen Highlights des istrischen Hinterlands.",
+                "120 km, 1.500 Hm, anspruchsvoll. Die große Runde für trainierte Fahrer: Kaštelir – Pazin – Buzet – Groznjan – Motovun – zurück. Ein ganzer Tag im Sattel mit allen Highlights des istrischen Hinterlands.",
             },
           ]}
         />
 
         <h2>Rennrad-Events in Istrien</h2>
         <p>
-          Istrien hat sich in den letzten Jahren als Austragungsort fuer
+          Istrien hat sich in den letzten Jahren als Austragungsort für
           hochwertige Radsport-Events etabliert. Wer den Wettkampf sucht oder
-          einfach die besondere Atmosphaere eines organisierten Events geniessen
-          moechte, hat mehrere Optionen:
+          einfach die besondere Atmosphäre eines organisierten Events genießen
+          möchte, hat mehrere Optionen:
         </p>
         <ul>
           <li>
@@ -201,70 +200,70 @@ export default async function RennradIstrienPage({ params }: Props) {
           </li>
           <li>
             <strong>Tour of Croatia (Mai):</strong> Das Profi-Etappenrennen
-            fuehrt regelmaessig durch Istrien. Selbst wenn Sie nicht mitfahren —
+            führt regelmäßig durch Istrien. Selbst wenn Sie nicht mitfahren —
             die Strecken der Profis nachzufahren ist ein besonderes Erlebnis.
           </li>
           <li>
             <strong>Parenzana Cycling Marathon:</strong> Entlang der historischen
             Bahnstrecke, sowohl als MTB- als auch als Rennrad-Variante. Eine
-            einzigartige Strecke durch Tunnels und ueber Viadukte.
+            einzigartige Strecke durch Tunnels und über Viadukte.
           </li>
         </ul>
 
         <BlogInfoBox variant="tip" title="Tipp: Istria Granfondo im April">
           <p>
             Wer im April kommt, kann den Istria Granfondo mitfahren — eines der
-            schoensten Jedermann-Rennen Europas. Die Anmeldung oeffnet meist im
+            schönsten Jedermann-Rennen Europas. Die Anmeldung öffnet meist im
             Januar. Kombinieren Sie das Event mit einer Woche Training in der{" "}
             <Link href="/das-haus" className="text-terracotta-500">
               Villa Gloria
             </Link>{" "}
-            und geniessen Sie die perfekte Vorbereitung.
+            und genießen Sie die perfekte Vorbereitung.
           </p>
         </BlogInfoBox>
 
-        <h2>Praktische Tipps fuer Rennradfahrer</h2>
+        <h2>Praktische Tipps für Rennradfahrer</h2>
         <p>
-          Damit Ihr Rennrad-Urlaub in Istrien reibungslos verlaeuft, hier unsere
+          Damit Ihr Rennrad-Urlaub in Istrien reibungslos verläuft, hier unsere
           gesammelten Praxistipps:
         </p>
         <ul>
           <li>
             <strong>Radtransport:</strong> Die bequemste Option ist das Auto mit
-            Hecktraeger oder Dachtraeger. Alternativ: Radkoffer im Flieger zum
-            Flughafen Pula (30 Minuten von Kastelir). Die meisten Airlines
-            transportieren Raeder als Sportgepaeck.
+            Heckträger oder Dachträger. Alternativ: Radkoffer im Flieger zum
+            Flughafen Pula (30 Minuten von Kaštelir). Die meisten Airlines
+            transportieren Räder als Sportgepäck.
           </li>
           <li>
-            <strong>Verleih:</strong> Hochwertige Rennraeder (Carbon, Shimano
-            105 oder Ultegra) ab etwa 40 EUR pro Tag in Porec. Einige Verleiher
+            <strong>Verleih:</strong> Hochwertige Rennräder (Carbon, Shimano
+            105 oder Ultegra) ab etwa 40 EUR pro Tag in Poreč. Einige Verleiher
             bieten auch Lieferung zur Villa an. Reservieren Sie in der
             Hochsaison mindestens eine Woche im Voraus.
           </li>
           <li>
             <strong>Wasser:</strong> Immer mindestens 2 Flaschen mitnehmen, im
-            Sommer 3. In den Doerfern gibt es Brunnen und kleine Geschaefte zum
-            Auffuellen. Auf laengeren Strecken im Hinterland sind
+            Sommer 3. In den Dörfern gibt es Brunnen und kleine Geschäfte zum
+            Auffüllen. Auf längeren Strecken im Hinterland sind
             Versorgungspunkte seltener.
           </li>
           <li>
             <strong>Werkzeug:</strong> Grundwerkzeug, Ersatzschlauch und
-            CO2-Patronen mitnehmen. Der naechste Fahrrad-Shop ist in Porec (ca.
-            15 km von Kastelir). Im Notfall helfen die Einheimischen gerne —
-            Gastfreundschaft wird in Istrien grossgeschrieben.
+            CO2-Patronen mitnehmen. Der nächste Fahrrad-Shop ist in Poreč (ca.
+            15 km von Kaštelir). Im Notfall helfen die Einheimischen gerne —
+            Gastfreundschaft wird in Istrien großgeschrieben.
           </li>
         </ul>
 
         <BlogInfoBox variant="warning" title="Achtung: Sommerhitze">
           <p>
-            In der Mittagshitze (Juli/August) koennen die Temperaturen ueber
-            35 Grad Celsius steigen. Planen Sie Ihre Touren frueh morgens (Start
-            vor 8 Uhr) oder am spaeten Nachmittag. Sonnencreme mit hohem LSF
-            und eine gut gefuellte Trinkflasche sind Pflicht. Die{" "}
+            In der Mittagshitze (Juli/August) können die Temperaturen über
+            35 Grad Celsius steigen. Planen Sie Ihre Touren früh morgens (Start
+            vor 8 Uhr) oder am späten Nachmittag. Sonnencreme mit hohem LSF
+            und eine gut gefüllte Trinkflasche sind Pflicht. Die{" "}
             <Link href="/umgebung" className="text-terracotta-500">
               Umgebung
             </Link>{" "}
-            bietet gluecklicherweise viele schattige Streckenabschnitte.
+            bietet glücklicherweise viele schattige Streckenabschnitte.
           </p>
         </BlogInfoBox>
 
@@ -274,9 +273,9 @@ export default async function RennradIstrienPage({ params }: Props) {
           <Link href="/das-haus" className="text-terracotta-500">
             Villa Gloria al Padre
           </Link>{" "}
-          in Kastelir ist der perfekte Stuetzpunkt fuer Ihren Rennrad-Urlaub.
+          in Kaštelir ist der perfekte Stützpunkt für Ihren Rennrad-Urlaub.
           Direkt im Hinterland gelegen, mit sofortigem Zugang zu den besten
-          Huegelrouten — und nur 15 Minuten von der Kueste entfernt.
+          Hügelrouten — und nur 15 Minuten von der Küste entfernt.
         </p>
 
         <BlogFeatureCard
@@ -285,25 +284,25 @@ export default async function RennradIstrienPage({ params }: Props) {
               icon: <Droplets className="h-5 w-5" />,
               title: "Pool-Erholung nach langen Touren",
               description:
-                "Der 12x8 m grosse Pool ist die beste Regeneration nach 100 km im Sattel. Abkuehlung, Stretching am Beckenrand und Entspannung auf den Sonnenliegen.",
+                "Der 12x8 m große Pool ist die beste Regeneration nach 100 km im Sattel. Abkühlung, Stretching am Beckenrand und Entspannung auf den Sonnenliegen.",
             },
             {
               icon: <Shield className="h-5 w-5" />,
               title: "Sichere Aufbewahrung",
               description:
-                "Ihr Carbon-Renner ist auf dem eingezaeunten Grundstueck der Villa sicher aufgehoben. Geschuetzt vor Wetter und neugierigen Blicken.",
+                "Ihr Carbon-Renner ist auf dem eingezäunten Grundstück der Villa sicher aufgehoben. Geschützt vor Wetter und neugierigen Blicken.",
             },
             {
               icon: <MapPin className="h-5 w-5" />,
               title: "Lage am Hinterland",
               description:
-                "Kastelir liegt auf 200 m Hoehe — direkt starten Sie in huegelige Strassen ohne langweiliges Flachstueck zum Aufwaermen. Die besten Routen beginnen vor der Tuer.",
+                "Kaštelir liegt auf 200 m Höhe — direkt starten Sie in hügelige Straßen ohne langweiliges Flachstück zum Aufwärmen. Die besten Routen beginnen vor der Tür.",
             },
             {
               icon: <Star className="h-5 w-5" />,
               title: "Grillabend nach der Tour",
               description:
-                "Der ueberdachte Grillplatz mit Steinofen laed nach einem langen Tag im Sattel zum gemeinsamen Abendessen ein. Dazu ein Glas istrischer Malvazija.",
+                "Der überdachte Grillplatz mit Steinofen lädt nach einem langen Tag im Sattel zum gemeinsamen Abendessen ein. Dazu ein Glas istrischer Malvazija.",
             },
           ]}
         />
@@ -321,20 +320,20 @@ export default async function RennradIstrienPage({ params }: Props) {
         />
 
         <BlogQuote>
-          Istrien ist fuer Rennradfahrer, was die Toskana vor 20 Jahren war —
-          noch ein echter Geheimtipp. Leere Strassen, perfekter Asphalt,
-          grandlose Aussichten und am Ende des Tages eine Konoba mit
-          Trueffelpasta. Besser geht es nicht.
+          Istrien ist für Rennradfahrer, was die Toskana vor 20 Jahren war —
+          noch ein echter Geheimtipp. Leere Straßen, perfekter Asphalt,
+          grandiose Aussichten und am Ende des Tages eine Konoba mit
+          Trüffelpasta. Besser geht es nicht.
         </BlogQuote>
 
         <p>
-          Planen Sie Ihren Rennrad-Urlaub in Istrien und pruefen Sie die{" "}
+          Planen Sie Ihren Rennrad-Urlaub in Istrien und prüfen Sie die{" "}
           <Link href="/buchen" className="text-terracotta-500">
-            Verfuegbarkeit der Villa Gloria
+            Verfügbarkeit der Villa Gloria
           </Link>
           . Ob Solo-Trainingslager oder Gruppenreise mit Freunden — die Villa
-          bietet Platz fuer bis zu 10 Personen und die perfekte Infrastruktur
-          fuer Radsportler.
+          bietet Platz für bis zu 10 Personen und die perfekte Infrastruktur
+          für Radsportler.
         </p>
       </BlogArticle>
     </>

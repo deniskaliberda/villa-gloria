@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": "/de/datenschutz",
         de: "/de/datenschutz",
         en: "/en/datenschutz",
-        hr: "/hr/datenschutz",
       },
     },
   };

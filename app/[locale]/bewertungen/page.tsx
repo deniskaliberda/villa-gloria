@@ -23,7 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": "/de/bewertungen",
         de: "/de/bewertungen",
         en: "/en/bewertungen",
-        hr: "/hr/bewertungen",
       },
     },
   };

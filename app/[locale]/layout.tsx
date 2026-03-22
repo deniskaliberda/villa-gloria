@@ -69,7 +69,7 @@ export async function generateMetadata({
     ),
     openGraph: {
       type: "website",
-      locale: locale === "de" ? "de_DE" : locale === "hr" ? "hr_HR" : "en_US",
+      locale: locale === "de" ? "de_DE" : "en_US",
       siteName: "Villa Gloria al Padre",
     },
     alternates: {
@@ -78,7 +78,6 @@ export async function generateMetadata({
         "x-default": "/de",
         de: "/de",
         en: "/en",
-        hr: "/hr",
       },
     },
   };

@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": "/de/agb",
         de: "/de/agb",
         en: "/en/agb",
-        hr: "/hr/agb",
       },
     },
   };

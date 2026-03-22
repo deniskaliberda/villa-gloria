@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "x-default": "/de/umgebung",
         de: "/de/umgebung",
         en: "/en/umgebung",
-        hr: "/hr/umgebung",
       },
     },
   };
