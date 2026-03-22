@@ -239,6 +239,42 @@
     "blog": {
       "title": "Blog – Villa Gloria al Padre",
       "description": "Savjeti i inspiracija za vaš odmor u Istri"
+    },
+    "impressum": {
+      "title": "Impressum – Villa Gloria al Padre",
+      "description": "Impressum i pravne informacije za Villu Gloria al Padre u Kašteliru, Istra."
+    },
+    "datenschutz": {
+      "title": "Zaštita podataka – Villa Gloria al Padre",
+      "description": "Politika zaštite podataka za Villu Gloria al Padre – informacije o obradi osobnih podataka."
+    },
+    "agb": {
+      "title": "Uvjeti najma – Villa Gloria al Padre",
+      "description": "Opći uvjeti najma za Villu Gloria al Padre u Kašteliru, Istra."
+    },
+    "blogHundeurlaub": {
+      "title": "Odmor s psom u Istri — Savjeti za putovanje",
+      "description": "Uvjeti ulaska, plaže za pse i zašto je kuća za odmor s ograđenim vrtom najbolji izbor za odmor s psom u Istri."
+    },
+    "blogWeinurlaub": {
+      "title": "Vinski odmor u Istri — Najbolje vinarije kod Poreča",
+      "description": "Otkrijte istarsku vinsku regiju: Malvazija, Teran i najbolje vinarije između Kaštelira i Poreča."
+    },
+    "blogFamilienurlaub": {
+      "title": "Obiteljski odmor Istra — Savjeti za obitelji",
+      "description": "Aquapark Istralandia, Dino Park Funtana i plaže za obitelji: zašto je Istra savršena za obitelji."
+    },
+    "blogKastelir": {
+      "title": "Skriveni dragulj Kaštelir — Neotkrivena Istra",
+      "description": "Daleko od turističkih masa: Kaštelir nudi autentičnu Istru s lokalnim konobama i maslinovim uljem od proizvođača."
+    },
+    "blogMountainbike": {
+      "title": "Brdski biciklizam Istra — Najbolje staze kod Poreča",
+      "description": "Istarsko zaleđe je MTB raj: crvena zemlja, singletrackovi kroz maslinike i panoramske rute s pogledom na more."
+    },
+    "blogRennrad": {
+      "title": "Cestovni biciklizam Istra — Rute između obale i zaleđa",
+      "description": "Istra je europski skriveni dragulj za cestovne bicikliste: blage temperature, malo prometa, raznolika topografija."
     }
   }
 }

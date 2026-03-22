@@ -239,6 +239,42 @@
     "blog": {
       "title": "Blog – Villa Gloria al Padre",
       "description": "Tipps und Inspiration für Ihren Istrien-Urlaub"
+    },
+    "impressum": {
+      "title": "Impressum – Villa Gloria al Padre",
+      "description": "Impressum und rechtliche Informationen der Villa Gloria al Padre in Kaštelir, Istrien."
+    },
+    "datenschutz": {
+      "title": "Datenschutz – Villa Gloria al Padre",
+      "description": "Datenschutzerklärung der Villa Gloria al Padre – Informationen zur Verarbeitung personenbezogener Daten."
+    },
+    "agb": {
+      "title": "AGB – Villa Gloria al Padre",
+      "description": "Allgemeine Geschäftsbedingungen für die Vermietung der Villa Gloria al Padre in Kaštelir, Istrien."
+    },
+    "blogHundeurlaub": {
+      "title": "Hundeurlaub Istrien — Tipps für Urlaub mit Hund",
+      "description": "Einreisebestimmungen, hundefreundliche Strände und warum ein Ferienhaus mit eingezäuntem Grundstück die beste Wahl für den Hundeurlaub in Istrien ist."
+    },
+    "blogWeinurlaub": {
+      "title": "Weinurlaub Istrien — Die besten Weingüter bei Poreč",
+      "description": "Entdecken Sie Istriens Weinregion: Malvazija, Teran und die Top-Weingüter zwischen Kaštelir und Poreč."
+    },
+    "blogFamilienurlaub": {
+      "title": "Familienurlaub Istrien — Tipps für Familien",
+      "description": "Aquapark Istralandia, Dino Park Funtana und familienfreundliche Strände: Warum Istrien perfekt für Familien ist."
+    },
+    "blogKastelir": {
+      "title": "Geheimtipp Kaštelir — Unentdecktes Istrien",
+      "description": "Abseits der Touristenmassen: Kaštelir bietet authentisches Istrien mit lokalen Konobas und Olivenöl vom Erzeuger."
+    },
+    "blogMountainbike": {
+      "title": "Mountainbike Istrien — Die besten Trails bei Poreč",
+      "description": "Istriens Hinterland ist ein MTB-Paradies: rote Erde, Singletrails durch Olivenhaine und Panorama-Routen mit Meerblick."
+    },
+    "blogRennrad": {
+      "title": "Rennrad Istrien — Traumrouten Küste & Hinterland",
+      "description": "Istrien ist Europas Geheimtipp für Rennradfahrer: milde Temperaturen, wenig Verkehr, abwechslungsreiche Topografie."
     }
   }
 }

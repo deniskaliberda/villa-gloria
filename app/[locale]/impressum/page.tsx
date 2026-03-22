@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 
 type Props = {
@@ -8,10 +8,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.impressum" });
   return {
-    title: "Impressum – Villa Gloria al Padre | Ferienvilla in Istrien",
-    description:
-      "Impressum und Anbieterkennzeichnung der Ferienunterkunft Villa Gloria al Padre in Kaštelir, Istrien, Kroatien.",
+    title: t("title"),
+    description: t("description"),
     alternates: {
       canonical: `/${locale}/impressum`,
       languages: {

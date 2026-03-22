@@ -12,12 +12,14 @@ import type { ReactNode } from "react";
 interface BlogArticleProps {
   post: BlogPost;
   relatedPosts: BlogPost[];
+  localizedTitle?: string;
   children: ReactNode;
 }
 
 export function BlogArticle({
   post,
   relatedPosts,
+  localizedTitle,
   children,
 }: BlogArticleProps) {
   return (
@@ -39,7 +41,7 @@ export function BlogArticle({
               {post.category}
             </span>
             <h1 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-              {post.title}
+              {localizedTitle || post.title}
             </h1>
           </div>
         </div>

@@ -37,14 +37,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.blogFamilienurlaub" });
   const post = getPostBySlug(SLUG)!;
   return {
-    title: `${post.title} — Villa Gloria al Padre`,
-    description: post.description,
+    title: t("title"),
+    description: t("description"),
     keywords: post.keywords,
     openGraph: {
-      title: post.title,
-      description: post.description,
+      title: t("title"),
+      description: t("description"),
       images: [{ url: post.image }],
       type: "article",
       publishedTime: post.date,
@@ -65,6 +66,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "meta.blogFamilienurlaub" });
   const post = getPostBySlug(SLUG)!;
   const relatedPosts = getRelatedPosts(SLUG);
 
@@ -92,7 +94,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogArticle post={post} relatedPosts={relatedPosts}>
+      <BlogArticle post={post} relatedPosts={relatedPosts} localizedTitle={t("title")}>
         <p className="text-xl leading-relaxed">
           Istrien ist wie gemacht für Familien: kurze Anreise aus Deutschland
           und Österreich, kinderfreundliche Strände, spektakuläre

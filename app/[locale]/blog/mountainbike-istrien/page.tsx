@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { BlogArticle } from "@/components/blog/BlogArticle";
 import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
@@ -30,14 +30,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta.blogMountainbike" });
   const post = getPostBySlug(SLUG)!;
   return {
-    title: `${post.title} — Villa Gloria al Padre`,
-    description: post.description,
+    title: t("title"),
+    description: t("description"),
     keywords: post.keywords,
     openGraph: {
-      title: post.title,
-      description: post.description,
+      title: t("title"),
+      description: t("description"),
       images: [{ url: post.image }],
       type: "article",
       publishedTime: post.date,
@@ -58,6 +59,7 @@ export default async function MountainbikeIstrienPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "meta.blogMountainbike" });
   const post = getPostBySlug(SLUG)!;
   const relatedPosts = getRelatedPosts(SLUG);
 
@@ -85,7 +87,7 @@ export default async function MountainbikeIstrienPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogArticle post={post} relatedPosts={relatedPosts}>
+      <BlogArticle post={post} relatedPosts={relatedPosts} localizedTitle={t("title")}>
         <p className="text-xl font-bold leading-relaxed">
           Istrien ist ein MTB-Paradies — rote Erde, Singletrails durch
           Olivenhaine, Panorama-Routen mit Meerblick. Kaum Hoehenmeter im

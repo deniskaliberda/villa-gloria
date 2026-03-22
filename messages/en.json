@@ -239,6 +239,42 @@
     "blog": {
       "title": "Blog – Villa Gloria al Padre",
       "description": "Tips and inspiration for your Istria holiday"
+    },
+    "impressum": {
+      "title": "Legal Notice – Villa Gloria al Padre",
+      "description": "Legal notice and contact information for Villa Gloria al Padre in Kaštelir, Istria."
+    },
+    "datenschutz": {
+      "title": "Privacy Policy – Villa Gloria al Padre",
+      "description": "Privacy policy of Villa Gloria al Padre – information about the processing of personal data."
+    },
+    "agb": {
+      "title": "Terms & Conditions – Villa Gloria al Padre",
+      "description": "General terms and conditions for renting Villa Gloria al Padre in Kaštelir, Istria."
+    },
+    "blogHundeurlaub": {
+      "title": "Dog Holiday Istria — Tips for Vacations with Dogs",
+      "description": "Entry requirements, dog-friendly beaches, and why a holiday home with a fenced garden is the best choice for a dog holiday in Istria."
+    },
+    "blogWeinurlaub": {
+      "title": "Wine Holiday Istria — Best Wineries near Poreč",
+      "description": "Discover Istria's wine region: Malvazija, Teran, and the top wineries between Kaštelir and Poreč."
+    },
+    "blogFamilienurlaub": {
+      "title": "Family Holiday Istria — Tips for Families",
+      "description": "Istralandia aquapark, Dino Park Funtana, and family-friendly beaches: why Istria is perfect for families."
+    },
+    "blogKastelir": {
+      "title": "Hidden Gem Kaštelir — Undiscovered Istria",
+      "description": "Off the beaten path: Kaštelir offers authentic Istria with local konobas and olive oil from the producer."
+    },
+    "blogMountainbike": {
+      "title": "Mountain Biking Istria — Best Trails near Poreč",
+      "description": "Istria's hinterland is an MTB paradise: red earth, singletrails through olive groves, and panoramic routes with sea views."
+    },
+    "blogRennrad": {
+      "title": "Road Cycling Istria — Dream Routes Coast & Hinterland",
+      "description": "Istria is Europe's hidden gem for road cyclists: mild temperatures, little traffic, varied topography."
     }
   }
 }
