@@ -136,18 +136,17 @@
     "nightlyRate": "Nightly rate",
     "cleaningFee": "Cleaning fee",
     "total": "Total price",
-    "deposit": "Deposit (25%)",
-    "remaining": "Remaining (due 6 weeks before check-in)",
-    "bookAndPay": "Book & pay deposit",
+    "paymentNote": "Payment via bank transfer or cash on arrival after confirmation",
+    "sendInquiry": "Send inquiry",
     "unavailable": "Not available",
     "minNights": "Minimum stay: {min} nights",
     "confirmation": {
-      "title": "Booking confirmed!",
-      "thankYou": "Thank you for your booking",
-      "bookingNumber": "Booking number",
+      "title": "Inquiry received!",
+      "thankYou": "Thank you for your inquiry",
+      "bookingNumber": "Inquiry number",
       "nextSteps": "Next steps",
-      "emailSent": "You will receive a confirmation email shortly.",
-      "remainingPayment": "The remaining payment is due 6 weeks before check-in."
+      "emailSent": "We will review your inquiry and get back to you within 24 hours.",
+      "reviewTime": "After confirmation, you will receive a rental agreement with payment details."
     }
   },
   "surroundings": {

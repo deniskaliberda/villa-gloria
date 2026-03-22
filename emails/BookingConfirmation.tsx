@@ -9,16 +9,14 @@ interface BookingConfirmationProps {
   nights: number;
   propertyType: "house" | "apartment";
   totalPrice: number;
-  depositAmount: number;
-  remainingAmount: number;
   lang?: "de" | "en";
 }
 
 const t = {
   de: {
-    preview: "Ihre Buchung wurde bestätigt",
+    preview: "Ihre Anfrage wurde bestätigt",
     greeting: "Liebe/r",
-    confirmed: "Ihre Buchung wurde erfolgreich bestätigt!",
+    confirmed: "Ihre Anfrage wurde bestätigt!",
     bookingNumber: "Buchungsnummer",
     details: "Buchungsdetails",
     property: "Unterkunft",
@@ -28,10 +26,8 @@ const t = {
     checkOut: "Check-out",
     nightsLabel: "Nächte",
     total: "Gesamtpreis",
-    deposit: "Anzahlung (bezahlt)",
-    remaining: "Restzahlung",
-    remainingNote:
-      "Die Restzahlung ist 6 Wochen vor Check-in fällig. Sie erhalten rechtzeitig eine Erinnerung.",
+    paymentNote:
+      "Wir senden Ihnen in Kürze einen Mietvertrag mit allen Details zur Zahlung (per Überweisung oder bar vor Ort).",
     checkInTime: "Check-in: ab 17:00 Uhr",
     checkOutTime: "Check-out: bis 10:00 Uhr",
     questions: "Bei Fragen antworten Sie einfach auf diese E-Mail.",
@@ -39,9 +35,9 @@ const t = {
     team: "Ihr Villa Gloria Team",
   },
   en: {
-    preview: "Your booking has been confirmed",
+    preview: "Your inquiry has been confirmed",
     greeting: "Dear",
-    confirmed: "Your booking has been successfully confirmed!",
+    confirmed: "Your inquiry has been confirmed!",
     bookingNumber: "Booking number",
     details: "Booking details",
     property: "Property",
@@ -51,10 +47,8 @@ const t = {
     checkOut: "Check-out",
     nightsLabel: "Nights",
     total: "Total price",
-    deposit: "Deposit (paid)",
-    remaining: "Remaining payment",
-    remainingNote:
-      "The remaining payment is due 6 weeks before check-in. You will receive a reminder in time.",
+    paymentNote:
+      "We will send you a rental agreement shortly with all payment details (bank transfer or cash on arrival).",
     checkInTime: "Check-in: from 5:00 PM",
     checkOutTime: "Check-out: by 10:00 AM",
     questions: "If you have any questions, simply reply to this email.",
@@ -79,8 +73,6 @@ export function BookingConfirmation({
   nights,
   propertyType,
   totalPrice,
-  depositAmount,
-  remainingAmount,
   lang = "de",
 }: BookingConfirmationProps) {
   const l = t[lang];
@@ -198,42 +190,13 @@ export function BookingConfirmation({
               {formatEuro(totalPrice)}
             </td>
           </tr>
-          <tr>
-            <td style={{ padding: "6px 0", color: "#4A5D3A" }}>
-              {l.deposit}
-            </td>
-            <td
-              style={{
-                padding: "6px 0",
-                textAlign: "right" as const,
-                color: "#4A5D3A",
-                fontWeight: "600",
-              }}
-            >
-              {formatEuro(depositAmount)}
-            </td>
-          </tr>
-          <tr>
-            <td style={{ padding: "6px 0", color: "#8a8175" }}>
-              {l.remaining}
-            </td>
-            <td
-              style={{
-                padding: "6px 0",
-                textAlign: "right" as const,
-                color: "#8a8175",
-              }}
-            >
-              {formatEuro(remainingAmount)}
-            </td>
-          </tr>
         </tbody>
       </table>
 
       <Text
-        style={{ fontSize: "13px", color: "#8a8175", margin: "16px 0 24px" }}
+        style={{ fontSize: "13px", color: "#4A5D3A", margin: "16px 0 24px", lineHeight: "20px" }}
       >
-        {l.remainingNote}
+        {l.paymentNote}
       </Text>
 
       <Section

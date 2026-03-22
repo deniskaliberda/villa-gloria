@@ -1,13 +1,10 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 import { bookingSchema } from "@/lib/validations";
 import { calculatePrice } from "@/lib/pricing";
 import { checkAvailability } from "@/lib/availability";
 import { createAdminClient } from "@/lib/supabase/admin";
-
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY)
-  : null;
+import { notifyOwner } from "@/lib/resend";
+import { ApprovalRequest } from "@/emails/ApprovalRequest";
 
 /**
  * Generate a sequential booking number: VG-YYYY-NNN
@@ -87,7 +84,7 @@ export async function POST(request: Request) {
       .from("bookings")
       .insert({
         booking_number: bookingNumber,
-        status: "pending",
+        status: "inquiry_received",
         property_type: data.propertyType,
         check_in: data.checkIn,
         check_out: data.checkOut,
@@ -119,58 +116,45 @@ export async function POST(request: Request) {
       );
     }
 
-    // 5. Create Stripe Checkout Session (25% deposit)
-    if (stripe) {
-      const propertyLabel =
-        data.propertyType === "house"
-          ? "Villa Gloria – Gesamtes Haus"
-          : "Villa Gloria – Souterrainwohnung";
+    // 5. Send approval request email to owner
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://villa-gloria-istrien.de";
+    const approveUrl = `${baseUrl}/api/admin/booking/${booking.id}/approve?token=${booking.approval_token}`;
+    const rejectUrl = `${baseUrl}/api/admin/booking/${booking.id}/reject?token=${booking.approval_token}`;
 
-      const session = await stripe.checkout.sessions.create({
-        mode: "payment",
-        payment_method_types: ["card"],
-        customer_email: data.guestEmail,
-        metadata: {
-          booking_id: booking.id,
-          booking_number: bookingNumber,
-          type: "deposit",
-        },
-        line_items: [
-          {
-            price_data: {
-              currency: "eur",
-              product_data: {
-                name: `${propertyLabel} – Anzahlung`,
-                description: `${data.checkIn} bis ${data.checkOut} (${price.nights} Nächte)`,
-              },
-              unit_amount: price.depositAmount,
-            },
-            quantity: 1,
-          },
-        ],
-        success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/${data.guestLanguage}/buchen/bestaetigung?booking=${bookingNumber}`,
-        cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/${data.guestLanguage}/buchen?cancelled=true`,
-      });
+    const checkInDate = new Date(data.checkIn).toLocaleDateString("de-DE", {
+      day: "numeric", month: "long", year: "numeric",
+    });
+    const checkOutDate = new Date(data.checkOut).toLocaleDateString("de-DE", {
+      day: "numeric", month: "long", year: "numeric",
+    });
 
-      // Update booking with Stripe session ID
-      await supabase
-        .from("bookings")
-        .update({ stripe_session_id: session.id })
-        .eq("id", booking.id);
-
-      return NextResponse.json({
-        success: true,
+    await notifyOwner(
+      `Neue Anfrage: ${bookingNumber} – Bitte bestätigen`,
+      ApprovalRequest({
         bookingNumber,
-        checkoutUrl: session.url,
-      });
-    }
+        guestName: data.guestName,
+        guestEmail: data.guestEmail,
+        guestPhone: data.guestPhone || undefined,
+        guestCountry: data.guestCountry,
+        checkIn: checkInDate,
+        checkOut: checkOutDate,
+        nights: price.nights,
+        propertyType: data.propertyType,
+        guestsAdults: data.guestsAdults,
+        guestsChildren: data.guestsChildren,
+        hasPet: data.hasPet,
+        totalPrice: price.totalPrice,
+        guestMessage: data.guestMessage || undefined,
+        approveUrl,
+        rejectUrl,
+      }),
+      booking.id,
+      "approval_request"
+    );
 
-    // If Stripe is not configured, return success without payment
     return NextResponse.json({
       success: true,
       bookingNumber,
-      checkoutUrl: null,
-      message: "Booking created (Stripe not configured)",
     });
   } catch (error) {
     console.error("Booking error:", error);

@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBookButton } from "@/components/layout/MobileBookButton";
 import { CookieBanner } from "@/components/ui/CookieBanner";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "../globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -101,6 +102,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
           <MobileBookButton />
           <CookieBanner />
+          <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>
     </html>

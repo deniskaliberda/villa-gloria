@@ -15,7 +15,6 @@ interface ApprovalRequestProps {
   guestsChildren: number;
   hasPet: boolean;
   totalPrice: number;
-  depositAmount: number;
   guestMessage?: string;
   approveUrl: string;
   rejectUrl: string;
@@ -43,7 +42,6 @@ export function ApprovalRequest({
   guestsChildren,
   hasPet,
   totalPrice,
-  depositAmount,
   guestMessage,
   approveUrl,
   rejectUrl,
@@ -63,8 +61,8 @@ export function ApprovalRequest({
       <Text
         style={{ fontSize: "14px", color: "#2D2A26", margin: "0 0 24px" }}
       >
-        Ein Gast möchte die Villa Gloria buchen. Die Anzahlung wurde bereits
-        geleistet. Bitte bestätigen oder ablehnen Sie die Buchung.
+        Ein Gast möchte die Villa Gloria buchen. Bitte prüfen Sie die Anfrage
+        und bestätigen oder lehnen Sie ab.
       </Text>
 
       {/* Booking Number */}
@@ -164,9 +162,9 @@ export function ApprovalRequest({
             </td>
           </tr>
           <tr>
-            <td style={{ padding: "4px 0", color: "#4A5D3A" }}>Anzahlung (bezahlt)</td>
-            <td style={{ padding: "4px 0", textAlign: "right" as const, color: "#4A5D3A" }}>
-              {formatEuro(depositAmount)}
+            <td style={{ padding: "4px 0", color: "#8a8175" }}>Zahlung</td>
+            <td style={{ padding: "4px 0", textAlign: "right" as const, color: "#8a8175" }}>
+              per Überweisung / bar
             </td>
           </tr>
         </tbody>
@@ -258,7 +256,7 @@ export function ApprovalRequest({
             marginRight: "12px",
           }}
         >
-          Buchung bestätigen
+          Anfrage bestätigen
         </Button>
         <Button
           href={rejectUrl}
@@ -280,7 +278,7 @@ export function ApprovalRequest({
       <Text
         style={{ fontSize: "12px", color: "#8a8175", textAlign: "center" as const, margin: 0 }}
       >
-        Klicken Sie auf einen Button, um die Buchung zu bestätigen oder abzulehnen.
+        Klicken Sie auf einen Button, um die Anfrage zu bestätigen oder abzulehnen.
       </Text>
     </EmailLayout>
   );

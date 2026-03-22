@@ -18,8 +18,8 @@ const t = {
       "Vielen Dank für Ihr Interesse an der Villa Gloria al Padre. Leider können wir Ihre Buchung für den gewünschten Zeitraum nicht bestätigen.",
     bookingNumber: "Buchungsnummer",
     period: "Angefragter Zeitraum",
-    refund:
-      "Ihre geleistete Anzahlung wird selbstverständlich vollständig zurückerstattet. Die Rückbuchung erfolgt innerhalb von 5–10 Werktagen auf das ursprüngliche Zahlungsmittel.",
+    noCharge:
+      "Da keine Zahlung erfolgt ist, entstehen Ihnen keinerlei Kosten.",
     alternative:
       "Vielleicht finden Sie einen anderen passenden Zeitraum? Wir würden uns freuen, Sie als Gast begrüßen zu dürfen.",
     checkAvailability: "Verfügbarkeit prüfen",
@@ -34,8 +34,8 @@ const t = {
       "Thank you for your interest in Villa Gloria al Padre. Unfortunately, we are unable to confirm your booking for the requested period.",
     bookingNumber: "Booking number",
     period: "Requested period",
-    refund:
-      "Your deposit will of course be fully refunded. The refund will be processed within 5–10 business days to your original payment method.",
+    noCharge:
+      "Since no payment was made, there are no charges.",
     alternative:
       "Perhaps you can find another suitable period? We would be happy to welcome you as our guest.",
     checkAvailability: "Check availability",
@@ -115,7 +115,7 @@ export function BookingRejected({
         }}
       >
         <Text style={{ fontSize: "14px", color: "#4A5D3A", margin: 0, lineHeight: "22px" }}>
-          {l.refund}
+          {l.noCharge}
         </Text>
       </Section>
 

@@ -94,7 +94,7 @@ export async function GET(
   return new Response(
     htmlPage(
       "Buchung abgelehnt",
-      `Die Buchung <strong>${booking.booking_number}</strong> für <strong>${booking.guest_name}</strong> (${checkInDate} – ${checkOutDate}) wurde abgelehnt.<br><br>Der Gast wurde informiert und die Anzahlung wird zurückerstattet.`
+      `Die Anfrage <strong>${booking.booking_number}</strong> von <strong>${booking.guest_name}</strong> (${checkInDate} – ${checkOutDate}) wurde abgelehnt.<br><br>Der Gast wurde informiert.`
     ),
     { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
   );

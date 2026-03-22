@@ -54,7 +54,6 @@ export async function GET(
     .from("bookings")
     .update({
       status: "confirmed",
-      deposit_paid: true,
       approved_at: new Date().toISOString(),
       confirmed_at: new Date().toISOString(),
     })
@@ -92,8 +91,6 @@ export async function GET(
       nights: booking.nights,
       propertyType: booking.property_type,
       totalPrice: booking.total_price,
-      depositAmount: booking.deposit_amount,
-      remainingAmount: booking.remaining_amount,
       lang: locale,
     }),
     bookingId: id,
@@ -121,7 +118,7 @@ export async function GET(
   return new Response(
     htmlPage(
       "Buchung bestätigt ✓",
-      `Die Buchung <strong>${booking.booking_number}</strong> für <strong>${booking.guest_name}</strong> (${checkInDate} – ${checkOutDate}) wurde erfolgreich bestätigt.<br><br>Der Gast erhält jetzt eine Bestätigungs-E-Mail.${process.env.CARETAKER_EMAIL ? "<br>Die Betreuerin wurde ebenfalls informiert." : ""}`
+      `Die Anfrage <strong>${booking.booking_number}</strong> von <strong>${booking.guest_name}</strong> (${checkInDate} – ${checkOutDate}) wurde bestätigt.<br><br>Der Gast erhält jetzt eine Bestätigungs-E-Mail mit dem Hinweis auf Zahlung per Überweisung/bar.${process.env.CARETAKER_EMAIL ? "<br>Die Betreuerin wurde ebenfalls informiert." : ""}`
     ),
     { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
   );

@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle, Mail, CreditCard, CalendarCheck } from "lucide-react";
+import { CheckCircle, Mail, Clock, CalendarCheck } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -64,9 +64,9 @@ function ConfirmationContent() {
                   <p className="text-sm text-dark-light">{t("emailSent")}</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CreditCard className="mt-0.5 h-5 w-5 shrink-0 text-terracotta-500" />
+                  <Clock className="mt-0.5 h-5 w-5 shrink-0 text-terracotta-500" />
                   <p className="text-sm text-dark-light">
-                    {t("remainingPayment")}
+                    {t("reviewTime")}
                   </p>
                 </div>
                 <div className="flex items-start gap-3">

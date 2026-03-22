@@ -4,17 +4,12 @@ import { sendEmail } from "@/lib/resend";
 import { PaymentReminder } from "@/emails/PaymentReminder";
 import { CheckInInfo } from "@/emails/CheckInInfo";
 import { ReviewRequest } from "@/emails/ReviewRequest";
-import Stripe from "stripe";
-
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY)
-  : null;
 
 const CRON_SECRET = process.env.CRON_SECRET;
 
 /**
  * Daily cron job (07:00 UTC) — Guest reminders:
- * - 6 weeks before check-in → Payment reminder with Stripe link
+ * - 6 weeks before check-in → Payment reminder (bank transfer)
  * - 3 days before check-in → Check-in info
  * - 3 days after check-out → Review request
  */
@@ -46,42 +41,6 @@ export async function GET(request: Request) {
   for (const booking of paymentBookings || []) {
     const lang = (booking.guest_language as "de" | "en") || "de";
 
-    // Create Stripe payment link for remaining amount
-    let paymentLink = `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/buchen`;
-
-    if (stripe) {
-      try {
-        const session = await stripe.checkout.sessions.create({
-          mode: "payment",
-          payment_method_types: ["card"],
-          customer_email: booking.guest_email,
-          metadata: {
-            booking_id: booking.id,
-            booking_number: booking.booking_number,
-            type: "remaining",
-          },
-          line_items: [
-            {
-              price_data: {
-                currency: "eur",
-                product_data: {
-                  name: "Villa Gloria – Restzahlung",
-                  description: `Buchung ${booking.booking_number}`,
-                },
-                unit_amount: booking.remaining_amount,
-              },
-              quantity: 1,
-            },
-          ],
-          success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/buchen/bestaetigung?booking=${booking.booking_number}`,
-          cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/buchen`,
-        });
-        paymentLink = session.url || paymentLink;
-      } catch (err) {
-        console.error("Failed to create payment link:", err);
-      }
-    }
-
     await sendEmail({
       to: booking.guest_email,
       subject:
@@ -93,7 +52,7 @@ export async function GET(request: Request) {
         guestName: booking.guest_name,
         checkIn: booking.check_in,
         remainingAmount: booking.remaining_amount,
-        paymentLink,
+        paymentLink: `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/kontakt`,
         lang,
       }),
       bookingId: booking.id,

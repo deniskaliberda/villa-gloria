@@ -108,19 +108,8 @@ export function PriceCalculator({
           </div>
         </div>
 
-        <div className="space-y-1 rounded-button bg-olive-50 p-3 text-xs">
-          <div className="flex justify-between">
-            <span className="text-olive-700">{t("deposit")}</span>
-            <span className="font-semibold text-olive-800">
-              {formatEuro(price.depositAmount)}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-olive-700">{t("remaining")}</span>
-            <span className="font-semibold text-olive-800">
-              {formatEuro(price.remainingAmount)}
-            </span>
-          </div>
+        <div className="rounded-button bg-olive-50 p-3 text-xs">
+          <span className="text-olive-700">{t("paymentNote")}</span>
         </div>
       </div>
     </div>

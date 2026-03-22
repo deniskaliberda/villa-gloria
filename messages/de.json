@@ -136,18 +136,17 @@
     "nightlyRate": "Nachtpreis",
     "cleaningFee": "Endreinigung",
     "total": "Gesamtpreis",
-    "deposit": "Anzahlung (25%)",
-    "remaining": "Restzahlung (6 Wochen vor Check-in)",
-    "bookAndPay": "Buchen & Anzahlung zahlen",
+    "paymentNote": "Zahlung per Überweisung oder bar vor Ort nach Bestätigung",
+    "sendInquiry": "Unverbindlich anfragen",
     "unavailable": "Nicht verfügbar",
     "minNights": "Mindestaufenthalt: {min} Nächte",
     "confirmation": {
-      "title": "Buchung bestätigt!",
-      "thankYou": "Vielen Dank für Ihre Buchung",
-      "bookingNumber": "Buchungsnummer",
+      "title": "Anfrage erhalten!",
+      "thankYou": "Vielen Dank für Ihre Anfrage",
+      "bookingNumber": "Anfragenummer",
       "nextSteps": "Nächste Schritte",
-      "emailSent": "Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
-      "remainingPayment": "Die Restzahlung ist 6 Wochen vor Check-in fällig."
+      "emailSent": "Wir prüfen Ihre Anfrage und melden uns innerhalb von 24 Stunden.",
+      "reviewTime": "Nach Bestätigung erhalten Sie einen Mietvertrag mit Zahlungsdetails."
     }
   },
   "surroundings": {

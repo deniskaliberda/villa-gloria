@@ -136,18 +136,17 @@
     "nightlyRate": "Cijena po noći",
     "cleaningFee": "Završno čišćenje",
     "total": "Ukupna cijena",
-    "deposit": "Polog (25%)",
-    "remaining": "Ostatak (6 tjedana prije dolaska)",
-    "bookAndPay": "Rezerviraj i plati polog",
+    "paymentNote": "Plaćanje bankovnim prijenosom ili gotovinom po potvrdi",
+    "sendInquiry": "Pošaljite upit",
     "unavailable": "Nije dostupno",
     "minNights": "Minimalni boravak: {min} noći",
     "confirmation": {
-      "title": "Rezervacija potvrđena!",
-      "thankYou": "Hvala vam na rezervaciji",
-      "bookingNumber": "Broj rezervacije",
+      "title": "Upit zaprimljen!",
+      "thankYou": "Hvala vam na upitu",
+      "bookingNumber": "Broj upita",
       "nextSteps": "Sljedeći koraci",
-      "emailSent": "Uskoro ćete primiti e-mail s potvrdom.",
-      "remainingPayment": "Preostali iznos dospijeva 6 tjedana prije dolaska."
+      "emailSent": "Provjerit ćemo vaš upit i javiti vam se u roku od 24 sata.",
+      "reviewTime": "Nakon potvrde primit ćete ugovor o najmu s detaljima o plaćanju."
     }
   },
   "surroundings": {

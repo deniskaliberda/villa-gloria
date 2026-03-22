@@ -69,8 +69,6 @@ async function sendTestEmails() {
       nights: fakeBooking.nights,
       propertyType: fakeBooking.propertyType,
       totalPrice: fakeBooking.totalPrice,
-      depositAmount: fakeBooking.depositAmount,
-      remainingAmount: fakeBooking.remainingAmount,
     }),
   });
   console.log(r1.error ? `   FAILED: ${r1.error.message}` : "   OK");

@@ -82,12 +82,8 @@ export function BookingForm({
         return;
       }
 
-      // Redirect to Stripe Checkout or confirmation page
-      if (result.checkoutUrl) {
-        window.location.href = result.checkoutUrl;
-      } else {
-        window.location.href = `/${locale}/buchen/bestaetigung?booking=${result.bookingNumber}`;
-      }
+      // Redirect to confirmation page
+      window.location.href = `/${locale}/buchen/bestaetigung?booking=${result.bookingNumber}`;
     } catch {
       setSubmitError("Buchung fehlgeschlagen. Bitte versuchen Sie es erneut.");
     } finally {
@@ -209,7 +205,7 @@ export function BookingForm({
         disabled={!canSubmit}
       >
         <Send className="mr-2 h-4 w-4" />
-        {t("bookAndPay")}
+        {t("sendInquiry")}
       </Button>
     </form>
   );
