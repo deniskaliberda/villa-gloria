@@ -17,11 +17,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: t("title"), description: t("description") };
 }
 
+const reviewSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "name": "Villa Gloria al Padre",
+  "url": "https://villa-gloria-istrien.de",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "5",
+    "bestRating": "5",
+  },
+  "review": [
+    { "@type": "Review", "author": { "@type": "Person", "name": "Familie M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Traumhafter Urlaub in Istrien" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Thomas K." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Perfekte Villa für Familienurlaub" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Sandra W." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Wunderschön gelegen" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Michael R." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Ruheoase in Istrien" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Julia H." }, "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "name": "Top-Ferienhaus" },
+  ],
+};
+
 export default async function ReviewsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ReviewsContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchemaData) }}
+      />
+      <ReviewsContent />
+    </>
+  );
 }
 
 const overallRating = 4.9;

@@ -65,7 +65,7 @@ export async function generateMetadata({
     },
     description: t("description"),
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || "https://villa-gloria.com"
+      process.env.NEXT_PUBLIC_SITE_URL || "https://villa-gloria-istrien.de"
     ),
     openGraph: {
       type: "website",
@@ -73,6 +73,7 @@ export async function generateMetadata({
       siteName: "Villa Gloria al Padre",
     },
     alternates: {
+      canonical: `/${locale}`,
       languages: {
         de: "/de",
         en: "/en",

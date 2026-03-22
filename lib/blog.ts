@@ -12,8 +12,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "hundeurlaub-istrien",
-    title:
-      "Hundeurlaub in Istrien — Die besten Tipps für Urlaub mit Hund in Kroatien",
+    title: "Hundeurlaub Istrien — Tipps für Urlaub mit Hund",
     description:
       "Einreisebestimmungen, hundefreundliche Strände und warum ein Ferienhaus mit eingezäuntem Grundstück die beste Wahl für den Hundeurlaub in Istrien ist.",
     date: "2026-03-15",
@@ -64,8 +63,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "geheimtipp-kastelir",
-    title:
-      "Geheimtipp Kaštelir — Warum dieses Dorf in Istrien noch unentdeckt ist",
+    title: "Geheimtipp Kaštelir — Unentdecktes Istrien",
     description:
       "Abseits der Touristenmassen: Kaštelir bietet authentisches Istrien mit lokalen Konobas, Olivenöl vom Erzeuger und perfekter Lage zwischen Poreč und Rovinj.",
     date: "2026-02-20",
@@ -82,7 +80,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "mountainbike-istrien",
-    title: "Mountainbiken in Istrien — Die besten Trails rund um Poreč und Kaštelir",
+    title: "Mountainbike Istrien — Die besten Trails bei Poreč",
     description:
       "Istriens Hinterland ist ein MTB-Paradies: rote Erde, Singletrails durch Olivenhaine und Panorama-Routen mit Meerblick. Die besten Strecken und Tipps für Mountainbiker.",
     date: "2026-03-20",
@@ -99,7 +97,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "rennrad-istrien",
-    title: "Rennradfahren in Istrien — Traumrouten zwischen Küste und Hinterland",
+    title: "Rennrad Istrien — Traumrouten Küste & Hinterland",
     description:
       "Istrien ist Europas Geheimtipp für Rennradfahrer: milde Temperaturen, wenig Verkehr, abwechslungsreiche Topografie. Die schönsten Routen und praktische Tipps.",
     date: "2026-03-18",
