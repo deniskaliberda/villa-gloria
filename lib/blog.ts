@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
       "Einreisebestimmungen, hundefreundliche Strände und warum ein Ferienhaus mit eingezäuntem Grundstück die beste Wahl für den Hundeurlaub in Istrien ist.",
     date: "2026-03-15",
     readingTime: "8 min",
-    image: "/images/garden/garten-volleyball.jpg",
+    image: "/images/blog/hero-hundeurlaub.webp",
     category: "Reise mit Hund",
     keywords: [
       "Hundeurlaub Istrien",
@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
       "Entdecken Sie Istriens Weinregion: Malvazija, Teran und die Top-Weingüter zwischen Kaštelir und Poreč. Tipps für Weintouren und kulinarische Erlebnisse.",
     date: "2026-03-08",
     readingTime: "7 min",
-    image: "/images/exterior/villa-pool-wide.jpg",
+    image: "/images/blog/hero-weinurlaub.webp",
     category: "Kulinarik",
     keywords: [
       "Weinurlaub Istrien",
@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
       "Aquapark Istralandia, Dino Park Funtana und familienfreundliche Strände: Warum Istrien das perfekte Reiseziel für Familien mit Kindern ist.",
     date: "2026-02-28",
     readingTime: "9 min",
-    image: "/images/pool/pool-panorama.jpg",
+    image: "/images/blog/hero-familienurlaub.webp",
     category: "Familienurlaub",
     keywords: [
       "Familienurlaub Istrien",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
       "Abseits der Touristenmassen: Kaštelir bietet authentisches Istrien mit lokalen Konobas, Olivenöl vom Erzeuger und perfekter Lage zwischen Poreč und Rovinj.",
     date: "2026-02-20",
     readingTime: "6 min",
-    image: "/images/exterior/villa-front.jpg",
+    image: "/images/blog/hero-kastelir.webp",
     category: "Geheimtipp",
     keywords: [
       "Kaštelir Istrien",
@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
       "Istriens Hinterland ist ein MTB-Paradies: rote Erde, Singletrails durch Olivenhaine und Panorama-Routen mit Meerblick. Die besten Strecken und Tipps für Mountainbiker.",
     date: "2026-03-20",
     readingTime: "8 min",
-    image: "/images/exterior/haus-garten-3.jpg",
+    image: "/images/blog/hero-mountainbike.webp",
     category: "Sport & Outdoor",
     keywords: [
       "Mountainbike Istrien",
@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
       "Istrien ist Europas Geheimtipp für Rennradfahrer: milde Temperaturen, wenig Verkehr, abwechslungsreiche Topografie. Die schönsten Routen und praktische Tipps.",
     date: "2026-03-18",
     readingTime: "7 min",
-    image: "/images/exterior/haus-fassade.jpg",
+    image: "/images/blog/hero-rennrad.webp",
     category: "Sport & Outdoor",
     keywords: [
       "Rennrad Istrien",
