@@ -23,7 +23,7 @@ const t = {
     details: "Buchungsdetails",
     property: "Unterkunft",
     house: "Gesamtes Haus (bis 9 Gäste)",
-    apartment: "Poolwohnung (2+2 Gäste)",
+    apartment: "Poolwohnung (2 Gäste + Aufbettung)",
     checkIn: "Check-in",
     checkOut: "Check-out",
     nightsLabel: "Nächte",

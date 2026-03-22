@@ -116,7 +116,7 @@ export function ApprovalRequest({
           <tr>
             <td style={{ padding: "4px 0", color: "#8a8175" }}>Unterkunft</td>
             <td style={{ padding: "4px 0", textAlign: "right" as const, fontWeight: "600" }}>
-              {propertyType === "house" ? "Gesamtes Haus" : "Souterrainwohnung"}
+              {propertyType === "house" ? "Gesamtes Haus" : "Poolwohnung"}
             </td>
           </tr>
           <tr>

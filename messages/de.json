@@ -41,8 +41,8 @@
         "details": "4 Schlafzimmer · 3 Bäder · 180 m²"
       },
       "apartment": {
-        "title": "Souterrainwohnung",
-        "description": "Separates Apartment mit Poolzugang, bis 3 Gäste, Oktober – April",
+        "title": "Poolwohnung",
+        "description": "Separates Apartment mit Poolzugang, 2 Gäste + Aufbettung, Mitte März – Mitte Oktober",
         "details": "1 Schlafzimmer · 1 Bad · Küchenzeile"
       }
     },
@@ -64,7 +64,7 @@
     "description": "Entdecken Sie die Villa Gloria al Padre im Detail",
     "groundFloor": "Erdgeschoss",
     "upperFloor": "Obergeschoss",
-    "apartment": "Poolwohnung / Souterrain",
+    "apartment": "Poolwohnung",
     "outdoor": "Außenbereich",
     "amenities": "Ausstattung"
   },
@@ -105,7 +105,7 @@
       },
       "apartment": {
         "title": "Die Poolwohnung",
-        "description": "Im Souterrain: ein eigenständiges Apartment mit Schlafzimmer, Aufbettung (Schlafcouch), Küchenzeile mit Spülmaschine und eigenem Bad – perfekt für Erwachsene und Kinder oder als separate Ferienwohnung in der Nebensaison."
+        "description": "Die Poolwohnung: ein eigenständiges Apartment mit Schlafzimmer (Doppelbett), Schlafsofa für 2 Personen, Küchenzeile mit Spülmaschine und eigenem Bad – perfekt für 2 Gäste plus Aufbettung. Von Mitte März bis Mitte Oktober auch separat buchbar."
       },
       "garden": {
         "title": "Garten & Sport",

@@ -71,7 +71,7 @@ export function CleaningNotification({
               <td style={{ padding: "4px 0", textAlign: "right" as const, fontWeight: "600" }}>
                 {propertyType === "house"
                   ? "Gesamtes Haus"
-                  : "Souterrainwohnung"}
+                  : "Poolwohnung"}
               </td>
             </tr>
             <tr>

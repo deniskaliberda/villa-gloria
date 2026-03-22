@@ -143,7 +143,7 @@ function HouseContent() {
               <div className="flex flex-col justify-center">
                 <p className="text-lg text-dark-light">
                   Das Obergeschoss beherbergt drei komfortable Schlafzimmer mit
-                  Klimaanlage im Flur und ein weiteres Badezimmer mit Dusche, WC, Bidet,
+                  einer zentralen Klimaanlage für alle Schlafzimmer und ein weiteres Badezimmer mit Dusche, WC, Bidet,
                   Waschbecken und Föhn. Alle Fenster sind mit Fliegengittern ausgestattet.
                   Der besondere Clou: ein kleiner Aussichtsturm mit Panoramablick
                   über Istrien und die Adria.
@@ -230,11 +230,11 @@ function HouseContent() {
             <ScrollReveal delay={0.2}>
               <div className="flex flex-col justify-center">
                 <p className="text-lg text-dark-light">
-                  Die Souterrainwohnung mit separatem Eingang ist das perfekte
-                  Apartment für Erwachsene und Kinder. Mit eigenem
-                  Schlafzimmer, Aufbettung (Schlafcouch 140×200), Wohnküche, Bad und direktem Poolzugang bietet
-                  sie vollständige Unabhängigkeit. In der Nebensaison (Oktober
-                  bis Oktober) auch separat buchbar (Mindestaufenthalt 6 Nächte).
+                  Die Poolwohnung mit separatem Eingang ist das perfekte
+                  Apartment für 2 Gäste plus Aufbettung. Mit einem
+                  Schlafzimmer (Doppelbett), Schlafsofa für 2 Personen, Wohnküche, Bad und direktem Poolzugang bietet
+                  sie vollständige Unabhängigkeit. Von Mitte März bis Mitte Oktober
+                  auch separat buchbar (Mindestaufenthalt 6 Nächte).
                 </p>
                 <ul className="mt-6 space-y-2 text-dark-light">
                   <li className="flex items-center gap-2">
@@ -243,7 +243,7 @@ function HouseContent() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-adriatic-500" />
-                    Doppelbett 160×200 + Aufbettung Schlafcouch 140×200
+                    Schlafzimmer mit Doppelbett + Schlafsofa für 2 Personen
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-adriatic-500" />
