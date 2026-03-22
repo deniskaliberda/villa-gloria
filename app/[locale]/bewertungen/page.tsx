@@ -14,7 +14,19 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.reviews" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/bewertungen`,
+      languages: {
+        "x-default": "/de/bewertungen",
+        de: "/de/bewertungen",
+        en: "/en/bewertungen",
+        hr: "/hr/bewertungen",
+      },
+    },
+  };
 }
 
 const reviewSchemaData = {

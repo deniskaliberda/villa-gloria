@@ -6,12 +6,22 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   return {
     title:
       "Mietbedingungen & AGB – Villa Gloria al Padre | Ferienvilla in Istrien",
     description:
       "Allgemeine Geschäftsbedingungen und Mietbedingungen für die Ferienunterkunft Villa Gloria al Padre in Kaštelir, Istrien, Kroatien.",
+    alternates: {
+      canonical: `/${locale}/agb`,
+      languages: {
+        "x-default": "/de/agb",
+        de: "/de/agb",
+        en: "/en/agb",
+        hr: "/hr/agb",
+      },
+    },
   };
 }
 

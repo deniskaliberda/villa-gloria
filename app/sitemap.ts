@@ -36,9 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: page === "" ? "weekly" : "monthly",
         priority: page === "" ? 1.0 : page === "/buchen" ? 0.9 : 0.7,
         alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [l, `${BASE_URL}/${l}${page}`])
-          ),
+          languages: {
+            "x-default": `${BASE_URL}/de${page}`,
+            ...Object.fromEntries(
+              locales.map((l) => [l, `${BASE_URL}/${l}${page}`])
+            ),
+          },
         },
       });
     }

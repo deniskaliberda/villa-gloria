@@ -8,22 +8,22 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta.booking" });
+  const t = await getTranslations({ locale, namespace: "meta.contact" });
   return {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `/${locale}/buchen`,
+      canonical: `/${locale}/kontakt`,
       languages: {
-        "x-default": "/de/buchen",
-        de: "/de/buchen",
-        en: "/en/buchen",
-        hr: "/hr/buchen",
+        "x-default": "/de/kontakt",
+        de: "/de/kontakt",
+        en: "/en/kontakt",
+        hr: "/hr/kontakt",
       },
     },
   };
 }
 
-export default function BookingLayout({ children }: { children: ReactNode }) {
+export default function ContactLayout({ children }: { children: ReactNode }) {
   return children;
 }

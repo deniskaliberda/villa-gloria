@@ -30,7 +30,19 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.house" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/das-haus`,
+      languages: {
+        "x-default": "/de/das-haus",
+        de: "/de/das-haus",
+        en: "/en/das-haus",
+        hr: "/hr/das-haus",
+      },
+    },
+  };
 }
 
 export default async function HousePage({ params }: Props) {

@@ -6,11 +6,21 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   return {
     title: "Impressum – Villa Gloria al Padre | Ferienvilla in Istrien",
     description:
       "Impressum und Anbieterkennzeichnung der Ferienunterkunft Villa Gloria al Padre in Kaštelir, Istrien, Kroatien.",
+    alternates: {
+      canonical: `/${locale}/impressum`,
+      languages: {
+        "x-default": "/de/impressum",
+        de: "/de/impressum",
+        en: "/en/impressum",
+        hr: "/hr/impressum",
+      },
+    },
   };
 }
 
@@ -89,11 +99,11 @@ function ImprintContent() {
           Die Europäische Kommission stellt eine Plattform zur
           Online-Streitbeilegung (OS) bereit:{" "}
           <a
-            href="https://ec.europa.eu/consumers/odr/"
+            href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_en"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://ec.europa.eu/consumers/odr/
+            https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_en
           </a>
           .
         </p>

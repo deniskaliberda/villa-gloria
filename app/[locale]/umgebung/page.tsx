@@ -22,7 +22,19 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta.surroundings" });
-  return { title: t("title"), description: t("description") };
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}/umgebung`,
+      languages: {
+        "x-default": "/de/umgebung",
+        de: "/de/umgebung",
+        en: "/en/umgebung",
+        hr: "/hr/umgebung",
+      },
+    },
+  };
 }
 
 export default async function SurroundingsPage({ params }: Props) {

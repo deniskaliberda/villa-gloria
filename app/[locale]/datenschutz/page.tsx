@@ -6,12 +6,22 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   return {
     title:
       "Datenschutzerklärung – Villa Gloria al Padre | Ferienvilla in Istrien",
     description:
       "Datenschutzerklärung gemäß DSGVO für die Website der Ferienunterkunft Villa Gloria al Padre in Kaštelir, Istrien, Kroatien.",
+    alternates: {
+      canonical: `/${locale}/datenschutz`,
+      languages: {
+        "x-default": "/de/datenschutz",
+        de: "/de/datenschutz",
+        en: "/en/datenschutz",
+        hr: "/hr/datenschutz",
+      },
+    },
   };
 }
 
@@ -316,7 +326,7 @@ function PrivacyContent() {
           <br />
           Website:{" "}
           <a
-            href="https://stripe.com"
+            href="https://stripe.com/de"
             target="_blank"
             rel="noopener noreferrer"
           >
