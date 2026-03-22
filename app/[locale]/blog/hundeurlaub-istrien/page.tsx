@@ -98,12 +98,12 @@ export default async function HundeurlaubPage({ params }: Props) {
             {
               src: "/images/blog/hundeurlaub-1.webp",
               alt: "Hund am Kiesstrand in Kroatien",
-              caption: "Weitläufiger Garten mit viel Auslauf",
+              caption: "Kristallklares Wasser und hundefreundliche Strände",
             },
             {
               src: "/images/blog/hundeurlaub-2.webp",
-              alt: "Hund im Garten einer mediterranen Villa mit Pool",
-              caption: "Eingezäuntes Grundstück mit Pool",
+              alt: "Hund im eingezäunten Garten mit Pool",
+              caption: "Eingezäuntes Grundstück — sicherer Auslauf für Ihren Vierbeiner",
             },
           ]}
         />
@@ -179,9 +179,9 @@ export default async function HundeurlaubPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/hundeurlaub-1.webp",
-              alt: "Golden Retriever am Strand in Kroatien",
+              alt: "Golden Retriever am kroatischen Strand",
               caption:
-                "Panoramablick — die istrische Küste ist nur 10 Minuten entfernt",
+                "Die istrische Küste bietet zahlreiche hundefreundliche Strände",
             },
           ]}
         />
@@ -260,14 +260,14 @@ export default async function HundeurlaubPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/blog/hundeurlaub-2.webp",
-              alt: "Hund entspannt im mediterranen Garten",
-              caption: "Schattige Plätze im mediterranen Garten",
+              src: "/images/garden/garten-volleyball.jpg",
+              alt: "Weitläufiger Garten der Villa Gloria",
+              caption: "1.000 m² eingezäunter Garten — Platz ohne Ende",
             },
             {
-              src: "/images/blog/hundeurlaub-1.webp",
-              alt: "Hundefreundlicher Strand in Istrien",
-              caption: "12x8 m Pool — Abkühlung für die ganze Familie",
+              src: "/images/pool/pool-panorama.jpg",
+              alt: "Pool-Terrasse der Villa Gloria",
+              caption: "Pool und schattige Terrasse zum Entspannen",
             },
           ]}
         />

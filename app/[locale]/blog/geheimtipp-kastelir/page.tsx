@@ -93,9 +93,9 @@ export default async function GeheimtippPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/kastelir-1.webp",
-              alt: "Istrisches Dorf Kaštelir mit Steinhäusern",
+              alt: "Kopfsteinpflastergasse in Kaštelir mit Steinhäusern",
               caption:
-                "Blick über die Hügel Istriens — Kaštelir liegt mitten im Herzen der Halbinsel",
+                "Kaštelir — authentisches Istrien abseits der Touristenmassen",
             },
           ]}
         />
@@ -270,13 +270,13 @@ export default async function GeheimtippPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/kastelir-2.webp",
-              alt: "Konoba-Terrasse mit Weinreben in Istrien",
-              caption: "Mediterranes Flair im Garten der Villa",
+              alt: "Konoba-Terrasse am Abend in Istrien",
+              caption: "Abendessen in der Konoba — istrische Gastfreundschaft",
             },
             {
-              src: "/images/blog/kastelir-1.webp",
-              alt: "Gasse in Kaštelir mit Bougainvillea",
-              caption: "Von der Terrasse direkt zum Pool",
+              src: "/images/exterior/villa-pool-wide.jpg",
+              alt: "Villa Gloria mit Pool und Garten",
+              caption: "Ihr Zuhause in Kaštelir — Villa Gloria mit privatem Pool",
             },
           ]}
         />

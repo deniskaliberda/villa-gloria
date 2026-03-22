@@ -88,13 +88,13 @@ export default async function WeinurlaubPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/weinurlaub-1.webp",
-              alt: "Weinberge auf roter Erde in Istrien mit Blick auf die Adria",
-              caption: "Istrische Weinlandschaft bei Sonnenuntergang",
+              alt: "Weinberge in Istrien mit Blick auf die Adria",
+              caption: "Istrische Weinlandschaft — rote Erde, grüne Reben, blaue Adria",
             },
             {
               src: "/images/blog/weinurlaub-2.webp",
-              alt: "Weinverkostung auf einer Konoba-Terrasse in Istrien",
-              caption: "Malvazija und Teran — istrische Weinverkostung",
+              alt: "Weinverkostung in einer istrischen Konoba",
+              caption: "Malvazija und Teran — Verkostung in einer traditionellen Konoba",
             },
           ]}
         />
@@ -216,9 +216,9 @@ export default async function WeinurlaubPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/weinurlaub-1.webp",
-              alt: "Weinberge in Istrien bei goldenem Licht",
+              alt: "Weinstraße durch die istrischen Hügel",
               caption:
-                "Istrische Architektur — Stein, Wärme und Charakter",
+                "Die istrischen Weinstraßen führen durch sanfte Hügellandschaften",
             },
           ]}
         />

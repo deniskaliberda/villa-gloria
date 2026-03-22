@@ -94,13 +94,13 @@ export default async function MountainbikeIstrienPage({ params }: Props) {
           images={[
             {
               src: "/images/blog/mountainbike-1.webp",
-              alt: "Mountainbiker auf Singletrack durch Olivenhain in Istrien",
-              caption: "Weitlaeufiger Garten mit Platz fuer Bikes",
+              alt: "Mountainbiker auf rotem Singletrack in Istrien",
+              caption: "Rote Erde, Olivenhaine, Meerblick — Singletrails in Istrien",
             },
             {
               src: "/images/blog/mountainbike-2.webp",
-              alt: "Parenzana Trail Tunnel in Istrien",
-              caption: "Die Villa Gloria — Ihr MTB-Quartier in Istrien",
+              alt: "Radfahrer vor dem Parenzana-Tunnel",
+              caption: "Die Parenzana — historischer Bahntrassenweg durch Istrien",
             },
           ]}
         />
@@ -274,14 +274,14 @@ export default async function MountainbikeIstrienPage({ params }: Props) {
         <BlogImageGrid
           images={[
             {
-              src: "/images/blog/mountainbike-2.webp",
-              alt: "Parenzana Trail — historische Strecke in Istrien",
+              src: "/images/pool/pool-sonnenliegen.jpg",
+              alt: "Pool-Terrasse der Villa Gloria",
               caption: "Erholung am Pool nach der Tour",
             },
             {
-              src: "/images/blog/mountainbike-1.webp",
-              alt: "Mountainbike-Trail durch die istrische Landschaft",
-              caption: "Villa Gloria — Ihre MTB-Basis in Istrien",
+              src: "/images/exterior/villa-pool-wide.jpg",
+              alt: "Villa Gloria mit Pool",
+              caption: "Villa Gloria — Ihre MTB-Basis in Kaštelir",
             },
           ]}
         />
