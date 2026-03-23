@@ -40,11 +40,11 @@ const reviewSchemaData = {
     "bestRating": "5",
   },
   "review": [
-    { "@type": "Review", "author": { "@type": "Person", "name": "Familie M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Traumhafter Urlaub in Istrien" },
-    { "@type": "Review", "author": { "@type": "Person", "name": "Thomas K." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Perfekte Villa für Familienurlaub" },
-    { "@type": "Review", "author": { "@type": "Person", "name": "Sandra W." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Wunderschön gelegen" },
-    { "@type": "Review", "author": { "@type": "Person", "name": "Michael R." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Ruheoase in Istrien" },
-    { "@type": "Review", "author": { "@type": "Person", "name": "Julia H." }, "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "name": "Top-Ferienhaus" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Familie M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Traumhafter Urlaub in Istrien", "datePublished": "2025-08-15" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Thomas K." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Perfekte Villa für Familienurlaub", "datePublished": "2025-07-22" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Sandra W." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Wunderschön gelegen", "datePublished": "2025-09-03" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Michael R." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "name": "Ruheoase in Istrien", "datePublished": "2025-06-10" },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Julia H." }, "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "name": "Top-Ferienhaus", "datePublished": "2025-10-01" },
   ],
 };
 
