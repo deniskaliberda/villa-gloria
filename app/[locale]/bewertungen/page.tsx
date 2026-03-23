@@ -32,7 +32,30 @@ const reviewSchemaData = {
   "@context": "https://schema.org",
   "@type": "VacationRental",
   "name": "Villa Gloria al Padre",
+  "identifier": "villa-gloria-al-padre-kastelir",
   "url": "https://www.villa-gloria-istrien.de",
+  "image": [
+    "https://www.villa-gloria-istrien.de/images/hero/villa-pool-seaview.jpg",
+    "https://www.villa-gloria-istrien.de/images/exterior/villa-pool-wide.jpg",
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kaštelir",
+    "addressRegion": "Istrien",
+    "postalCode": "52464",
+    "addressCountry": "HR",
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.27,
+    "longitude": 13.68,
+  },
+  "containsPlace": [
+    { "@type": "Room", "name": "Schlafzimmer 1 (OG)" },
+    { "@type": "Room", "name": "Schlafzimmer 2 (OG)" },
+    { "@type": "Room", "name": "Schlafzimmer 3 (OG)" },
+    { "@type": "Room", "name": "Poolwohnung" },
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
