@@ -58,12 +58,13 @@ const reviewSchemaData = {
     "latitude": 45.27,
     "longitude": 13.68,
   },
-  "containsPlace": [
-    { "@type": "Room", "name": "Schlafzimmer 1 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Schlafzimmer 2 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Schlafzimmer 3 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Poolwohnung", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 1, "occupancy": { "@type": "QuantitativeValue", "value": 4, "maxValue": 4 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true }, { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-  ],
+  "containsPlace": {
+    "@type": "Accommodation",
+    "name": "Villa Gloria al Padre — Haupthaus + Poolwohnung",
+    "numberOfBedrooms": 4,
+    "numberOfBathroomsTotal": 3,
+    "occupancy": { "@type": "QuantitativeValue", "value": 9, "maxValue": 9 },
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",

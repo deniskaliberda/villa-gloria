@@ -56,57 +56,22 @@ export default async function HomePage({ params }: Props) {
       value: 180,
       unitCode: "MTK",
     },
-    containsPlace: [
-      {
-        "@type": "Room",
-        name: "Schlafzimmer 1 (OG)",
-        description: "Doppelbett, Klimaanlage, Fliegengitter",
-        numberOfBedrooms: 1,
-        numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
-        bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
-        amenityFeature: [
-          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
-        ],
-      },
-      {
-        "@type": "Room",
-        name: "Schlafzimmer 2 (OG)",
-        description: "Doppelbett, Klimaanlage, Fliegengitter",
-        numberOfBedrooms: 1,
-        numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
-        bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
-        amenityFeature: [
-          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
-        ],
-      },
-      {
-        "@type": "Room",
-        name: "Schlafzimmer 3 (OG)",
-        description: "Zwei Einzelbetten, Klimaanlage",
-        numberOfBedrooms: 1,
-        numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
-        bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Einzelbett" },
-        amenityFeature: [
-          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
-        ],
-      },
-      {
-        "@type": "Room",
-        name: "Poolwohnung",
-        description: "Separates Apartment mit Doppelbett, Schlafsofa, Küchenzeile, eigenem Bad",
-        numberOfBedrooms: 1,
-        numberOfBathroomsTotal: 1,
-        occupancy: { "@type": "QuantitativeValue", value: 4, maxValue: 4 },
-        bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Doppelbett + Schlafsofa" },
-        amenityFeature: [
-          { "@type": "LocationFeatureSpecification", name: "Kitchen", value: true },
-          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
-        ],
-      },
-    ],
+    containsPlace: {
+      "@type": "Accommodation",
+      name: "Villa Gloria al Padre — Haupthaus + Poolwohnung",
+      numberOfBedrooms: 4,
+      numberOfBathroomsTotal: 3,
+      occupancy: { "@type": "QuantitativeValue", value: 9, maxValue: 9 },
+      bed: [
+        { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Doppelbett" },
+        { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Einzelbett" },
+        { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Schlafsofa" },
+      ],
+      amenityFeature: [
+        { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        { "@type": "LocationFeatureSpecification", name: "Kitchen", value: true },
+      ],
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: 4.9,
