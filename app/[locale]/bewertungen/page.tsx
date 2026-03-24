@@ -59,10 +59,10 @@ const reviewSchemaData = {
     "longitude": 13.68,
   },
   "containsPlace": [
-    { "@type": "Room", "name": "Schlafzimmer 1 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Schlafzimmer 2 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Schlafzimmer 3 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
-    { "@type": "Room", "name": "Poolwohnung", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 1, "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true }, { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Schlafzimmer 1 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Schlafzimmer 2 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Schlafzimmer 3 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "value": 2, "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Poolwohnung", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 1, "occupancy": { "@type": "QuantitativeValue", "value": 4, "maxValue": 4 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true }, { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
   ],
   "aggregateRating": {
     "@type": "AggregateRating",

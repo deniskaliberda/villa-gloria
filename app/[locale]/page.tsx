@@ -63,7 +63,7 @@ export default async function HomePage({ params }: Props) {
         description: "Doppelbett, Klimaanlage, Fliegengitter",
         numberOfBedrooms: 1,
         numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
+        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
@@ -75,7 +75,7 @@ export default async function HomePage({ params }: Props) {
         description: "Doppelbett, Klimaanlage, Fliegengitter",
         numberOfBedrooms: 1,
         numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
+        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
@@ -87,7 +87,7 @@ export default async function HomePage({ params }: Props) {
         description: "Zwei Einzelbetten, Klimaanlage",
         numberOfBedrooms: 1,
         numberOfBathroomsTotal: 0,
-        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
+        occupancy: { "@type": "QuantitativeValue", value: 2, maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Einzelbett" },
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
@@ -99,7 +99,7 @@ export default async function HomePage({ params }: Props) {
         description: "Separates Apartment mit Doppelbett, Schlafsofa, Küchenzeile, eigenem Bad",
         numberOfBedrooms: 1,
         numberOfBathroomsTotal: 1,
-        occupancy: { "@type": "QuantitativeValue", maxValue: 4 },
+        occupancy: { "@type": "QuantitativeValue", value: 4, maxValue: 4 },
         bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Doppelbett + Schlafsofa" },
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "Kitchen", value: true },
