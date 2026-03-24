@@ -74,7 +74,7 @@ export default function PricingPage() {
 
       {loading ? (
         <div className="mt-8 flex justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#C2703E]" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-terracotta-500" />
         </div>
       ) : (
         <div className="mt-6 space-y-4">
@@ -115,7 +115,7 @@ export default function PricingPage() {
                 <button
                   onClick={() => saveSeason(season)}
                   disabled={saving === season.id}
-                  className="flex items-center gap-1 rounded-lg bg-[#C2703E] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#A85D33] disabled:opacity-50"
+                  className="flex items-center gap-1 rounded-lg bg-terracotta-500 px-3 py-1.5 text-sm font-semibold text-white hover:bg-terracotta-700 disabled:opacity-50"
                 >
                   {saved === season.id ? (
                     <>

@@ -37,10 +37,10 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAF7F2] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-sand px-4">
       <div className="w-full max-w-sm">
         <div className="rounded-xl bg-white p-8 shadow-lg">
-          <h1 className="text-center text-2xl font-bold text-[#2D2A26]">
+          <h1 className="text-center text-2xl font-bold text-dark">
             Villa Gloria Admin
           </h1>
           <p className="mt-2 text-center text-sm text-gray-500">
@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#C2703E] focus:outline-none focus:ring-1 focus:ring-[#C2703E]"
+                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500"
               />
             </div>
             <div>
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#C2703E] focus:outline-none focus:ring-1 focus:ring-[#C2703E]"
+                className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500"
               />
             </div>
 
@@ -80,7 +80,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-[#C2703E] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#A85D33] focus:outline-none focus:ring-2 focus:ring-[#C2703E] focus:ring-offset-2 disabled:opacity-50"
+              className="w-full rounded-lg bg-terracotta-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-terracotta-700 focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2 disabled:opacity-50"
             >
               {loading ? "Anmelden..." : "Anmelden"}
             </button>
