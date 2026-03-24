@@ -50,7 +50,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-orange-500" />
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#C2703E]" />
       </div>
     );
   }
@@ -60,10 +60,10 @@ export function AdminShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col border-r border-gray-200 bg-white">
-        <div className="border-b border-gray-200 px-6 py-4">
-          <h1 className="text-lg font-bold text-gray-900">Villa Gloria</h1>
-          <p className="text-xs text-gray-500">Admin Dashboard</p>
+      <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col bg-[#2D2A26]">
+        <div className="border-b border-white/10 px-6 py-4">
+          <h1 className="text-lg font-bold text-white">Villa Gloria</h1>
+          <p className="text-xs text-gray-400">Admin Dashboard</p>
         </div>
         <nav className="flex-1 space-y-1 p-4">
           {navItems.map((item) => {
@@ -77,8 +77,8 @@ export function AdminShell({ children }: { children: ReactNode }) {
                 href={item.href}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-orange-50 text-orange-700"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    ? "bg-white/15 text-white border-l-2 border-[#C2703E]"
+                    : "text-gray-300 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 <item.icon className="h-5 w-5" />
@@ -87,10 +87,10 @@ export function AdminShell({ children }: { children: ReactNode }) {
             );
           })}
         </nav>
-        <div className="border-t border-gray-200 p-4">
+        <div className="border-t border-white/10 p-4">
           <button
             onClick={handleLogout}
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-400 hover:text-red-400"
           >
             <LogOut className="h-5 w-5" />
             Abmelden
@@ -99,7 +99,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
       </aside>
 
       {/* Main content */}
-      <main className="ml-64 flex-1 p-8">{children}</main>
+      <main className="ml-64 flex-1 bg-[#FAF7F2] p-8">{children}</main>
     </div>
   );
 }

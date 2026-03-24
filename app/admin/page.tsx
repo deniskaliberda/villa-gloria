@@ -120,7 +120,7 @@ export default function AdminDashboard() {
 
       {loading ? (
         <div className="mt-8 flex justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-orange-500" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#C2703E]" />
         </div>
       ) : (
         <>
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
               </h2>
               <Link
                 href="/admin/buchungen"
-                className="flex items-center gap-1 text-sm text-orange-600 hover:text-orange-700"
+                className="flex items-center gap-1 text-sm text-[#C2703E] hover:text-[#A85D33]"
               >
                 Alle anzeigen <ArrowRight className="h-4 w-4" />
               </Link>
@@ -244,8 +244,8 @@ function StatCard({
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50">
-          <Icon className="h-5 w-5 text-orange-600" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#C2703E]/10">
+          <Icon className="h-5 w-5 text-[#C2703E]" />
         </div>
         <div>
           <p className="text-sm text-gray-500">{label}</p>

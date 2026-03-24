@@ -40,7 +40,7 @@ const statusLabels: Record<string, { label: string; color: string }> = {
   pending: { label: "Ausstehend", color: "bg-yellow-100 text-yellow-700" },
   awaiting_approval: {
     label: "Wartet auf Bestätigung",
-    color: "bg-orange-100 text-orange-700",
+    color: "bg-[#C2703E]/10 text-[#A85D33]",
   },
   deposit_paid: {
     label: "Anzahlung bezahlt",
@@ -145,7 +145,7 @@ export default function BookingsPage() {
             placeholder="Suche nach Name, Nr. oder E-Mail..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+            className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-[#C2703E] focus:outline-none focus:ring-1 focus:ring-[#C2703E]"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export default function BookingsPage() {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+            className="rounded-lg border border-gray-300 py-2 pl-3 pr-8 text-sm focus:border-[#C2703E] focus:outline-none focus:ring-1 focus:ring-[#C2703E]"
           >
             <option value="all">Alle Status</option>
             <option value="pending">Ausstehend</option>
@@ -168,7 +168,7 @@ export default function BookingsPage() {
       <div className="mt-4 overflow-hidden rounded-xl border border-gray-200 bg-white">
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-orange-500" />
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#C2703E]" />
           </div>
         ) : (
           <table className="min-w-full divide-y divide-gray-200">
@@ -324,7 +324,7 @@ export default function BookingsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-gray-500">Gesamtpreis</p>
-                  <p className="text-lg font-bold text-orange-600">
+                  <p className="text-lg font-bold text-[#C2703E]">
                     {formatEuro(selected.total_price)}
                   </p>
                 </div>
@@ -349,7 +349,7 @@ export default function BookingsPage() {
               <div>
                 {selected.status === "awaiting_approval" && (
                   <div className="mb-4">
-                    <p className="mb-2 font-medium text-orange-700">Buchung wartet auf Bestätigung</p>
+                    <p className="mb-2 font-medium text-[#A85D33]">Buchung wartet auf Bestätigung</p>
                     <div className="flex gap-3">
                       <button
                         onClick={() => approveBooking(selected.id)}

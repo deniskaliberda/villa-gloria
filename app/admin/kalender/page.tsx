@@ -160,7 +160,7 @@ export default function CalendarPage() {
         <h1 className="text-2xl font-bold text-gray-900">Kalender</h1>
         <button
           onClick={() => setShowBlockForm(true)}
-          className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700"
+          className="flex items-center gap-2 rounded-lg bg-[#C2703E] px-4 py-2 text-sm font-semibold text-white hover:bg-[#A85D33]"
         >
           <Plus className="h-4 w-4" />
           Sperre hinzufügen
@@ -239,7 +239,7 @@ export default function CalendarPage() {
       {/* Calendar Grid */}
       {loading ? (
         <div className="mt-8 flex justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-orange-500" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#C2703E]" />
         </div>
       ) : (
         <div className="mt-4 overflow-hidden rounded-xl border border-gray-200 bg-white">
