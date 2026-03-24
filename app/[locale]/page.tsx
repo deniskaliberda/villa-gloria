@@ -17,7 +17,6 @@ export default async function HomePage({ params }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "VacationRental",
-    additionalType: "https://schema.org/House",
     name: "Villa Gloria al Padre",
     identifier: "villa-gloria-al-padre-kastelir",
     description:
@@ -62,25 +61,50 @@ export default async function HomePage({ params }: Props) {
         "@type": "Room",
         name: "Schlafzimmer 1 (OG)",
         description: "Doppelbett, Klimaanlage, Fliegengitter",
+        numberOfBedrooms: 1,
+        numberOfBathroomsTotal: 0,
+        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        ],
       },
       {
         "@type": "Room",
         name: "Schlafzimmer 2 (OG)",
         description: "Doppelbett, Klimaanlage, Fliegengitter",
+        numberOfBedrooms: 1,
+        numberOfBathroomsTotal: 0,
+        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett" },
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        ],
       },
       {
         "@type": "Room",
         name: "Schlafzimmer 3 (OG)",
         description: "Zwei Einzelbetten, Klimaanlage",
+        numberOfBedrooms: 1,
+        numberOfBathroomsTotal: 0,
+        occupancy: { "@type": "QuantitativeValue", maxValue: 2 },
         bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Einzelbett" },
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        ],
       },
       {
         "@type": "Room",
         name: "Poolwohnung",
         description: "Separates Apartment mit Doppelbett, Schlafsofa, Küchenzeile, eigenem Bad",
-        bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Doppelbett + Schlafsofa" },
+        numberOfBedrooms: 1,
+        numberOfBathroomsTotal: 1,
+        occupancy: { "@type": "QuantitativeValue", maxValue: 4 },
+        bed: { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "Doppelbett + Schlafsofa" },
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "Kitchen", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+        ],
       },
     ],
     aggregateRating: {

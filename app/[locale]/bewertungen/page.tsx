@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const reviewSchemaData = {
   "@context": "https://schema.org",
   "@type": "VacationRental",
-  "additionalType": "https://schema.org/House",
   "name": "Villa Gloria al Padre",
   "identifier": "villa-gloria-al-padre-kastelir",
   "description": "Exklusive Ferienvilla mit privatem Pool, Meerblick und 4 Schlafzimmern in Kaštelir, Istrien. 180 m², bis zu 9 Gäste.",
@@ -60,10 +59,10 @@ const reviewSchemaData = {
     "longitude": 13.68,
   },
   "containsPlace": [
-    { "@type": "Room", "name": "Schlafzimmer 1 (OG)" },
-    { "@type": "Room", "name": "Schlafzimmer 2 (OG)" },
-    { "@type": "Room", "name": "Schlafzimmer 3 (OG)" },
-    { "@type": "Room", "name": "Poolwohnung" },
+    { "@type": "Room", "name": "Schlafzimmer 1 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Schlafzimmer 2 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Schlafzimmer 3 (OG)", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 0, "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
+    { "@type": "Room", "name": "Poolwohnung", "numberOfBedrooms": 1, "numberOfBathroomsTotal": 1, "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 }, "amenityFeature": [{ "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true }, { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }] },
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
