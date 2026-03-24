@@ -48,16 +48,16 @@ function ImprintContent() {
         <p>
           <strong>Eigentümer und Betreiber:</strong>
           <br />
-          [VORNAME NACHNAME]
+          Marko Pfaff
           <br />
-          [STRASSE]
+          Alte Straße 28
           <br />
-          [PLZ ORT, LAND]
+          04651 Bad Lausick, Deutschland
         </p>
 
         <h2>Kontakt</h2>
         <p>
-          Telefon: [+XX XXX XXXXXXX]
+          Telefon: +49 172 5642200
           <br />
           E-Mail:{" "}
           <a href="mailto:info@villa-gloria-istrien.de">
@@ -74,23 +74,21 @@ function ImprintContent() {
           </a>
         </p>
 
-        <h2>Umsatzsteuer-Identifikationsnummer</h2>
+        <h2>Umsatzsteuer</h2>
         <p>
-          Umsatzsteuer-Identifikationsnummer gemäß § 27a
-          Umsatzsteuergesetz bzw. kroatische OIB:
-          <br />
-          [USt-IdNr. / OIB FALLS VORHANDEN]
+          Private Vermietung — keine Umsatzsteuer-Identifikationsnummer
+          erforderlich.
         </p>
 
         <h2>
           Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
         </h2>
         <p>
-          [VORNAME NACHNAME]
+          Marko Pfaff
           <br />
-          [STRASSE]
+          Alte Straße 28
           <br />
-          [PLZ ORT, LAND]
+          04651 Bad Lausick, Deutschland
         </p>
 
         <h2>EU-Streitschlichtung</h2>

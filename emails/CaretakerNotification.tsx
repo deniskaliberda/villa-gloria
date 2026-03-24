@@ -25,7 +25,7 @@ export function CaretakerNotification({
   hasPet,
 }: CaretakerNotificationProps) {
   return (
-    <EmailLayout preview={`Bestätigte Buchung: ${checkIn} – ${checkOut}`} lang="de">
+    <EmailLayout preview={`Confirmed booking: ${checkIn} – ${checkOut}`} lang="en">
       <Text
         style={{
           fontSize: "18px",
@@ -34,14 +34,14 @@ export function CaretakerNotification({
           margin: "0 0 16px",
         }}
       >
-        Neue Buchung bestätigt
+        New Booking Confirmed
       </Text>
 
       <Text
         style={{ fontSize: "14px", color: "#2D2A26", margin: "0 0 24px" }}
       >
-        Die folgende Buchung wurde bestätigt. Bitte bereiten Sie die Villa
-        entsprechend vor (Reinigung, Schlüsselübergabe, etc.).
+        The following booking has been confirmed. Please prepare the villa
+        accordingly (cleaning, key handover, etc.).
       </Text>
 
       <Section
@@ -56,14 +56,14 @@ export function CaretakerNotification({
           <tbody>
             <tr>
               <td style={{ padding: "6px 0", color: "#8a8175" }}>
-                Buchungsnummer
+                Booking number
               </td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
                 {bookingNumber}
               </td>
             </tr>
             <tr>
-              <td style={{ padding: "6px 0", color: "#8a8175" }}>Gast</td>
+              <td style={{ padding: "6px 0", color: "#8a8175" }}>Guest</td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
                 {guestName}
               </td>
@@ -81,27 +81,27 @@ export function CaretakerNotification({
               </td>
             </tr>
             <tr>
-              <td style={{ padding: "6px 0", color: "#8a8175" }}>Nächte</td>
+              <td style={{ padding: "6px 0", color: "#8a8175" }}>Nights</td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
                 {nights}
               </td>
             </tr>
             <tr>
-              <td style={{ padding: "6px 0", color: "#8a8175" }}>Unterkunft</td>
+              <td style={{ padding: "6px 0", color: "#8a8175" }}>Property</td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
-                {propertyType === "house" ? "Gesamtes Haus" : "Poolwohnung"}
+                {propertyType === "house" ? "Entire House" : "Pool Apartment"}
               </td>
             </tr>
             <tr>
-              <td style={{ padding: "6px 0", color: "#8a8175" }}>Gäste</td>
+              <td style={{ padding: "6px 0", color: "#8a8175" }}>Guests</td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
-                {guestsAdults} Erw.{guestsChildren > 0 ? ` + ${guestsChildren} Kinder` : ""}
+                {guestsAdults} adults{guestsChildren > 0 ? ` + ${guestsChildren} children` : ""}
               </td>
             </tr>
             <tr>
-              <td style={{ padding: "6px 0", color: "#8a8175" }}>Haustier</td>
+              <td style={{ padding: "6px 0", color: "#8a8175" }}>Pet</td>
               <td style={{ padding: "6px 0", textAlign: "right" as const, fontWeight: "600" }}>
-                {hasPet ? "Ja ⚠️" : "Nein"}
+                {hasPet ? "Yes" : "No"}
               </td>
             </tr>
           </tbody>
@@ -118,8 +118,8 @@ export function CaretakerNotification({
           }}
         >
           <Text style={{ fontSize: "13px", color: "#856404", margin: 0 }}>
-            Hinweis: Es wird ein Haustier mitgebracht. Bitte bei der Reinigung
-            berücksichtigen.
+            Note: Guests are bringing a pet. Please take this into account for
+            cleaning.
           </Text>
         </Section>
       )}
@@ -127,7 +127,7 @@ export function CaretakerNotification({
       <Text
         style={{ fontSize: "13px", color: "#8a8175", margin: "16px 0 0" }}
       >
-        Check-in: ab 17:00 Uhr · Check-out: bis 10:00 Uhr
+        Check-in: from 5:00 PM · Check-out: by 10:00 AM
       </Text>
     </EmailLayout>
   );
