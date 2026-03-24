@@ -19,6 +19,10 @@ export function CookieBanner() {
 
   function accept() {
     localStorage.setItem("cookie-consent", "accepted");
+    window.gtag?.("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "granted",
+    });
     setVisible(false);
   }
 
