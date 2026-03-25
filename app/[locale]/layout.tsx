@@ -94,15 +94,6 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <head>
-        <link
-          rel="preload"
-          href="/images/hero/villa-pool-seaview.jpg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
-      </head>
       <body
         className={`${playfairDisplay.variable} ${dmSans.variable} ${josefinSans.variable} antialiased`}
       >

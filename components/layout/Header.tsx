@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
 
@@ -25,8 +24,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // On subpages: always solid white header
-  // On homepage: transparent initially, solid after scroll
   const isSolid = !isHomePage || isScrolled;
 
   useEffect(() => {
@@ -91,37 +88,31 @@ export function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 bg-white pt-safe lg:hidden"
-          >
-            <div className="flex h-full flex-col items-center justify-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.key}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-display text-2xl font-bold text-dark transition-colors hover:text-terracotta-500"
-                >
-                  {t(link.key)}
-                </Link>
-              ))}
-              <div className="mt-4">
-                <LanguageSwitcher isScrolled={true} />
-              </div>
-              <Link href="/buchen" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button size="lg">{t("bookNow")}</Button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu — CSS transition instead of framer-motion */}
+      <div
+        className={`fixed inset-0 z-40 bg-white pt-safe transition-transform duration-300 ease-in-out lg:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex h-full flex-col items-center justify-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.key}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="font-display text-2xl font-bold text-dark transition-colors hover:text-terracotta-500"
+            >
+              {t(link.key)}
+            </Link>
+          ))}
+          <div className="mt-4">
+            <LanguageSwitcher isScrolled={true} />
+          </div>
+          <Link href="/buchen" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button size="lg">{t("bookNow")}</Button>
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }

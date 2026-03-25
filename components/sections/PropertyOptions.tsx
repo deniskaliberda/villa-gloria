@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Home, Building2 } from "lucide-react";
@@ -23,9 +24,13 @@ export function PropertyOptions() {
           <ScrollReveal delay={0.1}>
             <Card className="h-full">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img
+                <Image
                   src="/images/hero/villa-pool-seaview.jpg"
                   alt={t("wholeHouse.title")}
+                  width={665}
+                  height={443}
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
@@ -62,9 +67,13 @@ export function PropertyOptions() {
           <ScrollReveal delay={0.2}>
             <Card className="h-full">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img
+                <Image
                   src="/images/apartment/apartment-living.jpg"
                   alt={t("apartment.title")}
+                  width={665}
+                  height={443}
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
