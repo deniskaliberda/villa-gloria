@@ -22,8 +22,38 @@ export function BlogArticle({
   localizedTitle,
   children,
 }: BlogArticleProps) {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.villa-gloria-istrien.de/de",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://www.villa-gloria-istrien.de/de/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: localizedTitle || post.title,
+        item: `https://www.villa-gloria-istrien.de/de/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero Image */}
       <div className="relative aspect-[21/9] w-full overflow-hidden">
         <Image

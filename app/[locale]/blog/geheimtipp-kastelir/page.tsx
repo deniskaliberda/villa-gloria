@@ -5,6 +5,10 @@ import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
 import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
 import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
 import { BlogQuote } from "@/components/blog/BlogQuote";
+import { BlogTableOfContents } from "@/components/blog/BlogTableOfContents";
+import { BlogFAQ } from "@/components/blog/BlogFAQ";
+import { BlogQuickFacts } from "@/components/blog/BlogQuickFacts";
+import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
@@ -19,6 +23,13 @@ import {
   Flower2,
   Flame,
   Navigation,
+  Landmark,
+  Users,
+  Calendar,
+  Bus,
+  Snowflake,
+  Camera,
+  Route as RouteIcon,
 } from "lucide-react";
 
 const SLUG = "geheimtipp-kastelir";
@@ -70,8 +81,14 @@ export default async function GeheimtippPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://villa-gloria.com${post.image}`,
+    image: `https://www.villa-gloria-istrien.de${post.image}`,
     datePublished: post.date,
+    dateModified: post.dateModified,
+    wordCount: post.wordCount,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.villa-gloria-istrien.de/de/blog/${SLUG}`,
+    },
     author: {
       "@type": "Organization",
       name: "Villa Gloria al Padre",
@@ -79,7 +96,7 @@ export default async function GeheimtippPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "Villa Gloria al Padre",
-      url: "https://villa-gloria.com",
+      url: "https://www.villa-gloria-istrien.de",
     },
   };
 
@@ -110,7 +127,48 @@ export default async function GeheimtippPage({ params }: Props) {
           ]}
         />
 
-        <h2>Kaštelir: Das authentische Istrien abseits der Touristenmassen</h2>
+        <BlogQuickFacts
+          facts={[
+            { icon: <Users className="h-5 w-5" />, label: "Einwohner", value: "~1.500" },
+            { icon: <MapPin className="h-5 w-5" />, label: "nach Poreč", value: "10 Min." },
+            { icon: <MapPin className="h-5 w-5" />, label: "nach Rovinj", value: "15 Min." },
+            { icon: <MapPin className="h-5 w-5" />, label: "zur Autobahn", value: "5 Min." },
+          ]}
+        />
+
+        <BlogTableOfContents
+          sections={[
+            { id: "authentisch", label: "Authentisches Istrien" },
+            { id: "geschichte", label: "Geschichte von Kaštelir" },
+            { id: "konobas", label: "Restaurants & Konobas" },
+            { id: "olivenoel", label: "Olivenöl vom Erzeuger" },
+            { id: "lage", label: "Perfekte Lage" },
+            { id: "vergleich", label: "Kaštelir vs. Rovinj vs. Poreč" },
+            { id: "hidden-spots", label: "Hidden Spots & Foto-Tipps" },
+            { id: "spazierwege", label: "Spazierwege" },
+            { id: "events", label: "Lokale Events & Märkte" },
+            { id: "villa", label: "Villa Gloria in Kaštelir" },
+            { id: "faq", label: "Häufige Fragen" },
+          ]}
+        />
+
+        <p>
+          Für Radfahrer ist Kaštelir ein perfekter Ausgangspunkt — lesen Sie unsere Guides zum{" "}
+          <Link href="/blog/mountainbike-istrien" className="text-terracotta-500">
+            Mountainbiken in Istrien
+          </Link>
+          {" "}und{" "}
+          <Link href="/blog/rennrad-istrien" className="text-terracotta-500">
+            Rennradfahren in Istrien
+          </Link>
+          . Weinliebhaber finden alles Wissenswerte im{" "}
+          <Link href="/blog/weinurlaub-istrien" className="text-terracotta-500">
+            Weinurlaub-Guide
+          </Link>
+          .
+        </p>
+
+        <h2 id="authentisch">Kaštelir: Das authentische Istrien abseits der Touristenmassen</h2>
         <p>
           Kaštelir (kroatisch: Kaštelir-Labinci) ist eine kleine Gemeinde mit
           knapp 1.500 Einwohnern im Herzen der istrischen Halbinsel. Das
@@ -141,7 +199,31 @@ export default async function GeheimtippPage({ params }: Props) {
           </li>
         </ul>
 
-        <h2>Lokale Restaurants &amp; Konobas</h2>
+        <h2 id="geschichte">Die Geschichte von Kaštelir</h2>
+        <p>
+          Der Name Kaštelir leitet sich vom lateinischen <em>castellum</em> ab —
+          eine befestigte Siedlung auf einem Hügel. Und genau das war Kaštelir:
+          eine vorgeschichtliche Höhensiedlung, die seit der Bronzezeit (ca. 1500
+          v. Chr.) bewohnt ist.
+        </p>
+        <p>
+          Die strategische Lage auf 200 m Höhe bot Schutz und Überblick über die
+          Küste — noch heute sieht man an klaren Tagen bis nach Venedig. Im
+          Mittelalter gehörte Kaštelir zur Patriarchat von Aquileia, später zur
+          Republik Venedig. Die typisch istrischen Steinhäuser, die das Dorfbild
+          prägen, stammen aus dem 16.–18. Jahrhundert.
+        </p>
+
+        <BlogInfoBox variant="info" title="Wussten Sie?">
+          <p>
+            In der Umgebung von Kaštelir wurden archäologische Funde aus der
+            Römerzeit ausgegraben — darunter Reste einer Villa Rustica (römisches
+            Landgut). Einige Fundstücke sind im Archäologischen Museum in Pula
+            ausgestellt.
+          </p>
+        </BlogInfoBox>
+
+        <h2 id="konobas">Lokale Restaurants &amp; Konobas</h2>
         <p>
           Konobas sind traditionelle istrische Gasthäuser — oft
           familiengeführt, immer authentisch. In und um Kaštelir finden Sie
@@ -154,25 +236,25 @@ export default async function GeheimtippPage({ params }: Props) {
               icon: <UtensilsCrossed className="h-5 w-5" />,
               title: "Konoba Morgan",
               description:
-                "Direkt in Kaštelir. Rustikales Ambiente, hausgemachte Pasta (Fuži, Pljukanci), gegrilltes Fleisch und fangfrischer Fisch. Faire Preise, großzügige Portionen.",
+                "Direkt in Kaštelir. Fuži mit Trüffel (18 €), gegrilltes Lamm (15 €). Große Steinterrasse. Reservierung im Sommer nötig. Mo geschlossen.",
             },
             {
               icon: <UtensilsCrossed className="h-5 w-5" />,
               title: "Konoba Astarea",
               description:
-                "Nähe Brtonigla. Bekannt für Trüffelgerichte und hauseigenen Wein. Im Sommer im schattigen Innenhof unter jahrhundertealtem Feigenbaum.",
+                "Berühmt für Maneštra (istrischer Eintopf, 10 €) und Pršut-Platte (12 €). Weinkarte mit über 50 istrischen Weinen. Mi geschlossen.",
             },
             {
               icon: <UtensilsCrossed className="h-5 w-5" />,
               title: "Taverna Danijela",
               description:
-                "Zwischen Kaštelir und Poreč. Meeresfrüchte und Fisch in erstklassiger Qualität. Die Fischplatte für zwei ist legendär.",
+                "Frischer Fisch täglich — je nach Fang 14-22 €. Hausgemachte Gnocchi (11 €). Romantische Innenhof-Terrasse. Kein Ruhetag in der Saison.",
             },
             {
               icon: <UtensilsCrossed className="h-5 w-5" />,
               title: "Konoba Daniela, Labinci",
               description:
-                "Nur wenige Minuten entfernt. Istrische Klassiker: Maneštra, Fritaja (Trüffel-Omelett) und hausgemachtes Brot aus dem Steinofen.",
+                "Rustikales Ambiente zwischen Olivenbäumen. Grillspezialitäten (12-16 €). Lokaler Malvazija vom Fass (3 €/Glas). Do geschlossen.",
             },
           ]}
         />
@@ -183,7 +265,7 @@ export default async function GeheimtippPage({ params }: Props) {
           Sitzplätze.
         </p>
 
-        <h2>Olivenöl direkt vom Erzeuger</h2>
+        <h2 id="olivenoel">Olivenöl direkt vom Erzeuger</h2>
         <p>
           Kaštelir liegt mitten in einem der besten Olivenanbaugebiete
           Istriens. Die Terra Rossa (rote Erde) und das mediterrane Klima
@@ -205,7 +287,7 @@ export default async function GeheimtippPage({ params }: Props) {
           </p>
         </BlogInfoBox>
 
-        <h2>Perfekte Lage: 10 Min. Poreč, 15 Min. Rovinj, 5 Min. Autobahn</h2>
+        <h2 id="lage">Perfekte Lage: 10 Min. Poreč, 15 Min. Rovinj, 5 Min. Autobahn</h2>
         <p>
           Was Kaštelir besonders macht, ist die Kombination aus Ruhe und
           Erreichbarkeit. Von hier aus sind Sie in kürzester Zeit überall:
@@ -242,6 +324,123 @@ export default async function GeheimtippPage({ params }: Props) {
               title: "Strand — 10 Min.",
               description:
                 "Die nächsten Bademöglichkeiten sind 8 km entfernt. In 10 Autominuten sind Sie am Meer.",
+            },
+          ]}
+        />
+
+        <h2 id="vergleich">Kaštelir vs. Rovinj vs. Poreč — ehrlicher Vergleich</h2>
+        <p>
+          Warum Kaštelir und nicht die bekannteren Küstenstädte? Hier ein direkter
+          Vergleich:
+        </p>
+
+        <BlogComparisonTable
+          headers={["Kriterium", "Kaštelir", "Rovinj", "Poreč"]}
+          highlightColumn={1}
+          rows={[
+            ["Touristenmassen", "Kaum Touristen", "Sehr voll (Sommer)", "Voll (Sommer)"],
+            ["Parkplatzsuche", "Kein Problem", "30+ Min. im Sommer", "15-20 Min."],
+            ["Restaurantpreise", "10-18 € (Hauptgericht)", "15-30 €", "12-25 €"],
+            ["Authentizität", "Echtes Dorfleben", "Touristisch geprägt", "Mix aus beidem"],
+            ["Strand-Entfernung", "8 km (10 Min.)", "Direkt am Wasser", "Direkt am Wasser"],
+            ["Nachtleben", "Ruhig (Konobas)", "Bars & Clubs", "Bars & Promenade"],
+            ["Für Familien", "Sehr gut (Ruhe)", "Gut (aber laut)", "Gut (Infrastruktur)"],
+            ["Für Ruhesuchende", "Perfekt", "Nur in Nebensaison", "Bedingt"],
+          ]}
+        />
+
+        <p>
+          <strong>Fazit:</strong> Kaštelir ist ideal für alle, die Ruhe, Authentizität
+          und günstige Preise suchen — und trotzdem in 10-15 Minuten an der Küste
+          sein wollen. Es ist das Beste aus beiden Welten.
+        </p>
+
+        <h2 id="hidden-spots">Hidden Spots &amp; Foto-Tipps</h2>
+        <p>
+          Die schönsten Ecken von Kaštelir und Umgebung, die kaum ein Tourist kennt:
+        </p>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Camera className="h-5 w-5" />,
+              title: "Sonnenuntergang am Dorfrand",
+              description:
+                "Am westlichen Ortsrand von Kaštelir (Richtung Labinci) gibt es eine kleine Anhöhe mit Bank. Von hier sieht man den Sonnenuntergang über dem Meer. Bestes Licht: 30 Min. vor Sonnenuntergang.",
+            },
+            {
+              icon: <Camera className="h-5 w-5" />,
+              title: "Alte Steinkirche Sv. Duh",
+              description:
+                "Die mittelalterliche Kapelle Sv. Duh (Heiliger Geist) liegt 1 km außerhalb des Dorfes zwischen Olivenhainen. Perfektes Fotomotiv, besonders im Morgenlicht.",
+            },
+            {
+              icon: <Camera className="h-5 w-5" />,
+              title: "Parenzana-Tunnel",
+              description:
+                "Der alte Eisenbahntunnel der Parenzana (1902-1935) bei Kaštelir ist ein atmosphärischer Spot. Taschenlampe mitnehmen! Ca. 2 km vom Dorfzentrum auf dem Parenzana-Wanderweg.",
+            },
+            {
+              icon: <Camera className="h-5 w-5" />,
+              title: "Olivenhain-Panorama",
+              description:
+                "Der Weg Richtung Labinci führt durch uralte Olivenhaine mit Bäumen, die bis zu 500 Jahre alt sind. An klaren Tagen sieht man die slowenischen Alpen im Hintergrund.",
+            },
+          ]}
+        />
+
+        <h2 id="spazierwege">Spazierwege rund um Kaštelir</h2>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <RouteIcon className="h-5 w-5" />,
+              title: "Dorf-Rundgang (20 Min.)",
+              description:
+                "Durch die Steingassen des Dorfkerns, vorbei an der Kirche Sv. Stjepan und den alten Zisternen. Flach, auch für Kinderwagen geeignet.",
+            },
+            {
+              icon: <RouteIcon className="h-5 w-5" />,
+              title: "Olivenhain-Wanderung (45 Min.)",
+              description:
+                "Ab Dorfrand Richtung Westen durch die Olivenhaine. Teilweise unbefestigt. Herrliche Ausblicke auf die Küste. Wasser mitnehmen.",
+            },
+            {
+              icon: <RouteIcon className="h-5 w-5" />,
+              title: "Parenzana-Abschnitt (60-90 Min.)",
+              description:
+                "Auf der ehemaligen Bahntrasse Richtung Poreč. Flach und breit — ideal für Familien und Radfahrer. Geht durch Tunnel und über historische Brücken.",
+            },
+          ]}
+        />
+
+        <h2 id="events">Lokale Events &amp; Wochenmärkte</h2>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Calendar className="h-5 w-5" />,
+              title: "Wochenmarkt Poreč",
+              description:
+                "Jeden Dienstag und Samstag. Frisches Gemüse, Käse, Honig, Olivenöl und Lavendel direkt vom Erzeuger. In der Markthalle und auf dem Vorplatz. 7-13 Uhr.",
+            },
+            {
+              icon: <Calendar className="h-5 w-5" />,
+              title: "Olivenöl-Festival (November)",
+              description:
+                "Das 'Festa dell'Olio' in Kaštelir feiert die neue Olivenöl-Ernte. Verkostungen, Musik und lokale Spezialitäten. Termin variiert — meist erstes November-Wochenende.",
+            },
+            {
+              icon: <Calendar className="h-5 w-5" />,
+              title: "Weinfest Vinistra (Mai)",
+              description:
+                "Die größte Weinmesse Kroatiens in Poreč (15 Min. entfernt). Über 700 Weine aus ganz Kroatien. Tickets ab 15 €. Tipp: Am Freitag ist es weniger voll.",
+            },
+            {
+              icon: <Calendar className="h-5 w-5" />,
+              title: "Fischerfest Vrsar (August)",
+              description:
+                "Das traditionelle Fischerfest im nahen Vrsar (20 Min.) mit frisch gegrilltem Fisch, Live-Musik und Feuerwerk. Kostenloser Eintritt.",
             },
           ]}
         />
@@ -291,7 +490,7 @@ export default async function GeheimtippPage({ params }: Props) {
           ]}
         />
 
-        <h2>Villa Gloria: Ihr Zuhause in Kaštelir</h2>
+        <h2 id="villa">Villa Gloria: Ihr Zuhause in Kaštelir</h2>
         <p>
           Die{" "}
           <Link href="/das-haus" className="text-terracotta-500">
@@ -350,6 +549,32 @@ export default async function GeheimtippPage({ params }: Props) {
           </Link>
           .
         </p>
+
+        <BlogFAQ
+          schemaId="kastelir"
+          faqs={[
+            {
+              question: "Gibt es in Kaštelir einen Supermarkt?",
+              answer:
+                "Ja, es gibt einen Konzum Mini-Markt (700 m vom Dorfzentrum). Für einen größeren Einkauf fahren Sie zum Plodine in Poreč (15 Min.). Der Konzum hat Mo-Sa 7-20 Uhr und So 8-13 Uhr geöffnet.",
+            },
+            {
+              question: "Wie kommt man ohne Auto nach Poreč?",
+              answer:
+                "Es gibt eine Buslinie Pazin–Poreč, die durch Kaštelir fährt (ca. 3-4 Mal täglich). Die Fahrt dauert 20 Minuten und kostet ca. 3 €. Allerdings ist ein Mietwagen in Istrien sehr empfehlenswert — die öffentlichen Verbindungen sind begrenzt.",
+            },
+            {
+              question: "Ist Kaštelir auch im Winter interessant?",
+              answer:
+                "Ja, besonders für Ruhesuchende und Feinschmecker. Die Trüffelsaison ist von Oktober bis Dezember. Die Olivenöl-Ernte findet im November statt. Im Winter sind kaum Touristen da, die Konobas haben aber geöffnet. Temperaturen: 5-12 °C, selten Frost.",
+            },
+            {
+              question: "Woher kommt der Name Kaštelir?",
+              answer:
+                "Der Name leitet sich vom lateinischen 'castellum' ab, was 'kleine Festung' oder 'befestigte Siedlung' bedeutet. Kaštelir war seit der Bronzezeit (ca. 1500 v. Chr.) eine Höhensiedlung — die strategische Lage auf 200 m Höhe bot Schutz und Überblick über die Küste.",
+            },
+          ]}
+        />
       </BlogArticle>
     </>
   );

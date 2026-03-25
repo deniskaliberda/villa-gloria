@@ -5,6 +5,11 @@ import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
 import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
 import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
 import { BlogQuote } from "@/components/blog/BlogQuote";
+import { BlogTableOfContents } from "@/components/blog/BlogTableOfContents";
+import { BlogFAQ } from "@/components/blog/BlogFAQ";
+import { BlogQuickFacts } from "@/components/blog/BlogQuickFacts";
+import { BlogSeasonalTip } from "@/components/blog/BlogSeasonalTip";
+import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
@@ -17,6 +22,12 @@ import {
   Shield,
   Droplets,
   Star,
+  Wind,
+  Users,
+  Wrench,
+  Coffee,
+  Bike,
+  Clock,
 } from "lucide-react";
 
 const SLUG = "rennrad-istrien";
@@ -68,16 +79,19 @@ export default async function RennradIstrienPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://villa-gloria.com${post.image}`,
+    image: `https://www.villa-gloria-istrien.de${post.image}`,
     datePublished: post.date,
-    author: {
-      "@type": "Organization",
-      name: "Villa Gloria al Padre",
+    dateModified: post.dateModified,
+    wordCount: post.wordCount,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.villa-gloria-istrien.de/de/blog/${SLUG}`,
     },
+    author: { "@type": "Organization", name: "Villa Gloria al Padre" },
     publisher: {
       "@type": "Organization",
       name: "Villa Gloria al Padre",
-      url: "https://villa-gloria.com",
+      url: "https://www.villa-gloria-istrien.de",
     },
   };
 
@@ -97,6 +111,30 @@ export default async function RennradIstrienPage({ params }: Props) {
           Kroatiens bietet alles, was das Rennradfahrer-Herz begehrt.
         </p>
 
+        <BlogQuickFacts
+          facts={[
+            { icon: <Bike className="h-5 w-5" />, label: "Routen", value: "4+" },
+            { icon: <MapPin className="h-5 w-5" />, label: "Distanz", value: "50–130 km" },
+            { icon: <Sun className="h-5 w-5" />, label: "Sonnentage", value: "240+/Jahr" },
+            { icon: <Clock className="h-5 w-5" />, label: "Saison", value: "Feb–Nov" },
+          ]}
+        />
+
+        <BlogTableOfContents
+          sections={[
+            { id: "warum-istrien", label: "Warum Rennradfahrer Istrien lieben" },
+            { id: "routen", label: "Top 4 Routen ab Kaštelir" },
+            { id: "klettern", label: "Anstiege & Kategorien" },
+            { id: "wind", label: "Windmuster & beste Tageszeit" },
+            { id: "events", label: "Rennrad-Events" },
+            { id: "gruppen", label: "Gruppenfahrten & Clubs" },
+            { id: "verleih", label: "Rennrad-Verleih" },
+            { id: "tipps", label: "Praktische Tipps" },
+            { id: "villa", label: "Villa Gloria als Radsport-Quartier" },
+            { id: "faq", label: "Häufige Fragen" },
+          ]}
+        />
+
         <BlogImageGrid
           images={[
             {
@@ -112,7 +150,7 @@ export default async function RennradIstrienPage({ params }: Props) {
           ]}
         />
 
-        <h2>Warum Rennradfahrer Istrien lieben</h2>
+        <h2 id="warum-istrien">Warum Rennradfahrer Istrien lieben</h2>
         <p>
           Immer mehr Rennradfahrer entdecken Istrien als Alternative zu den
           überlaufenen Klassikern. Die Gründe liegen auf der Hand:
@@ -147,7 +185,7 @@ export default async function RennradIstrienPage({ params }: Props) {
           ]}
         />
 
-        <h2>Top 4 Rennrad-Routen ab Kaštelir</h2>
+        <h2 id="routen">Top 4 Rennrad-Routen ab Kaštelir</h2>
         <p>
           Kaštelir liegt strategisch perfekt im Herzen Istriens. Von hier aus
           erreichen Sie sowohl die Küste als auch das Hinterland in wenigen
@@ -184,7 +222,44 @@ export default async function RennradIstrienPage({ params }: Props) {
           ]}
         />
 
-        <h2>Rennrad-Events in Istrien</h2>
+        <h2 id="klettern">Anstiege & Kategorisierungen</h2>
+        <p>
+          Die Hügel Istriens sind moderat — keine Alpenpässe, aber genug Herausforderung
+          für ein gutes Training. Hier die wichtigsten Anstiege auf unseren Routen:
+        </p>
+
+        <BlogComparisonTable
+          headers={["Anstieg", "Länge", "Steigung ⌀", "Kat.", "Vergleich"]}
+          rows={[
+            ["Kaštelir → Motovun", "8,5 km", "5,2%", "Cat 3", "Wie Ventoux-Voralpen"],
+            ["Grožnjan Rampe", "3,2 km", "7,8%", "Cat 4", "Kurz aber knackig"],
+            ["Limski Kanal Anstieg", "4,1 km", "4,5%", "Cat 4", "Landschaftlich top"],
+            ["Gran Fondo Bergwertung", "12 km", "4,8%", "Cat 2", "Einzige Cat 2 in Istrien"],
+          ]}
+          caption="Die wichtigsten Anstiege auf den Routen ab Kaštelir"
+        />
+
+        <h2 id="wind">Windmuster & beste Tageszeit</h2>
+
+        <BlogInfoBox variant="info" title="Bora & Jugo — die Winde Istriens">
+          <p>
+            <strong>Bora</strong> (Nordost): Kalter, böiger Wind, vor allem im Winter und
+            Frühling. Kann an der Küste mit 60-100 km/h blasen. Küstenrouten bei Bora
+            vermeiden — im Hinterland ist es geschützter.
+          </p>
+          <p className="mt-2">
+            <strong>Jugo</strong> (Südost): Warmer, feuchter Wind, bringt oft Regen.
+            Meistens im Herbst und Frühling. Weniger gefährlich als Bora, aber
+            unangenehm bei Gegenwind.
+          </p>
+          <p className="mt-2">
+            <strong>Beste Strategie:</strong> Morgens starten (6-7 Uhr im Sommer) —
+            wenig Wind, kühlere Temperaturen, weniger Verkehr. An der Küste: im
+            Uhrzeigersinn fahren, dann ist der Wind nachmittags Rückenwind.
+          </p>
+        </BlogInfoBox>
+
+        <h2 id="events">Rennrad-Events in Istrien</h2>
         <p>
           Istrien hat sich in den letzten Jahren als Austragungsort für
           hochwertige Radsport-Events etabliert. Wer den Wettkampf sucht oder
@@ -222,7 +297,51 @@ export default async function RennradIstrienPage({ params }: Props) {
           </p>
         </BlogInfoBox>
 
-        <h2>Praktische Tipps für Rennradfahrer</h2>
+        <h2 id="gruppen">Gruppenfahrten & Radsport-Clubs</h2>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Users className="h-5 w-5" />,
+              title: "Sonntagsrunde Poreč",
+              description:
+                "Lokale Rennradfahrer treffen sich sonntags um 8 Uhr am Hafen Poreč. Tempo: 28-32 km/h, ca. 80 km. Auch Gäste willkommen — einfach dazugesellen.",
+            },
+            {
+              icon: <Users className="h-5 w-5" />,
+              title: "Cycling Club Poreč",
+              description:
+                "Organisierter Verein mit regelmäßigen Ausfahrten (Mi + Sa). Kontakt über Facebook-Gruppe 'Cycling Poreč'. Auch Trainingslager-Betreuung.",
+            },
+            {
+              icon: <Users className="h-5 w-5" />,
+              title: "Pro-Teams in Istrien",
+              description:
+                "Mehrere World-Tour-Teams nutzen Istrien als Frühjahrs-Trainingslager (Februar–März). Die Straßen um Motovun und Grožnjan sind beliebte Trainingsstrecken.",
+            },
+          ]}
+        />
+
+        <h2 id="verleih">Rennrad-Verleih in der Nähe</h2>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Wrench className="h-5 w-5" />,
+              title: "Biking Istria, Poreč",
+              description:
+                "Carbon-Rennräder (Cube, Giant) ab 40 €/Tag. Pedal-Adapter für SPD/Look. Sattel-Anpassung inklusive. Lieferung zur Villa möglich. Reservierung empfohlen.",
+            },
+            {
+              icon: <Wrench className="h-5 w-5" />,
+              title: "Rad-Transport von zu Hause",
+              description:
+                "Mit dem Auto: Dachgepäckträger oder Heckträger. Die Anfahrt ab München/Wien ist ca. 5-7 Stunden. Flugzeug: Eurowings, Ryanair erlauben Fahrräder als Sondergepäck (30-60 € pro Strecke). Nächster Flughafen: Pula (45 Min.).",
+            },
+          ]}
+        />
+
+        <h2 id="tipps">Praktische Tipps für Rennradfahrer</h2>
         <p>
           Damit Ihr Rennrad-Urlaub in Istrien reibungslos verläuft, hier unsere
           gesammelten Praxistipps:
@@ -254,6 +373,16 @@ export default async function RennradIstrienPage({ params }: Props) {
           </li>
         </ul>
 
+        <BlogSeasonalTip
+          highlights={[
+            { months: [3, 4, 5, 10], label: "Perfekt fürs Rennrad", color: "best" },
+            { months: [6, 9, 11], label: "Gut möglich", color: "good" },
+            { months: [7, 8], label: "Heiß — nur morgens", color: "ok" },
+            { months: [2], label: "Kalt aber machbar", color: "ok" },
+            { months: [12, 1], label: "Winterpause", color: "avoid" },
+          ]}
+        />
+
         <BlogInfoBox variant="warning" title="Achtung: Sommerhitze">
           <p>
             In der Mittagshitze (Juli/August) können die Temperaturen über
@@ -267,7 +396,7 @@ export default async function RennradIstrienPage({ params }: Props) {
           </p>
         </BlogInfoBox>
 
-        <h2>Villa Gloria — Ihr Radsport-Quartier in Istrien</h2>
+        <h2 id="villa">Villa Gloria — Ihr Radsport-Quartier in Istrien</h2>
         <p>
           Die{" "}
           <Link href="/das-haus" className="text-terracotta-500">
@@ -327,6 +456,18 @@ export default async function RennradIstrienPage({ params }: Props) {
         </BlogQuote>
 
         <p>
+          Lieber auf dem Trail? Lesen Sie unseren{" "}
+          <Link href="/blog/mountainbike-istrien" className="text-terracotta-500">
+            Mountainbike-Guide für Istrien
+          </Link>
+          . Nach der Tour eine Weinprobe:{" "}
+          <Link href="/blog/weinurlaub-istrien" className="text-terracotta-500">
+            Weinurlaub in Istrien
+          </Link>
+          .
+        </p>
+
+        <p>
           Planen Sie Ihren Rennrad-Urlaub in Istrien und prüfen Sie die{" "}
           <Link href="/buchen" className="text-terracotta-500">
             Verfügbarkeit der Villa Gloria
@@ -335,6 +476,34 @@ export default async function RennradIstrienPage({ params }: Props) {
           bietet Platz für bis zu 10 Personen und die perfekte Infrastruktur
           für Radsportler.
         </p>
+
+        <h2 id="faq">Häufige Fragen</h2>
+
+        <BlogFAQ
+          schemaId="rennrad"
+          faqs={[
+            {
+              question: "Welche Übersetzung brauche ich für Istrien?",
+              answer:
+                "Eine Kompaktkurbel (50/34) mit einer 11-32er Kassette reicht für alle Anstiege in Istrien. Die steilsten Rampen haben 8-9% — kein Alpenniveau. Wer es sportlicher mag: 52/36 mit 11-28 funktioniert auch, ist aber auf der Motovun-Rampe anspruchsvoll.",
+            },
+            {
+              question: "Gibt es Rennrad-Verleih in Poreč?",
+              answer:
+                "Ja, Biking Istria in Poreč verleiht Carbon-Rennräder ab 40 €/Tag (Cube, Giant). Pedal-Adapter für SPD und Look verfügbar. Sattel-Anpassung inklusive. Lieferung zur Villa Gloria möglich. In der Hochsaison 1 Woche vorher reservieren.",
+            },
+            {
+              question: "Wann ist die beste Saison für Rennrad in Istrien?",
+              answer:
+                "März bis Mai und September bis Oktober sind ideal: 18-25 °C, wenig Wind, kaum Touristen-Verkehr. Im Sommer (Juli/August) wird es bis 35 °C heiß — dann nur morgens vor 10 Uhr fahren. Februar ist für Hartgesottene: 8-12 °C, aber die Straßen sind leer.",
+            },
+            {
+              question: "Kann ich mein Rad sicher in der Villa abstellen?",
+              answer:
+                "Ja, die Villa Gloria hat eine überdachte Terrasse und einen abschließbaren Abstellraum. Ihr Rennrad ist sicher untergebracht. Werkzeug für kleine Reparaturen (Pumpe, Reifenheber, Multitool) können wir auf Anfrage bereitstellen.",
+            },
+          ]}
+        />
       </BlogArticle>
     </>
   );

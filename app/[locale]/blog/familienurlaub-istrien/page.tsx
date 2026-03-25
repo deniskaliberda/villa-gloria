@@ -5,6 +5,11 @@ import { BlogImageGrid } from "@/components/blog/BlogImageGrid";
 import { BlogFeatureCard } from "@/components/blog/BlogFeatureCard";
 import { BlogInfoBox } from "@/components/blog/BlogInfoBox";
 import { BlogQuote } from "@/components/blog/BlogQuote";
+import { BlogTableOfContents } from "@/components/blog/BlogTableOfContents";
+import { BlogFAQ } from "@/components/blog/BlogFAQ";
+import { BlogQuickFacts } from "@/components/blog/BlogQuickFacts";
+import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
+import { BlogSeasonalTip } from "@/components/blog/BlogSeasonalTip";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { Link } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
@@ -23,6 +28,14 @@ import {
   Palmtree,
   TreePine,
   Anchor,
+  CloudRain,
+  ShoppingCart,
+  Stethoscope,
+  Utensils,
+  Car,
+  Route,
+  MapPin,
+  Users,
 } from "lucide-react";
 
 const SLUG = "familienurlaub-istrien";
@@ -74,8 +87,14 @@ export default async function FamilienurlaubPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://villa-gloria.com${post.image}`,
+    image: `https://www.villa-gloria-istrien.de${post.image}`,
     datePublished: post.date,
+    dateModified: post.dateModified,
+    wordCount: post.wordCount,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.villa-gloria-istrien.de/de/blog/${SLUG}`,
+    },
     author: {
       "@type": "Organization",
       name: "Villa Gloria al Padre",
@@ -83,7 +102,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "Villa Gloria al Padre",
-      url: "https://villa-gloria.com",
+      url: "https://www.villa-gloria-istrien.de",
     },
   };
 
@@ -103,6 +122,27 @@ export default async function FamilienurlaubPage({ params }: Props) {
           sollten.
         </p>
 
+        <p>
+          Reisen Sie mit Hund? Dann lesen Sie auch unseren{" "}
+          <Link href="/blog/hundeurlaub-istrien" className="text-terracotta-500">
+            Hundeurlaub-Guide für Istrien
+          </Link>
+          . Für Weinliebhaber:{" "}
+          <Link href="/blog/weinurlaub-istrien" className="text-terracotta-500">
+            Weinurlaub in Istrien
+          </Link>
+          .
+        </p>
+
+        <BlogQuickFacts
+          facts={[
+            { icon: <Waves className="h-5 w-5" />, label: "bis Istralandia", value: "20 Min." },
+            { icon: <MapPin className="h-5 w-5" />, label: "bis Dino Park", value: "25 Min." },
+            { icon: <Users className="h-5 w-5" />, label: "Gäste", value: "bis 9" },
+            { icon: <Car className="h-5 w-5" />, label: "ab München", value: "~6 Std." },
+          ]}
+        />
+
         <BlogImageGrid
           images={[
             {
@@ -118,7 +158,24 @@ export default async function FamilienurlaubPage({ params }: Props) {
           ]}
         />
 
-        <h2>Warum Istrien perfekt für Familienurlaub ist</h2>
+        <BlogTableOfContents
+          sections={[
+            { id: "warum-istrien", label: "Warum Istrien für Familien?" },
+            { id: "istralandia", label: "Aquapark Istralandia" },
+            { id: "dino-park", label: "Dino Park Funtana" },
+            { id: "straende", label: "Familienfreundliche Strände" },
+            { id: "teenager", label: "Aktivitäten für Teenager" },
+            { id: "regentage", label: "Regentag-Aktivitäten" },
+            { id: "budget", label: "Tagesbudget für Familien" },
+            { id: "restaurants", label: "Familienrestaurants" },
+            { id: "einkaufen", label: "Supermarkt & Apotheke" },
+            { id: "villa", label: "Villa Gloria für Familien" },
+            { id: "reisezeit", label: "Beste Reisezeit" },
+            { id: "faq", label: "Häufige Fragen" },
+          ]}
+        />
+
+        <h2 id="warum-istrien">Warum Istrien perfekt für Familienurlaub ist</h2>
         <p>
           Istrien liegt nur 5-7 Autostunden von München, Wien oder Zürich
           entfernt. Keine langen Flüge, kein Jetlag — und trotzdem
@@ -152,7 +209,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
           </li>
         </ul>
 
-        <h2>Aquapark Istralandia — Europas bester Wasserpark</h2>
+        <h2 id="istralandia">Aquapark Istralandia — Europas bester Wasserpark</h2>
         <p>
           Nur 25 Minuten von Kaštelir entfernt liegt Istralandia — einer der
           größten und am besten bewerteten Wasserparks in ganz Europa. Auf
@@ -188,7 +245,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
           </p>
         </BlogInfoBox>
 
-        <h2>Dino Park Funtana — Jurassic Park auf Istrisch</h2>
+        <h2 id="dino-park">Dino Park Funtana — Jurassic Park auf Istrisch</h2>
         <p>
           Der Dino Park in Funtana (ca. 20 Min. von Kaštelir) ist ein Muss für
           Kinder zwischen 3 und 12 Jahren. In einem natürlichen Waldgebiet
@@ -221,7 +278,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
           </p>
         </BlogInfoBox>
 
-        <h2>Familienfreundliche Strände</h2>
+        <h2 id="straende">Familienfreundliche Strände</h2>
         <p>
           Istriens Strände sind überwiegend Kieselstrände mit kristallklarem
           Wasser — ideal für Familien, da das Wasser sauber bleibt und die
@@ -268,7 +325,7 @@ export default async function FamilienurlaubPage({ params }: Props) {
           Strandshops sind sie günstig erhältlich.
         </p>
 
-        <h2>Aktivitäten für Teenager</h2>
+        <h2 id="teenager">Aktivitäten für Teenager</h2>
         <p>
           Teenager brauchen Action — und bekommen sie in Istrien reichlich:
         </p>
@@ -318,7 +375,131 @@ export default async function FamilienurlaubPage({ params }: Props) {
           </li>
         </ul>
 
-        <h2>
+        <h2 id="regentage">Was tun bei Regentagen?</h2>
+        <p>
+          Auch wenn Istrien über 240 Sonnentage pro Jahr hat — ein Regentag ist
+          immer möglich. Kein Problem: Es gibt genug Indoor-Alternativen.
+        </p>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <CloudRain className="h-5 w-5" />,
+              title: "Aquarium Poreč",
+              description:
+                "Kleines aber feines Aquarium in der Altstadt von Poreč. Perfekt für 1-2 Stunden mit Kindern. Eintritt: ca. 8 € Erwachsene, 5 € Kinder. 15 Min. Fahrt.",
+            },
+            {
+              icon: <CloudRain className="h-5 w-5" />,
+              title: "Einkaufsbummel Poreč Altstadt",
+              description:
+                "Die historische Altstadt mit Euphrasius-Basilika (UNESCO) bietet überdachte Gassen, Eisdielen und kleine Geschäfte. Auch bei Regen stimmungsvoll.",
+            },
+            {
+              icon: <CloudRain className="h-5 w-5" />,
+              title: "Kochkurs 'Istrische Küche'",
+              description:
+                "Mehrere Anbieter rund um Poreč bieten Familien-Kochkurse an: Pasta selber machen, Olivenöl pressen, Trüffel suchen. Ab ca. 40 €/Person. Vorher reservieren.",
+            },
+            {
+              icon: <CloudRain className="h-5 w-5" />,
+              title: "Indoor-Spielplatz Poreč",
+              description:
+                "Fun Park Poreč bietet Trampoline, Kletterwände und Softplay für Kinder bis 12 Jahre. Eltern entspannen im Café nebenan. Ca. 10 € pro Kind.",
+            },
+          ]}
+        />
+
+        <h2 id="budget">Tagesbudget für eine Familie in Istrien</h2>
+        <p>
+          Kroatien ist deutlich günstiger als Italien oder Österreich. Hier eine
+          realistische Kalkulation für eine 4-köpfige Familie pro Tag:
+        </p>
+
+        <BlogComparisonTable
+          headers={["Posten", "Günstig", "Komfortabel", "Premium"]}
+          rows={[
+            ["Frühstück (Bäckerei/Supermarkt)", "5–8 €", "10–15 €", "15–25 €"],
+            ["Mittagessen (Konoba/Restaurant)", "15–25 €", "30–45 €", "50–70 €"],
+            ["Abendessen (Grillen/Restaurant)", "15–20 €", "35–50 €", "60–90 €"],
+            ["Eintritt Attraktion", "0 €", "25–40 €", "40–60 €"],
+            ["Benzin / Transport", "5–10 €", "10–15 €", "15–25 €"],
+            ["Eis & Snacks", "5 €", "8–12 €", "15 €"],
+            ["Gesamt pro Tag", "45–68 €", "118–177 €", "195–285 €"],
+          ]}
+          caption="Geschätzte Tageskosten für eine 4-köpfige Familie (2 Erw. + 2 Kinder)"
+        />
+
+        <BlogInfoBox variant="tip" title="Spar-Tipp: Selbst kochen spart enorm">
+          <p>
+            Die Villa Gloria hat eine voll ausgestattete Küche mit Backofen, Herd und
+            Geschirrspüler. Wer abends grillt statt ins Restaurant geht, spart leicht
+            30-50 € pro Tag. Auf dem Wochenmarkt in Poreč gibt es frisches Gemüse,
+            Käse und Fisch direkt vom Erzeuger.
+          </p>
+        </BlogInfoBox>
+
+        <h2 id="restaurants">Familienfreundliche Restaurants</h2>
+        <p>
+          Nicht jedes Restaurant in Istrien ist auf Familien mit kleinen Kindern
+          eingestellt. Diese hier schon:
+        </p>
+
+        <BlogFeatureCard
+          features={[
+            {
+              icon: <Utensils className="h-5 w-5" />,
+              title: "Konoba Morgan, Kaštelir",
+              description:
+                "Große Terrasse mit Platz zum Herumlaufen. Kinderteller ab 6 €. Hochstühle vorhanden. 5 Min. zu Fuß von der Villa. Tipp: Reservieren in der Hochsaison!",
+            },
+            {
+              icon: <Utensils className="h-5 w-5" />,
+              title: "Restaurant Nono, Poreč",
+              description:
+                "Bekannt für Pizza und Pasta. Schneller Service (wichtig mit hungrigen Kindern). Kinderstühle, Malblätter. Große Portionen. Hauptgerichte 8–14 €.",
+            },
+            {
+              icon: <Utensils className="h-5 w-5" />,
+              title: "Konoba Astarea, Brtonigla",
+              description:
+                "Großer Spielplatz im Garten! Kinder spielen, Eltern genießen Trüffel-Pasta und lokalen Wein. Etwas teurer (15–22 €), aber jeden Cent wert.",
+            },
+            {
+              icon: <Utensils className="h-5 w-5" />,
+              title: "Pizzeria Niko, Poreč Hafen",
+              description:
+                "Direkt am Hafen mit Blick aufs Wasser. Kinder schauen den Booten zu. Pizza ab 7 €, Eis nebenan. Ideal für den Nachmittag.",
+            },
+          ]}
+        />
+
+        <h2 id="einkaufen">Supermarkt, Apotheke & Praktisches</h2>
+
+        <BlogInfoBox variant="info" title="Einkaufen in der Nähe">
+          <ul className="mt-2 list-none space-y-2 p-0">
+            <li>
+              <strong>Konzum Mini, Kaštelir</strong> — 700 m von der Villa. Grundlegendes
+              Sortiment, frisches Brot, Milch, Wasser. Mo–Sa 7–20 Uhr, So 8–13 Uhr.
+            </li>
+            <li>
+              <strong>Plodine, Poreč</strong> — Großer Supermarkt (wie Lidl/Kaufland) mit
+              allem was man braucht. Babynahrung, Windeln, Sonnencreme. 15 Min. Fahrt.
+              Mo–Sa 7–21 Uhr.
+            </li>
+            <li>
+              <strong>Apotheke (Ljekarna), Poreč Zentrum</strong> — Kindermedikamente,
+              Sonnenschutz, Insektenmittel. Mo–Fr 7–20 Uhr, Sa 7–14 Uhr.
+            </li>
+            <li>
+              <strong>Kinderarzt</strong> — Die nächste Kinderarztpraxis ist in Poreč
+              (Dom zdravlja Poreč, +385 52 451 611). Im Notfall: Krankenhaus Pula (60 Min.)
+              oder Notruf 112.
+            </li>
+          </ul>
+        </BlogInfoBox>
+
+        <h2 id="villa">
           Villa Gloria: Platz für die ganze Familie
         </h2>
         <p>
@@ -375,6 +556,56 @@ export default async function FamilienurlaubPage({ params }: Props) {
               title: "BBQ-Bereich",
               description:
                 "Grillabende gehören zum Familienurlaub. Überdachter Grillplatz — auch bei Regen.",
+            },
+          ]}
+        />
+
+        <h2 id="reisezeit">Beste Reisezeit für Familienurlaub</h2>
+
+        <BlogSeasonalTip
+          highlights={[
+            { months: [6, 9], label: "Perfekt für Familien", color: "best" },
+            { months: [5, 10], label: "Angenehm warm", color: "good" },
+            { months: [7, 8], label: "Heiß & voll", color: "ok" },
+            { months: [4, 11], label: "Nebensaison", color: "ok" },
+          ]}
+        />
+
+        <p>
+          <strong>Juni und September</strong> sind ideal: warm genug zum Schwimmen
+          (24-27 °C Wasser), aber nicht so heiß wie im Hochsommer. Istralandia und
+          Dino Park sind weniger überlaufen, Restaurants haben noch freie Plätze.
+          Im <strong>Juli/August</strong> ist Hochsaison — voller, teurer, heißer,
+          aber natürlich auch möglich.
+        </p>
+
+        <BlogFAQ
+          schemaId="familienurlaub"
+          faqs={[
+            {
+              question: "Ab welchem Alter lohnt sich Istralandia?",
+              answer:
+                "Istralandia hat einen Bereich für Kleinkinder ab 2 Jahren mit flachen Becken und Mini-Rutschen. Richtig Spaß macht der Park aber ab ca. 5-6 Jahren. Die großen Rutschen haben eine Mindestgröße von 120 cm. Für Teenager gibt es Adrenalin-Rutschen und einen FlowRider Surfsimulator.",
+            },
+            {
+              question: "Gibt es einen Kinderarzt in Poreč?",
+              answer:
+                "Ja, im Dom zdravlja Poreč (Gesundheitszentrum) gibt es eine Kinderarztpraxis. Telefon: +385 52 451 611. Im Notfall ist das Krankenhaus in Pula (ca. 60 Min. Fahrt) die nächste größere Klinik. Europäischer Notruf: 112.",
+            },
+            {
+              question: "Ist der Pool der Villa Gloria kindersicher?",
+              answer:
+                "Der Pool hat keine Umzäunung, daher müssen kleine Kinder beaufsichtigt werden. Es gibt einen flachen Einstieg über Stufen. Die Pooltiefe beträgt 1,20-1,80 m. Schwimmhilfen können mitgebracht werden. Das Grundstück selbst ist komplett eingezäunt.",
+            },
+            {
+              question: "Was kann man bei Regentagen unternehmen?",
+              answer:
+                "Aquarium Poreč, Einkaufen in der Altstadt, Kochkurs für Familien, Indoor-Spielplatz Fun Park Poreč oder das Euphrasius-Basilika Museum (UNESCO-Weltkulturerbe). Die Villa selbst bietet Brettspiele und eine überdachte Terrasse.",
+            },
+            {
+              question: "Wie weit ist der nächste Supermarkt?",
+              answer:
+                "Der Konzum Mini in Kaštelir ist nur 700 m von der Villa entfernt (Mo-Sa 7-20 Uhr, So 8-13 Uhr). Für einen größeren Einkauf fahren Sie zum Plodine Supermarkt in Poreč (15 Min., Mo-Sa 7-21 Uhr). Windeln und Babynahrung sind in beiden erhältlich.",
             },
           ]}
         />
