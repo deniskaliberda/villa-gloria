@@ -8,12 +8,13 @@ export function Hero() {
       <Image
         src="/images/hero/villa-pool-seaview.jpg"
         alt="Villa Gloria al Padre — Pool mit Meerblick"
-        fill
+        width={1200}
+        height={800}
         priority
         fetchPriority="high"
-        quality={80}
+        quality={75}
         sizes="100vw"
-        className="object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
