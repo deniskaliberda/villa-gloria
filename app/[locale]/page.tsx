@@ -1,10 +1,34 @@
+import dynamic from "next/dynamic";
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
-import { QuickFacts } from "@/components/sections/QuickFacts";
-import { PropertyOptions } from "@/components/sections/PropertyOptions";
-import { HighlightsGrid } from "@/components/sections/HighlightsGrid";
-import { ReviewSnippet } from "@/components/sections/ReviewSnippet";
-import { CTABanner } from "@/components/sections/CTABanner";
+
+const QuickFacts = dynamic(
+  () => import("@/components/sections/QuickFacts").then((m) => m.QuickFacts),
+  { ssr: true }
+);
+const PropertyOptions = dynamic(
+  () =>
+    import("@/components/sections/PropertyOptions").then(
+      (m) => m.PropertyOptions
+    ),
+  { ssr: true }
+);
+const HighlightsGrid = dynamic(
+  () =>
+    import("@/components/sections/HighlightsGrid").then(
+      (m) => m.HighlightsGrid
+    ),
+  { ssr: true }
+);
+const ReviewSnippet = dynamic(
+  () =>
+    import("@/components/sections/ReviewSnippet").then((m) => m.ReviewSnippet),
+  { ssr: true }
+);
+const CTABanner = dynamic(
+  () => import("@/components/sections/CTABanner").then((m) => m.CTABanner),
+  { ssr: true }
+);
 
 type Props = {
   params: Promise<{ locale: string }>;

@@ -12,7 +12,7 @@ export function Hero() {
         height={800}
         priority
         fetchPriority="high"
-        quality={75}
+        quality={50}
         sizes="100vw"
         className="absolute inset-0 h-full w-full object-cover"
       />

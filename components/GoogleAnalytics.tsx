@@ -1,53 +1,42 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export function GoogleAnalytics() {
+  const [hasConsent, setHasConsent] = useState(false);
+
   useEffect(() => {
     if (!GA_ID) return;
 
-    // Check consent on mount and update gtag
     const consent = localStorage.getItem("cookie-consent");
     if (consent === "accepted") {
-      window.gtag?.("consent", "update", {
-        analytics_storage: "granted",
-      });
+      setHasConsent(true);
     }
 
-    // Listen for consent changes from CookieBanner
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === "cookie-consent") {
-        window.gtag?.("consent", "update", {
-          analytics_storage: e.newValue === "accepted" ? "granted" : "denied",
-        });
+      if (e.key === "cookie-consent" && e.newValue === "accepted") {
+        setHasConsent(true);
       }
     };
     window.addEventListener("storage", handleStorage);
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
-  if (!GA_ID) return null;
+  if (!GA_ID || !hasConsent) return null;
 
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-
-          // Default: consent denied (DSGVO-compliant)
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-          });
-
           gtag('js', new Date());
           gtag('config', '${GA_ID}');
         `}
