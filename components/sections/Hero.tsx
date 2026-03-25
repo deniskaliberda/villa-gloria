@@ -10,7 +10,8 @@ export function Hero() {
         alt="Villa Gloria al Padre — Pool mit Meerblick"
         fill
         priority
-        quality={75}
+        fetchPriority="high"
+        quality={80}
         sizes="100vw"
         className="object-cover"
       />

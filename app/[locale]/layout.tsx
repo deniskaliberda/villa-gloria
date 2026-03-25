@@ -14,21 +14,21 @@ import "../globals.css";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
 });
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
 const josefinSans = Josefin_Sans({
   variable: "--font-josefin-sans",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["400", "600"],
   display: "swap",
 });

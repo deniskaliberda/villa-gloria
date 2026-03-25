@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 export function HeroContent() {
@@ -12,64 +11,46 @@ export function HeroContent() {
   return (
     <>
       <div className="relative z-10 px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-4xl font-bold text-white sm:text-5xl md:text-7xl lg:text-8xl"
+        <h1
+          className="animate-fade-up font-display text-4xl font-bold text-white sm:text-5xl md:text-7xl lg:text-8xl"
+          style={{ animationDelay: "0.2s" }}
         >
           {t("title")}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-4 font-accent text-xl text-warm/90 md:text-2xl"
+        <p
+          className="animate-fade-up mt-4 font-accent text-xl text-warm/90 md:text-2xl"
+          style={{ animationDelay: "0.5s" }}
         >
           {t("subtitle")}
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mx-auto mt-6 max-w-2xl text-base text-white/80 sm:text-lg"
+        <p
+          className="animate-fade-up mx-auto mt-6 max-w-2xl text-base text-white/80 sm:text-lg"
+          style={{ animationDelay: "0.7s" }}
         >
           {t("description")}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-10"
+        <div
+          className="animate-fade-up mt-10"
+          style={{ animationDelay: "0.9s" }}
         >
           <Link href="/buchen">
             <Button size="lg">{tNav("bookNow")}</Button>
           </Link>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* Scroll indicator — pure CSS animation */}
+      <div
+        className="animate-fade-in absolute bottom-8 left-1/2 -translate-x-1/2"
+        style={{ animationDelay: "1.5s" }}
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="h-10 w-6 rounded-full border-2 border-white/50"
-        >
-          <motion.div
-            animate={{ y: [0, 16, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="mx-auto mt-2 h-2 w-1 rounded-full bg-white/70"
-          />
-        </motion.div>
-      </motion.div>
+        <div className="animate-scroll-bounce h-10 w-6 rounded-full border-2 border-white/50">
+          <div className="animate-scroll-bounce mx-auto mt-2 h-2 w-1 rounded-full bg-white/70" />
+        </div>
+      </div>
     </>
   );
 }
