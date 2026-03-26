@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
 export function GoogleAnalytics() {
   const [hasConsent, setHasConsent] = useState(false);
@@ -25,7 +26,7 @@ export function GoogleAnalytics() {
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
-  if (!GA_ID || !hasConsent) return null;
+  if ((!GA_ID && !ADS_ID) || !hasConsent) return null;
 
   return (
     <>
@@ -38,7 +39,8 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}');
+          ${GA_ID ? `gtag('config', '${GA_ID}');` : ""}
+          ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
         `}
       </Script>
     </>
