@@ -60,18 +60,18 @@ function TermsContent() {
         <p>
           Vermieter und Vertragspartner ist:
           <br />
-          [VORNAME NACHNAME]
+          Marko Pfaff
           <br />
-          [STRASSE]
+          Alte Straße 28
           <br />
-          [PLZ ORT, LAND]
+          04651 Bad Lausick, Deutschland
           <br />
           E-Mail:{" "}
           <a href="mailto:info@villa-gloria-istrien.de">
             info@villa-gloria-istrien.de
           </a>
           <br />
-          Telefon: [+XX XXX XXXXXXX]
+          Telefon: +49 172 5642200
         </p>
         <p>
           Der Mieter ist die Person, die die Buchung vornimmt und

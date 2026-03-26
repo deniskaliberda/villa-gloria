@@ -16,14 +16,12 @@ export async function POST(request: Request) {
     // Send email via Resend
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const adminEmail =
-        process.env.CONTACT_EMAIL || "info@urlaubsbleibe.de";
-
       await resend.emails.send({
         from:
           process.env.RESEND_FROM_EMAIL ||
           "Villa Gloria <noreply@villa-gloria.com>",
-        to: adminEmail,
+        to: "info@villa-gloria-istrien.de",
+        cc: "wieland.oswald@fahrzeugbau-pfaff.de",
         replyTo: email,
         subject: `Kontaktanfrage: ${subject}`,
         html: `

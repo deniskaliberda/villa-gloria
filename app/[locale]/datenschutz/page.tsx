@@ -47,18 +47,18 @@ function PrivacyContent() {
           Bestimmungen ist:
         </p>
         <p>
-          [VORNAME NACHNAME]
+          Marko Pfaff
           <br />
-          [STRASSE]
+          Alte Straße 28
           <br />
-          [PLZ ORT, LAND]
+          04651 Bad Lausick, Deutschland
           <br />
           E-Mail:{" "}
           <a href="mailto:info@villa-gloria-istrien.de">
             info@villa-gloria-istrien.de
           </a>
           <br />
-          Telefon: [+XX XXX XXXXXXX]
+          Telefon: +49 172 5642200
           <br />
           Website:{" "}
           <a
@@ -542,7 +542,7 @@ function PrivacyContent() {
           Die zuständige Aufsichtsbehörde richtet sich nach dem
           Bundesland des Wohnsitzes des Verantwortlichen:
           <br />
-          [ZUSTÄNDIGE DATENSCHUTZAUFSICHTSBEHÖRDE DES BUNDESLANDES]
+          Sächsische Datenschutz- und Transparenzbeauftragte
         </p>
         <p>
           Eine Liste der Datenschutzaufsichtsbehörden sowie deren

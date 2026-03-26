@@ -40,13 +40,13 @@ export async function POST(request: Request) {
 
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const contactEmail = process.env.CONTACT_EMAIL || "info@urlaubsbleibe.de";
       const fromEmail = process.env.RESEND_FROM_EMAIL || "Villa Gloria <buchung@villa-gloria-istrien.de>";
 
-      // Email 1: Anfrage an Micha
+      // Email 1: Anfrage an Vermieter + CC Wieland
       await resend.emails.send({
         from: fromEmail,
-        to: contactEmail,
+        to: "info@villa-gloria-istrien.de",
+        cc: "wieland.oswald@fahrzeugbau-pfaff.de",
         replyTo: data.guestEmail,
         subject: `Neue Buchungsanfrage: ${data.guestName} (${formatDate(data.checkIn)} - ${formatDate(data.checkOut)})`,
         html: `

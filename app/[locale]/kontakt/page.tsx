@@ -146,7 +146,7 @@ export default function ContactPage() {
                     <p className="font-accent font-semibold text-dark">
                       E-Mail
                     </p>
-                    <p className="text-dark-light">info@villa-gloria.com</p>
+                    <p className="text-dark-light">info@villa-gloria-istrien.de</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -158,7 +158,7 @@ export default function ContactPage() {
                       Telefon
                     </p>
                     <p className="text-dark-light">
-                      [Wird vor Go-Live ergänzt]
+                      +49 172 5642200
                     </p>
                   </div>
                 </div>
