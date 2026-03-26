@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const adminEmail =
-        process.env.ADMIN_EMAIL || "info@villa-gloria.com";
+        process.env.CONTACT_EMAIL || "info@urlaubsbleibe.de";
 
       await resend.emails.send({
         from:
