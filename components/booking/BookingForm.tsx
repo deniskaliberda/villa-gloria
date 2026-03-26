@@ -78,9 +78,8 @@ export function BookingForm() {
             value: 1,
           });
         }
-        setBookingNumber(result.bookingNumber);
-        setIsSubmitted(true);
-        reset();
+        // Redirect to confirmation page with booking number
+        window.location.href = `/${document.documentElement.lang || "de"}/buchen/bestaetigung?booking=${result.bookingNumber}`;
       }
     } catch {
       // Error handling
