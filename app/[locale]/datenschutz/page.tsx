@@ -311,7 +311,50 @@ function PrivacyContent() {
           Jahren) gespeichert.
         </p>
 
-        <h2>8. Zahlungsabwicklung</h2>
+        <h2>8. Verfügbarkeitskalender (Smoobu)</h2>
+        <p>
+          Auf unserer Buchungsseite nutzen wir ein Kalender-Widget zur
+          Anzeige der Verfügbarkeit unserer Unterkünfte. Anbieter ist:
+        </p>
+        <p>
+          <strong>Smoobu GmbH</strong>
+          <br />
+          Kopernikusstraße 35
+          <br />
+          10243 Berlin, Deutschland
+          <br />
+          Website:{" "}
+          <a
+            href="https://www.smoobu.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            smoobu.com
+          </a>
+        </p>
+        <p>
+          Beim Laden des Kalender-Widgets wird eine Verbindung zu den
+          Servern von Smoobu hergestellt. Dabei wird die IP-Adresse des
+          Nutzers an Smoobu übermittelt. Smoobu ist ein deutsches
+          Unternehmen und verarbeitet die Daten innerhalb der
+          Europäischen Union.
+        </p>
+        <p>
+          Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
+          (vorvertragliche Maßnahmen — der Kalender dient der
+          Verfügbarkeitsprüfung vor einer Buchungsanfrage). Weitere
+          Informationen finden Sie in der{" "}
+          <a
+            href="https://www.smoobu.com/de/datenschutz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Datenschutzerklärung von Smoobu
+          </a>
+          .
+        </p>
+
+        <h2>9. Zahlungsabwicklung (Stripe)</h2>
         <p>
           Für die Zahlungsabwicklung nutzen wir den Dienst:
         </p>
@@ -355,7 +398,7 @@ function PrivacyContent() {
           .
         </p>
 
-        <h2>9. E-Mail-Versand</h2>
+        <h2>10. E-Mail-Versand (Resend)</h2>
         <p>
           Für den Versand transaktionaler E-Mails (z.&nbsp;B.
           Buchungsbestätigungen, Zahlungserinnerungen,
@@ -396,7 +439,51 @@ function PrivacyContent() {
           .
         </p>
 
-        <h2>10. Cookies</h2>
+        <h2>11. Google Maps</h2>
+        <p>
+          Auf unserer Kontaktseite verwenden wir Google Maps zur
+          Darstellung des Standorts unserer Unterkunft. Anbieter ist:
+        </p>
+        <p>
+          <strong>Google LLC</strong>
+          <br />
+          1600 Amphitheatre Parkway
+          <br />
+          Mountain View, CA 94043, USA
+          <br />
+          Website:{" "}
+          <a
+            href="https://www.google.de/maps"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            google.de/maps
+          </a>
+        </p>
+        <p>
+          Die Karte wird über die Google Maps Embed API als iframe
+          eingebunden. Beim Laden der Kontaktseite wird eine Verbindung
+          zu den Servern von Google hergestellt. Dabei werden
+          mindestens die IP-Adresse und der Browsertyp des Nutzers an
+          Google übermittelt.
+        </p>
+        <p>
+          Google ist unter dem EU-US Data Privacy Framework
+          zertifiziert. Die Rechtsgrundlage ist Art. 6 Abs. 1 lit. f
+          DSGVO (berechtigtes Interesse an der übersichtlichen
+          Darstellung unseres Standorts). Weitere Informationen finden
+          Sie in der{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Datenschutzerklärung von Google
+          </a>
+          .
+        </p>
+
+        <h2>12. Cookies</h2>
         <p>
           Unsere Website verwendet ausschließlich{" "}
           <strong>technisch notwendige Cookies</strong>. Es werden
@@ -431,7 +518,7 @@ function PrivacyContent() {
           funktionsfähigen Bereitstellung der Website).
         </p>
 
-        <h2>11. Keine Analyse-Tools</h2>
+        <h2>13. Keine Analyse-Tools</h2>
         <p>
           Wir setzen derzeit <strong>keine Analyse-Tools</strong>{" "}
           ein. Es wird kein Google Analytics, kein Matomo, kein
@@ -446,7 +533,7 @@ function PrivacyContent() {
           — sofern erforderlich — Ihre Einwilligung eingeholt.
         </p>
 
-        <h2>12. Betroffenenrechte</h2>
+        <h2>14. Betroffenenrechte</h2>
         <p>
           Als betroffene Person haben Sie gemäß der DSGVO folgende
           Rechte gegenüber dem Verantwortlichen:
@@ -530,7 +617,7 @@ function PrivacyContent() {
           </a>
         </p>
 
-        <h2>13. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+        <h2>15. Beschwerderecht bei einer Aufsichtsbehörde</h2>
         <p>
           Unbeschadet eines anderweitigen verwaltungsrechtlichen oder
           gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf
@@ -556,7 +643,7 @@ function PrivacyContent() {
           </a>
         </p>
 
-        <h2>14. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>16. Änderungen dieser Datenschutzerklärung</h2>
         <p>
           Wir behalten uns vor, diese Datenschutzerklärung
           anzupassen, damit sie stets den aktuellen rechtlichen
@@ -566,7 +653,7 @@ function PrivacyContent() {
           erneuten Besuch gilt dann die neue Datenschutzerklärung.
         </p>
 
-        <h2>15. Stand</h2>
+        <h2>17. Stand</h2>
         <p>
           Diese Datenschutzerklärung hat den Stand:{" "}
           <strong>März 2026</strong>

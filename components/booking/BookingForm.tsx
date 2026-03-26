@@ -26,6 +26,7 @@ interface BookingFormData {
   guestEmail: string;
   guestPhone: string;
   guestMessage: string;
+  acceptTerms: boolean;
 }
 
 export function BookingForm() {
@@ -256,6 +257,32 @@ export function BookingForm() {
           prüfen die Verfügbarkeit und kontaktieren Sie innerhalb von 24
           Stunden per E-Mail.
         </p>
+      </div>
+
+      <div className="space-y-1">
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            {...register("acceptTerms", { required: true })}
+            className="mt-1 h-4 w-4 shrink-0 rounded border-warm text-terracotta-500 focus:ring-terracotta-400/20"
+          />
+          <span className="text-sm text-dark-light">
+            Ich habe die{" "}
+            <a href="/agb" target="_blank" className="text-terracotta-500 underline hover:text-terracotta-600">
+              AGB
+            </a>{" "}
+            und{" "}
+            <a href="/datenschutz" target="_blank" className="text-terracotta-500 underline hover:text-terracotta-600">
+              Datenschutzerklärung
+            </a>{" "}
+            gelesen und akzeptiere diese.
+          </span>
+        </label>
+        {errors.acceptTerms && (
+          <p className="text-sm text-red-600">
+            Bitte bestätigen Sie die AGB und Datenschutzerklärung
+          </p>
+        )}
       </div>
 
       <Button type="submit" fullWidth loading={isLoading}>
