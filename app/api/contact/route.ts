@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         from:
           process.env.RESEND_FROM_EMAIL ||
           "Villa Gloria <noreply@villa-gloria.com>",
-        to: "info@villa-gloria-istrien.de",
+        to: "info@urlaubsbleibe.de",
         cc: "wieland.oswald@fahrzeugbau-pfaff.de",
         replyTo: email,
         subject: `Kontaktanfrage: ${subject}`,

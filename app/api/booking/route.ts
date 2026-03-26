@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       // Email 1: Anfrage an Vermieter + CC Wieland
       await resend.emails.send({
         from: fromEmail,
-        to: "info@villa-gloria-istrien.de",
+        to: "info@urlaubsbleibe.de",
         cc: "wieland.oswald@fahrzeugbau-pfaff.de",
         replyTo: data.guestEmail,
         subject: `Neue Buchungsanfrage: ${data.guestName} (${formatDate(data.checkIn)} - ${formatDate(data.checkOut)})`,
