@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -65,6 +71,13 @@ export function BookingForm() {
 
       const result = await response.json();
       if (response.ok && result.success) {
+        // GA4 generate_lead Event feuern
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", {
+            currency: "EUR",
+            value: 1,
+          });
+        }
         setBookingNumber(result.bookingNumber);
         setIsSubmitted(true);
         reset();
