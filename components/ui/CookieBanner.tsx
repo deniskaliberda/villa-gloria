@@ -11,9 +11,12 @@ export function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      // Reading localStorage on mount to determine initial visibility
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setVisible(true);
+      // Defer banner display to avoid blocking LCP paint
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => setVisible(true));
+      } else {
+        setTimeout(() => setVisible(true), 100);
+      }
     }
   }, []);
 
@@ -54,7 +57,7 @@ export function CookieBanner() {
           </button>
           <button
             onClick={accept}
-            className="rounded-button bg-terracotta-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+            className="rounded-button bg-terracotta-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-terracotta-700"
           >
             {t("accept")}
           </button>

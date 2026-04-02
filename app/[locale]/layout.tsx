@@ -71,6 +71,20 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "de" ? "de_DE" : "en_US",
       siteName: "Villa Gloria al Padre",
+      images: [
+        {
+          url: "/images/hero/villa-pool-seaview.jpg",
+          width: 1200,
+          height: 800,
+          alt: "Villa Gloria al Padre – Luxusvilla mit Pool in Istrien",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/images/hero/villa-pool-seaview.jpg"],
     },
     alternates: {
       canonical: `/${locale}`,
@@ -92,11 +106,39 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Villa Gloria al Padre",
+    url: "https://www.villa-gloria-istrien.de",
+    logo: "https://www.villa-gloria-istrien.de/images/hero/villa-pool-seaview.jpg",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+49-172-5642200",
+      contactType: "reservations",
+      email: "info@villa-gloria-istrien.de",
+      availableLanguage: ["German", "English", "Croatian"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Kaštelir bb",
+      addressLocality: "Kaštelir",
+      addressRegion: "Istrien",
+      postalCode: "52464",
+      addressCountry: "HR",
+    },
+    sameAs: [],
+  };
+
   return (
     <html lang={locale}>
       <body
         className={`${playfairDisplay.variable} ${dmSans.variable} ${josefinSans.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <NextIntlClientProvider>
           <Header />
           {children}

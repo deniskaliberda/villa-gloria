@@ -17,10 +17,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta.buchen" });
+  const t = await getTranslations({ locale, namespace: "meta.booking" });
   return {
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      images: [{ url: "/images/hero/villa-pool-seaview.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Jetzt buchen" }],
+    },
     alternates: {
       canonical: `/${locale}/buchen`,
       languages: {

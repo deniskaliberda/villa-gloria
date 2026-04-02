@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    openGraph: {
+      images: [{ url: "/images/hero/villa-pool-seaview.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Bewertungen" }],
+    },
     alternates: {
       canonical: `/${locale}/bewertungen`,
       languages: {
