@@ -125,6 +125,48 @@ body {
   background: var(--color-terracotta-300);
 }
 
+/* Villa Gloria Calendar Styles */
+.villa-calendar {
+  --rdp-accent-color: #a85a2f;
+  --rdp-accent-background-color: #fdf5ef;
+  --rdp-range_start-color: white;
+  --rdp-range_start-background: #a85a2f;
+  --rdp-range_end-color: white;
+  --rdp-range_end-background: #a85a2f;
+  --rdp-range_middle-color: #2D2A26;
+  --rdp-range_middle-background: #fae8d9;
+  --rdp-selected-color: white;
+  --rdp-day_button-border-radius: 8px;
+  --rdp-day_button-height: 44px;
+  --rdp-day_button-width: 44px;
+  font-family: var(--font-body);
+}
+
+.villa-calendar .rdp-disabled {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+
+.villa-calendar .rdp-today:not(.rdp-selected) {
+  font-weight: 700;
+  color: #a85a2f;
+}
+
+.villa-calendar .rdp-chevron {
+  fill: #a85a2f;
+}
+
+/* Single month on mobile, 2 on desktop */
+@media (max-width: 640px) {
+  .villa-calendar {
+    --rdp-day_button-height: 40px;
+    --rdp-day_button-width: 40px;
+  }
+  .villa-calendar .rdp-months {
+    flex-direction: column !important;
+  }
+}
+
 /* Safe area utilities for notched devices */
 .pt-safe {
   padding-top: env(safe-area-inset-top, 0px);

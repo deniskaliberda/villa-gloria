@@ -6,14 +6,16 @@ declare global {
   }
 }
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
+import { format, parseISO } from "date-fns";
+import { de as deLocale, enUS as enLocale } from "date-fns/locale";
 import {
   Calendar,
   Users,
   Dog,
   Send,
-  CheckCircle,
   User,
   Mail,
   Phone,
@@ -25,6 +27,7 @@ import { Button } from "@/components/ui/Button";
 interface BookingFormData {
   checkIn: string;
   checkOut: string;
+  property: "haus" | "apartment";
   guestsAdults: number;
   guestsChildren: number;
   hasPet: boolean;
@@ -35,26 +38,55 @@ interface BookingFormData {
   acceptTerms: boolean;
 }
 
-export function BookingForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+interface BookingFormProps {
+  locale: string;
+  property: "haus" | "apartment";
+  checkIn: string | null;
+  checkOut: string | null;
+}
+
+export function BookingForm({
+  locale,
+  property,
+  checkIn,
+  checkOut,
+}: BookingFormProps) {
+  const t = useTranslations("booking");
   const [isLoading, setIsLoading] = useState(false);
-  const [bookingNumber, setBookingNumber] = useState("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    setValue,
     watch,
   } = useForm<BookingFormData>({
     defaultValues: {
       guestsAdults: 2,
       guestsChildren: 0,
       hasPet: false,
+      property: property,
     },
   });
 
-  const checkIn = watch("checkIn");
+  // Sync calendar dates into form
+  useEffect(() => {
+    setValue("checkIn", checkIn ?? "");
+    setValue("checkOut", checkOut ?? "");
+  }, [checkIn, checkOut, setValue]);
+
+  useEffect(() => {
+    setValue("property", property);
+  }, [property, setValue]);
+
+  // Register hidden fields
+  const watchCheckIn = watch("checkIn");
+  const watchCheckOut = watch("checkOut");
+
+  function formatDisplayDate(dateStr: string): string {
+    const dateLocale = locale === "de" ? deLocale : enLocale;
+    return format(parseISO(dateStr), "d. MMMM yyyy", { locale: dateLocale });
+  }
 
   async function onSubmit(data: BookingFormData) {
     setIsLoading(true);
@@ -71,15 +103,13 @@ export function BookingForm() {
 
       const result = await response.json();
       if (response.ok && result.success) {
-        // GA4 generate_lead Event feuern
         if (typeof window !== "undefined" && typeof window.gtag === "function") {
           window.gtag("event", "generate_lead", {
             currency: "EUR",
             value: 1,
           });
         }
-        // Redirect to confirmation page with booking number
-        window.location.href = `/${document.documentElement.lang || "de"}/buchen/bestaetigung?booking=${result.bookingNumber}`;
+        window.location.href = `/${locale}/buchen/bestaetigung?booking=${result.bookingNumber}`;
       }
     } catch {
       // Error handling
@@ -88,67 +118,40 @@ export function BookingForm() {
     }
   }
 
-  if (isSubmitted) {
-    return (
-      <div className="flex flex-col items-center gap-4 rounded-card bg-olive-50 p-12 text-center">
-        <CheckCircle className="h-16 w-16 text-olive-500" />
-        <h3 className="font-display text-2xl font-bold text-dark">
-          Anfrage erfolgreich gesendet!
-        </h3>
-        <p className="text-dark-light">
-          Buchungsnummer: <strong>{bookingNumber}</strong>
-        </p>
-        <p className="text-dark-light">
-          Wir prüfen Ihre Anfrage und melden uns innerhalb von 24 Stunden per
-          E-Mail bei Ihnen.
-        </p>
-        <button
-          onClick={() => setIsSubmitted(false)}
-          className="mt-4 text-sm text-terracotta-500 hover:underline"
-        >
-          Neue Anfrage stellen
-        </button>
-      </div>
-    );
-  }
-
-  const today = new Date().toISOString().split("T")[0];
+  const hasDates = watchCheckIn && watchCheckOut;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Dates */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="space-y-1">
-          <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
-            <Calendar className="h-4 w-4 text-terracotta-500" />
-            Anreise
-          </label>
-          <input
-            type="date"
-            min={today}
-            {...register("checkIn", { required: true })}
-            className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
-          />
-          {errors.checkIn && (
-            <p className="text-sm text-red-600">Bitte Anreisedatum wählen</p>
-          )}
-        </div>
+      {/* Hidden date fields */}
+      <input type="hidden" {...register("checkIn", { required: true })} />
+      <input type="hidden" {...register("checkOut", { required: true })} />
+      <input type="hidden" {...register("property")} />
 
-        <div className="space-y-1">
-          <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
-            <Calendar className="h-4 w-4 text-terracotta-500" />
-            Abreise
-          </label>
-          <input
-            type="date"
-            min={checkIn || today}
-            {...register("checkOut", { required: true })}
-            className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
-          />
-          {errors.checkOut && (
-            <p className="text-sm text-red-600">Bitte Abreisedatum wählen</p>
-          )}
-        </div>
+      {/* Selected Dates Display */}
+      <div className="rounded-card border border-sand-300 bg-sand p-4">
+        <p className="mb-1 flex items-center gap-2 font-accent text-sm font-semibold text-dark">
+          <Calendar className="h-4 w-4 text-terracotta-500" />
+          {locale === "de" ? "Gewählte Reisedaten" : "Selected travel dates"}
+        </p>
+        {hasDates ? (
+          <p className="text-lg font-semibold text-dark">
+            {formatDisplayDate(watchCheckIn)} –{" "}
+            {formatDisplayDate(watchCheckOut)}
+          </p>
+        ) : (
+          <p className="text-sm text-dark-light">
+            {locale === "de"
+              ? "Bitte wählen Sie Ihre Daten im Kalender oben"
+              : "Please select your dates in the calendar above"}
+          </p>
+        )}
+        {errors.checkIn && !hasDates && (
+          <p className="mt-1 text-sm text-red-600">
+            {locale === "de"
+              ? "Bitte Reisedaten im Kalender auswählen"
+              : "Please select travel dates in the calendar"}
+          </p>
+        )}
       </div>
 
       {/* Guests */}
@@ -156,7 +159,7 @@ export function BookingForm() {
         <div className="space-y-1">
           <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
             <Users className="h-4 w-4 text-terracotta-500" />
-            Erwachsene
+            {t("adults")}
           </label>
           <select
             {...register("guestsAdults", { required: true })}
@@ -173,7 +176,7 @@ export function BookingForm() {
         <div className="space-y-1">
           <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
             <Users className="h-4 w-4 text-terracotta-500" />
-            Kinder
+            {t("children")}
           </label>
           <select
             {...register("guestsChildren")}
@@ -190,14 +193,16 @@ export function BookingForm() {
         <div className="space-y-1">
           <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
             <Dog className="h-4 w-4 text-terracotta-500" />
-            Haustier
+            {t("pets")}
           </label>
           <select
             {...register("hasPet")}
             className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
           >
-            <option value="false">Nein</option>
-            <option value="true">Ja (+50 €)</option>
+            <option value="false">{locale === "de" ? "Nein" : "No"}</option>
+            <option value="true">
+              {locale === "de" ? "Ja (+50 €)" : "Yes (+€50)"}
+            </option>
           </select>
         </div>
       </div>
@@ -206,21 +211,27 @@ export function BookingForm() {
       <div className="border-t border-sand-300 pt-6">
         <h3 className="mb-4 flex items-center gap-2 font-display text-lg font-bold text-dark">
           <User className="h-5 w-5 text-terracotta-500" />
-          Ihre Kontaktdaten
+          {t("guestDetails")}
         </h3>
 
         <div className="space-y-4">
           <Input
-            label="Name"
+            label={t("name")}
             {...register("guestName", { required: true, minLength: 2 })}
-            error={errors.guestName ? "Bitte geben Sie Ihren Namen ein" : undefined}
+            error={
+              errors.guestName
+                ? locale === "de"
+                  ? "Bitte geben Sie Ihren Namen ein"
+                  : "Please enter your name"
+                : undefined
+            }
           />
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1">
               <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
                 <Mail className="h-4 w-4 text-terracotta-500" />
-                E-Mail
+                {t("email")}
               </label>
               <input
                 type="email"
@@ -231,14 +242,18 @@ export function BookingForm() {
                 className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
               />
               {errors.guestEmail && (
-                <p className="text-sm text-red-600">Gültige E-Mail erforderlich</p>
+                <p className="text-sm text-red-600">
+                  {locale === "de"
+                    ? "Gültige E-Mail erforderlich"
+                    : "Valid email required"}
+                </p>
               )}
             </div>
 
             <div className="space-y-1">
               <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
                 <Phone className="h-4 w-4 text-terracotta-500" />
-                Telefon (optional)
+                {t("phone")}
               </label>
               <input
                 type="tel"
@@ -251,12 +266,16 @@ export function BookingForm() {
           <div className="space-y-1">
             <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
               <MessageSquare className="h-4 w-4 text-terracotta-500" />
-              Nachricht (optional)
+              {t("message")}
             </label>
             <textarea
               {...register("guestMessage")}
               rows={3}
-              placeholder="Besondere Wünsche, Fragen zur Villa..."
+              placeholder={
+                locale === "de"
+                  ? "Besondere Wünsche, Fragen zur Villa..."
+                  : "Special requests, questions about the villa..."
+              }
               className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark placeholder:text-dark-light/50 transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
             />
           </div>
@@ -265,9 +284,10 @@ export function BookingForm() {
 
       <div className="rounded-card bg-sand-50 p-4 text-sm text-dark-light">
         <p>
-          <strong>Hinweis:</strong> Dies ist eine unverbindliche Anfrage. Wir
-          prüfen die Verfügbarkeit und kontaktieren Sie innerhalb von 24
-          Stunden per E-Mail.
+          <strong>{locale === "de" ? "Hinweis:" : "Note:"}</strong>{" "}
+          {locale === "de"
+            ? "Dies ist eine unverbindliche Anfrage. Wir prüfen die Verfügbarkeit und kontaktieren Sie innerhalb von 24 Stunden per E-Mail."
+            : "This is a non-binding inquiry. We will check availability and contact you within 24 hours by email."}
         </p>
       </div>
 
@@ -279,27 +299,61 @@ export function BookingForm() {
             className="mt-1 h-4 w-4 shrink-0 rounded border-warm text-terracotta-500 focus:ring-terracotta-400/20"
           />
           <span className="text-sm text-dark-light">
-            Ich habe die{" "}
-            <a href="/agb" target="_blank" className="text-terracotta-500 underline hover:text-terracotta-600">
-              AGB
-            </a>{" "}
-            und{" "}
-            <a href="/datenschutz" target="_blank" className="text-terracotta-500 underline hover:text-terracotta-600">
-              Datenschutzerklärung
-            </a>{" "}
-            gelesen und akzeptiere diese.
+            {locale === "de" ? (
+              <>
+                Ich habe die{" "}
+                <a
+                  href="/agb"
+                  target="_blank"
+                  className="text-terracotta-500 underline hover:text-terracotta-600"
+                >
+                  AGB
+                </a>{" "}
+                und{" "}
+                <a
+                  href="/datenschutz"
+                  target="_blank"
+                  className="text-terracotta-500 underline hover:text-terracotta-600"
+                >
+                  Datenschutzerklärung
+                </a>{" "}
+                gelesen und akzeptiere diese.
+              </>
+            ) : (
+              <>
+                I have read and accept the{" "}
+                <a
+                  href="/agb"
+                  target="_blank"
+                  className="text-terracotta-500 underline hover:text-terracotta-600"
+                >
+                  Terms
+                </a>{" "}
+                and{" "}
+                <a
+                  href="/datenschutz"
+                  target="_blank"
+                  className="text-terracotta-500 underline hover:text-terracotta-600"
+                >
+                  Privacy Policy
+                </a>
+                .
+              </>
+            )}
           </span>
         </label>
         {errors.acceptTerms && (
           <p className="text-sm text-red-600">
-            Bitte bestätigen Sie die AGB und Datenschutzerklärung
+            {locale === "de"
+              ? "Bitte bestätigen Sie die AGB und Datenschutzerklärung"
+              : "Please accept the terms and privacy policy"}
           </p>
         )}
       </div>
 
-      <Button type="submit" fullWidth loading={isLoading}>
+      <Button type="submit" fullWidth loading={isLoading} disabled={!hasDates}>
         <Send className="mr-2 h-4 w-4" />
-        Unverbindlich anfragen
+        {t("sendInquiry")}
       </Button>
     </form>
   );

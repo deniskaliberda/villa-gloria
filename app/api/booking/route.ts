@@ -20,11 +20,13 @@ export async function POST(request: Request) {
     const bookingNumber = `VG-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase()}`;
     const nights = getNights(data.checkIn, data.checkOut);
     const totalGuests = data.guestsAdults + data.guestsChildren;
+    const propertyName = data.property === "apartment" ? "Poolwohnung" : "Gesamtes Haus";
 
     const token = createBookingToken({
       bookingNumber,
       checkIn: data.checkIn,
       checkOut: data.checkOut,
+      property: data.property || "haus",
       guestsAdults: data.guestsAdults,
       guestsChildren: data.guestsChildren,
       hasPet: data.hasPet,
@@ -48,7 +50,7 @@ export async function POST(request: Request) {
         to: "info@urlaubsbleibe.de",
         cc: "wieland.oswald@fahrzeugbau-pfaff.de",
         replyTo: data.guestEmail,
-        subject: `Neue Buchungsanfrage: ${data.guestName} (${formatDate(data.checkIn)} - ${formatDate(data.checkOut)})`,
+        subject: `Neue Buchungsanfrage: ${data.guestName} – ${propertyName} (${formatDate(data.checkIn)} - ${formatDate(data.checkOut)})`,
         html: `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto;">
             <div style="background: #C2703E; color: white; padding: 24px; border-radius: 12px 12px 0 0;">
@@ -57,6 +59,7 @@ export async function POST(request: Request) {
             </div>
             <div style="background: #f9f5f0; padding: 24px; border: 1px solid #e5ddd3;">
               <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; color: #666; width: 140px;">Unterkunft</td><td style="padding: 8px 0; font-weight: 600;">${propertyName}</td></tr>
                 <tr><td style="padding: 8px 0; color: #666; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: 600;">${data.guestName}</td></tr>
                 <tr><td style="padding: 8px 0; color: #666;">E-Mail</td><td style="padding: 8px 0;"><a href="mailto:${data.guestEmail}">${data.guestEmail}</a></td></tr>
                 <tr><td style="padding: 8px 0; color: #666;">Telefon</td><td style="padding: 8px 0;">${data.guestPhone || "–"}</td></tr>

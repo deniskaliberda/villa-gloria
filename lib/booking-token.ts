@@ -4,6 +4,7 @@ export interface BookingData {
   bookingNumber: string;
   checkIn: string;
   checkOut: string;
+  property: string;
   guestsAdults: number;
   guestsChildren: number;
   hasPet: boolean;
