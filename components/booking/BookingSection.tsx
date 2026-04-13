@@ -91,7 +91,7 @@ export function BookingSection({ locale }: BookingSectionProps) {
           </p>
         </div>
         <div className="rounded-card border border-sand-300 bg-white p-4">
-          <SmoobuWidget locale={locale} />
+          <SmoobuWidget locale={locale} property={property} />
           <p className="mt-3 text-center text-xs text-dark-light">
             {locale === "de"
               ? "Prüfen Sie die Verfügbarkeit im Kalender und tragen Sie Ihre Wunschdaten unten ein."
