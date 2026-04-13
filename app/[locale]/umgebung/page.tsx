@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: "/images/hero/villa-pool-garden.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Umgebung Istrien" }],
     },
     alternates: {
-      canonical: `/${locale}/umgebung`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/umgebung`,
       languages: {
-        "x-default": "/de/umgebung",
-        de: "/de/umgebung",
-        en: "/en/umgebung",
+        "x-default": "https://www.villa-gloria-istrien.de/de/umgebung",
+        de: "https://www.villa-gloria-istrien.de/de/umgebung",
+        en: "https://www.villa-gloria-istrien.de/en/umgebung",
       },
     },
   };

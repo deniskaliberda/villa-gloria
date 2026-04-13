@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: "/images/hero/villa-pool-garden.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Blog" }],
     },
     alternates: {
-      canonical: `/${locale}/blog`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/blog`,
       languages: {
-        "x-default": "/de/blog",
-        de: "/de/blog",
-        en: "/en/blog",
+        "x-default": "https://www.villa-gloria-istrien.de/de/blog",
+        de: "https://www.villa-gloria-istrien.de/de/blog",
+        en: "https://www.villa-gloria-istrien.de/en/blog",
       },
     },
   };

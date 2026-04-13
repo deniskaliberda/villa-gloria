@@ -37,11 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: "/images/living/wohnzimmer.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Das Haus" }],
     },
     alternates: {
-      canonical: `/${locale}/das-haus`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/das-haus`,
       languages: {
-        "x-default": "/de/das-haus",
-        de: "/de/das-haus",
-        en: "/en/das-haus",
+        "x-default": "https://www.villa-gloria-istrien.de/de/das-haus",
+        de: "https://www.villa-gloria-istrien.de/de/das-haus",
+        en: "https://www.villa-gloria-istrien.de/en/das-haus",
       },
     },
   };

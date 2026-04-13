@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: "/images/hero/villa-pool-seaview.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Bewertungen" }],
     },
     alternates: {
-      canonical: `/${locale}/bewertungen`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/bewertungen`,
       languages: {
-        "x-default": "/de/bewertungen",
-        de: "/de/bewertungen",
-        en: "/en/bewertungen",
+        "x-default": "https://www.villa-gloria-istrien.de/de/bewertungen",
+        de: "https://www.villa-gloria-istrien.de/de/bewertungen",
+        en: "https://www.villa-gloria-istrien.de/en/bewertungen",
       },
     },
   };

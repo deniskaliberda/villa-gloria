@@ -53,11 +53,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
     },
     alternates: {
-      canonical: `/${locale}/blog/${SLUG}`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/blog/${SLUG}`,
       languages: {
-        "x-default": `/de/blog/${SLUG}`,
-        de: `/de/blog/${SLUG}`,
-        en: `/en/blog/${SLUG}`,
+        "x-default": `https://www.villa-gloria-istrien.de/de/blog/${SLUG}`,
+        de: `https://www.villa-gloria-istrien.de/de/blog/${SLUG}`,
+        en: `https://www.villa-gloria-istrien.de/en/blog/${SLUG}`,
       },
     },
   };

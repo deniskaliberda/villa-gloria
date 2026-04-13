@@ -13,11 +13,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `/${locale}/buchen`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/buchen`,
       languages: {
-        "x-default": "/de/buchen",
-        de: "/de/buchen",
-        en: "/en/buchen",
+        "x-default": "https://www.villa-gloria-istrien.de/de/buchen",
+        de: "https://www.villa-gloria-istrien.de/de/buchen",
+        en: "https://www.villa-gloria-istrien.de/en/buchen",
       },
     },
   };

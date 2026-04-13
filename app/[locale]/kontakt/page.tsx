@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: "/images/exterior/villa-front.jpg", width: 1200, height: 800, alt: "Villa Gloria al Padre – Kontakt" }],
     },
     alternates: {
-      canonical: `/${locale}/kontakt`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}/kontakt`,
       languages: {
-        "x-default": "/de/kontakt",
-        de: "/de/kontakt",
-        en: "/en/kontakt",
+        "x-default": "https://www.villa-gloria-istrien.de/de/kontakt",
+        de: "https://www.villa-gloria-istrien.de/de/kontakt",
+        en: "https://www.villa-gloria-istrien.de/en/kontakt",
       },
     },
   };

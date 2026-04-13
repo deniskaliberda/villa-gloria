@@ -87,11 +87,11 @@ export async function generateMetadata({
       images: ["/images/hero/villa-pool-seaview.jpg"],
     },
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `https://www.villa-gloria-istrien.de/${locale}`,
       languages: {
-        "x-default": "/de",
-        de: "/de",
-        en: "/en",
+        "x-default": "https://www.villa-gloria-istrien.de/de",
+        de: "https://www.villa-gloria-istrien.de/de",
+        en: "https://www.villa-gloria-istrien.de/en",
       },
     },
   };
