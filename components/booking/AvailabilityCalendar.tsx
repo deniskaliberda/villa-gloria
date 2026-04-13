@@ -5,6 +5,7 @@ import { DayPicker } from "react-day-picker";
 import { de, enUS } from "react-day-picker/locale";
 import { addDays, isBefore, startOfDay, format, parseISO } from "date-fns";
 import type { DateRange } from "react-day-picker";
+import { RotateCcw } from "lucide-react";
 import "react-day-picker/style.css";
 
 interface AvailabilityCalendarProps {
@@ -14,6 +15,8 @@ interface AvailabilityCalendarProps {
   onRangeChange: (checkIn: string | null, checkOut: string | null) => void;
 }
 
+type SelectionPhase = "check-in" | "check-out" | "complete";
+
 export function AvailabilityCalendar({
   locale,
   property,
@@ -21,12 +24,14 @@ export function AvailabilityCalendar({
   onRangeChange,
 }: AvailabilityCalendarProps) {
   const [range, setRange] = useState<DateRange | undefined>();
+  const [phase, setPhase] = useState<SelectionPhase>("check-in");
   const [blockedDates, setBlockedDates] = useState<Date[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
     setRange(undefined);
+    setPhase("check-in");
     onRangeChange(null, null);
 
     fetch(`/api/availability?property=${property}`)
@@ -42,7 +47,6 @@ export function AvailabilityCalendar({
       .finally(() => {
         setIsLoading(false);
       });
-    // onRangeChange is stable from parent via useCallback
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [property]);
 
@@ -62,37 +66,51 @@ export function AvailabilityCalendar({
     [blockedDates]
   );
 
-  const handleSelect = (newRange: DateRange | undefined) => {
-    if (!newRange) {
-      setRange(undefined);
-      onRangeChange(null, null);
+  const handleReset = () => {
+    setRange(undefined);
+    setPhase("check-in");
+    onRangeChange(null, null);
+  };
+
+  const handleDayClick = (day: Date) => {
+    const clicked = startOfDay(day);
+
+    if (phase === "check-in" || phase === "complete") {
+      // Start new selection
+      setRange({ from: clicked, to: undefined });
+      setPhase("check-out");
+      onRangeChange(format(clicked, "yyyy-MM-dd"), null);
       return;
     }
 
-    if (newRange.from && !newRange.to) {
-      setRange(newRange);
-      onRangeChange(format(newRange.from, "yyyy-MM-dd"), null);
-      return;
-    }
-
-    if (newRange.from && newRange.to) {
-      // Enforce minimum nights
-      const minCheckout = addDays(newRange.from, minNights);
-      const effectiveTo = isBefore(newRange.to, minCheckout)
-        ? minCheckout
-        : newRange.to;
-
-      // Check if any blocked dates fall within the range
-      if (isRangeBlocked(newRange.from, effectiveTo)) {
-        // Reset — can't book across blocked dates
-        setRange({ from: newRange.from, to: undefined });
-        onRangeChange(format(newRange.from, "yyyy-MM-dd"), null);
+    if (phase === "check-out" && range?.from) {
+      // If clicked before check-in, make it the new check-in
+      if (isBefore(clicked, range.from)) {
+        setRange({ from: clicked, to: undefined });
+        setPhase("check-out");
+        onRangeChange(format(clicked, "yyyy-MM-dd"), null);
         return;
       }
 
-      setRange({ from: newRange.from, to: effectiveTo });
+      // Enforce minimum nights
+      const minCheckout = addDays(range.from, minNights);
+      const effectiveTo = isBefore(clicked, minCheckout)
+        ? minCheckout
+        : clicked;
+
+      // Check if any blocked dates fall within the range
+      if (isRangeBlocked(range.from, effectiveTo)) {
+        // Can't book across blocked dates — restart with this day
+        setRange({ from: clicked, to: undefined });
+        setPhase("check-out");
+        onRangeChange(format(clicked, "yyyy-MM-dd"), null);
+        return;
+      }
+
+      setRange({ from: range.from, to: effectiveTo });
+      setPhase("complete");
       onRangeChange(
-        format(newRange.from, "yyyy-MM-dd"),
+        format(range.from, "yyyy-MM-dd"),
         format(effectiveTo, "yyyy-MM-dd")
       );
     }
@@ -125,7 +143,7 @@ export function AvailabilityCalendar({
       <DayPicker
         mode="range"
         selected={range}
-        onSelect={handleSelect}
+        onDayClick={handleDayClick}
         locale={locale === "de" ? de : enUS}
         disabled={disabledDays}
         numberOfMonths={2}
@@ -134,20 +152,37 @@ export function AvailabilityCalendar({
       />
 
       <div className="mt-3 text-center text-sm text-dark-light">
-        {nights > 0 && (
-          <p className="font-semibold text-terracotta-500">
-            {nights} {nights === 1 ? (locale === "de" ? "Nacht" : "night") : (locale === "de" ? "Nächte" : "nights")}{" "}
-            {locale === "de" ? "ausgewählt" : "selected"}
-          </p>
+        {phase === "complete" && nights > 0 && (
+          <div className="flex items-center justify-center gap-3">
+            <p className="font-semibold text-terracotta-500">
+              {nights}{" "}
+              {nights === 1
+                ? locale === "de"
+                  ? "Nacht"
+                  : "night"
+                : locale === "de"
+                  ? "Nächte"
+                  : "nights"}{" "}
+              {locale === "de" ? "ausgewählt" : "selected"}
+            </p>
+            <button
+              type="button"
+              onClick={handleReset}
+              className="inline-flex items-center gap-1 rounded-button border border-sand-300 px-2 py-1 text-xs text-dark-light transition-colors hover:border-terracotta-400 hover:text-terracotta-500"
+            >
+              <RotateCcw className="h-3 w-3" />
+              {locale === "de" ? "Neu wählen" : "Reset"}
+            </button>
+          </div>
         )}
-        {range?.from && !range?.to && (
+        {phase === "check-out" && (
           <p>
             {locale === "de"
-              ? `Abreise wählen (mind. ${minNights} Nächte)`
-              : `Select checkout (min. ${minNights} nights)`}
+              ? `Jetzt Abreisedatum wählen (mind. ${minNights} Nächte)`
+              : `Now select checkout (min. ${minNights} nights)`}
           </p>
         )}
-        {!range?.from && (
+        {phase === "check-in" && (
           <p>
             {locale === "de"
               ? "Klicken Sie auf Ihr gewünschtes Anreisedatum"
