@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Home, Building2 } from "lucide-react";
-import { AvailabilityCalendar } from "./AvailabilityCalendar";
+import { Home, Building2, CalendarSearch } from "lucide-react";
+import { SmoobuWidget } from "./SmoobuWidget";
 import { BookingForm } from "./BookingForm";
 
 interface BookingSectionProps {
@@ -13,16 +13,6 @@ interface BookingSectionProps {
 export function BookingSection({ locale }: BookingSectionProps) {
   const t = useTranslations("booking");
   const [property, setProperty] = useState<"haus" | "apartment">("haus");
-  const [checkIn, setCheckIn] = useState<string | null>(null);
-  const [checkOut, setCheckOut] = useState<string | null>(null);
-
-  const handleRangeChange = useCallback(
-    (newCheckIn: string | null, newCheckOut: string | null) => {
-      setCheckIn(newCheckIn);
-      setCheckOut(newCheckOut);
-    },
-    []
-  );
 
   return (
     <div className="space-y-8">
@@ -90,21 +80,37 @@ export function BookingSection({ locale }: BookingSectionProps) {
         </div>
       </div>
 
-      {/* Calendar */}
-      <AvailabilityCalendar
-        locale={locale}
-        property={property}
-        minNights={3}
-        onRangeChange={handleRangeChange}
-      />
+      {/* Smoobu Availability Widget */}
+      <div>
+        <div className="mb-3 flex items-center gap-2">
+          <CalendarSearch className="h-5 w-5 text-terracotta-500" />
+          <p className="font-accent text-sm font-semibold text-dark">
+            {locale === "de"
+              ? "Verfügbarkeit prüfen"
+              : "Check availability"}
+          </p>
+        </div>
+        <div className="rounded-card border border-sand-300 bg-white p-4">
+          <SmoobuWidget locale={locale} />
+          <p className="mt-3 text-center text-xs text-dark-light">
+            {locale === "de"
+              ? "Prüfen Sie die Verfügbarkeit im Kalender und tragen Sie Ihre Wunschdaten unten ein."
+              : "Check availability in the calendar and enter your preferred dates below."}
+          </p>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="flex items-center gap-4">
+        <div className="h-px flex-1 bg-sand-300" />
+        <p className="font-accent text-sm font-semibold text-terracotta-500">
+          {locale === "de" ? "Anfrage senden" : "Send inquiry"}
+        </p>
+        <div className="h-px flex-1 bg-sand-300" />
+      </div>
 
       {/* Form */}
-      <BookingForm
-        locale={locale}
-        property={property}
-        checkIn={checkIn}
-        checkOut={checkOut}
-      />
+      <BookingForm locale={locale} property={property} />
     </div>
   );
 }

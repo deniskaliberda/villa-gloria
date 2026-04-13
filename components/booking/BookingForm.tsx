@@ -6,11 +6,9 @@ declare global {
   }
 }
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { format, parseISO } from "date-fns";
-import { de as deLocale, enUS as enLocale } from "date-fns/locale";
 import {
   Calendar,
   Users,
@@ -41,16 +39,9 @@ interface BookingFormData {
 interface BookingFormProps {
   locale: string;
   property: "haus" | "apartment";
-  checkIn: string | null;
-  checkOut: string | null;
 }
 
-export function BookingForm({
-  locale,
-  property,
-  checkIn,
-  checkOut,
-}: BookingFormProps) {
+export function BookingForm({ locale, property }: BookingFormProps) {
   const t = useTranslations("booking");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,7 +49,6 @@ export function BookingForm({
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
     watch,
   } = useForm<BookingFormData>({
     defaultValues: {
@@ -69,24 +59,11 @@ export function BookingForm({
     },
   });
 
-  // Sync calendar dates into form
-  useEffect(() => {
-    setValue("checkIn", checkIn ?? "");
-    setValue("checkOut", checkOut ?? "");
-  }, [checkIn, checkOut, setValue]);
-
-  useEffect(() => {
-    setValue("property", property);
-  }, [property, setValue]);
-
-  // Register hidden fields
   const watchCheckIn = watch("checkIn");
   const watchCheckOut = watch("checkOut");
 
-  function formatDisplayDate(dateStr: string): string {
-    const dateLocale = locale === "de" ? deLocale : enLocale;
-    return format(parseISO(dateStr), "d. MMMM yyyy", { locale: dateLocale });
-  }
+  // Get today's date in YYYY-MM-DD for min attribute
+  const today = new Date().toISOString().split("T")[0];
 
   async function onSubmit(data: BookingFormData) {
     setIsLoading(true);
@@ -96,6 +73,7 @@ export function BookingForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
+          property,
           guestsAdults: Number(data.guestsAdults),
           guestsChildren: Number(data.guestsChildren),
         }),
@@ -122,36 +100,47 @@ export function BookingForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Hidden date fields */}
-      <input type="hidden" {...register("checkIn", { required: true })} />
-      <input type="hidden" {...register("checkOut", { required: true })} />
-      <input type="hidden" {...register("property")} />
+      {/* Date Selection */}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-1">
+          <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
+            <Calendar className="h-4 w-4 text-terracotta-500" />
+            {locale === "de" ? "Anreise" : "Check-in"}
+          </label>
+          <input
+            type="date"
+            min={today}
+            {...register("checkIn", { required: true })}
+            className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
+          />
+          {errors.checkIn && (
+            <p className="text-sm text-red-600">
+              {locale === "de"
+                ? "Bitte Anreisedatum wählen"
+                : "Please select check-in date"}
+            </p>
+          )}
+        </div>
 
-      {/* Selected Dates Display */}
-      <div className="rounded-card border border-sand-300 bg-sand p-4">
-        <p className="mb-1 flex items-center gap-2 font-accent text-sm font-semibold text-dark">
-          <Calendar className="h-4 w-4 text-terracotta-500" />
-          {locale === "de" ? "Gewählte Reisedaten" : "Selected travel dates"}
-        </p>
-        {hasDates ? (
-          <p className="text-lg font-semibold text-dark">
-            {formatDisplayDate(watchCheckIn)} –{" "}
-            {formatDisplayDate(watchCheckOut)}
-          </p>
-        ) : (
-          <p className="text-sm text-dark-light">
-            {locale === "de"
-              ? "Bitte wählen Sie Ihre Daten im Kalender oben"
-              : "Please select your dates in the calendar above"}
-          </p>
-        )}
-        {errors.checkIn && !hasDates && (
-          <p className="mt-1 text-sm text-red-600">
-            {locale === "de"
-              ? "Bitte Reisedaten im Kalender auswählen"
-              : "Please select travel dates in the calendar"}
-          </p>
-        )}
+        <div className="space-y-1">
+          <label className="flex items-center gap-2 font-accent text-sm font-semibold text-dark">
+            <Calendar className="h-4 w-4 text-terracotta-500" />
+            {locale === "de" ? "Abreise" : "Check-out"}
+          </label>
+          <input
+            type="date"
+            min={watchCheckIn || today}
+            {...register("checkOut", { required: true })}
+            className="w-full rounded-button border border-warm bg-white px-4 py-3 font-body text-dark transition-colors focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-400/20"
+          />
+          {errors.checkOut && (
+            <p className="text-sm text-red-600">
+              {locale === "de"
+                ? "Bitte Abreisedatum wählen"
+                : "Please select check-out date"}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Guests */}
