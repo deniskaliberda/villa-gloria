@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBookButton } from "@/components/layout/MobileBookButton";
 import { CookieBanner } from "@/components/ui/CookieBanner";
+import { FloatingContactButton } from "@/components/ui/FloatingContactButton";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "../globals.css";
 
@@ -144,6 +145,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           {children}
           <Footer />
           <MobileBookButton />
+          <FloatingContactButton />
           <CookieBanner />
           <GoogleAnalytics />
         </NextIntlClientProvider>
