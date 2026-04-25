@@ -53,11 +53,13 @@ export function BookingForm({
 }: BookingFormProps) {
   const t = useTranslations("booking");
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [utm, setUtm] = useState<{ source?: string; medium?: string; campaign?: string; referrer?: string }>({});
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     setValue,
     watch,
   } = useForm<BookingFormData>({
@@ -79,6 +81,32 @@ export function BookingForm({
     setValue("property", property);
   }, [property, setValue]);
 
+  // Capture UTM + referrer once on mount — persists across the funnel
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const captured = {
+        source: params.get("utm_source") || undefined,
+        medium: params.get("utm_medium") || undefined,
+        campaign: params.get("utm_campaign") || undefined,
+        referrer: document.referrer || undefined,
+      };
+      // Persist + restore from sessionStorage so re-entries still attribute
+      const stored = sessionStorage.getItem("vg_attribution");
+      if (stored && !captured.source) {
+        try { setUtm(JSON.parse(stored)); } catch { setUtm(captured); }
+      } else {
+        setUtm(captured);
+        if (captured.source || captured.referrer) {
+          sessionStorage.setItem("vg_attribution", JSON.stringify(captured));
+        }
+      }
+    } catch {
+      // ignore — attribution is best-effort
+    }
+  }, []);
+
   const watchCheckIn = watch("checkIn");
   const watchCheckOut = watch("checkOut");
 
@@ -89,6 +117,16 @@ export function BookingForm({
 
   async function onSubmit(data: BookingFormData) {
     setIsLoading(true);
+    setSubmitError(null);
+
+    // Track form_submit_attempt — fires for every submit click, even if validation fails server-side
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "form_submit_attempt", {
+        form_name: "booking_inquiry",
+        property: data.property,
+      });
+    }
+
     try {
       const response = await fetch("/api/booking", {
         method: "POST",
@@ -98,6 +136,10 @@ export function BookingForm({
           property,
           guestsAdults: Number(data.guestsAdults),
           guestsChildren: Number(data.guestsChildren),
+          utmSource: utm.source || "",
+          utmMedium: utm.medium || "",
+          utmCampaign: utm.campaign || "",
+          referrer: utm.referrer || "",
         }),
       });
 
@@ -107,12 +149,43 @@ export function BookingForm({
           window.gtag("event", "generate_lead", {
             currency: "EUR",
             value: 1,
+            booking_number: result.bookingNumber,
+            property: data.property,
+            source: utm.source || "direct",
           });
         }
         window.location.href = `/${locale}/buchen/bestaetigung?booking=${result.bookingNumber}`;
+        return;
       }
-    } catch {
-      // Error handling
+
+      // Server-side validation failure — show user-visible error
+      const reason =
+        result?.details?.[0]?.message ||
+        result?.error ||
+        (locale === "de"
+          ? "Bitte pruefe deine Eingaben — etwas hat nicht geklappt."
+          : "Please check your input — something didn't work.");
+      setSubmitError(String(reason));
+
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "form_submit_error", {
+          form_name: "booking_inquiry",
+          error: String(reason).slice(0, 100),
+          status: response.status,
+        });
+      }
+    } catch (err) {
+      setSubmitError(
+        locale === "de"
+          ? "Netzwerkfehler. Bitte versuche es erneut oder kontaktiere uns direkt."
+          : "Network error. Please retry or contact us directly."
+      );
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "form_submit_error", {
+          form_name: "booking_inquiry",
+          error: "network",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -351,10 +424,37 @@ export function BookingForm({
         )}
       </div>
 
-      <Button type="submit" fullWidth loading={isLoading} disabled={!hasDates}>
+      {/* Server-side error banner — visible feedback when submit fails */}
+      {submitError && (
+        <div
+          role="alert"
+          className="rounded-card border border-red-300 bg-red-50 p-4 text-sm text-red-800"
+        >
+          <strong>
+            {locale === "de" ? "Anfrage konnte nicht gesendet werden:" : "Request could not be sent:"}
+          </strong>{" "}
+          {submitError}
+          <div className="mt-2 text-xs text-red-700">
+            {locale === "de"
+              ? "Du kannst uns jederzeit auch direkt per WhatsApp oder E-Mail erreichen — Buttons unten."
+              : "You can also reach us directly by WhatsApp or email — buttons below."}
+          </div>
+        </div>
+      )}
+
+      <Button type="submit" fullWidth loading={isLoading || isSubmitting} disabled={!hasDates}>
         <Send className="mr-2 h-4 w-4" />
         {t("sendInquiry")}
       </Button>
+
+      {/* Helpful hint when dates are not yet selected — explains why button is disabled */}
+      {!hasDates && (
+        <p className="text-center text-sm text-stone-600">
+          {locale === "de"
+            ? "Bitte waehle zuerst An- und Abreise im Kalender oben."
+            : "Please pick check-in and check-out dates in the calendar above first."}
+        </p>
+      )}
     </form>
   );
 }

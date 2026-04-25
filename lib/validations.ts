@@ -12,6 +12,10 @@ export const bookingInquirySchema = z
     guestEmail: z.email(),
     guestPhone: z.string().max(30).optional().or(z.literal("")),
     guestMessage: z.string().max(1000).optional().or(z.literal("")),
+    utmSource: z.string().max(100).optional().or(z.literal("")),
+    utmMedium: z.string().max(100).optional().or(z.literal("")),
+    utmCampaign: z.string().max(100).optional().or(z.literal("")),
+    referrer: z.string().max(500).optional().or(z.literal("")),
   })
   .refine((data) => new Date(data.checkOut) > new Date(data.checkIn), {
     message: "Check-out must be after check-in",

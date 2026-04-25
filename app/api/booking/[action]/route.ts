@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { verifyBookingToken } from "@/lib/booking-token";
 import { formatDate, getNights } from "@/lib/utils";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 type Props = {
   params: Promise<{ action: string }>;
@@ -35,6 +36,21 @@ export async function GET(request: Request, { params }: Props) {
   }
 
   const nights = getNights(data.checkIn, data.checkOut);
+
+  // Update booking status — fail-safe (email path is the existing fallback)
+  const supabase = getSupabaseAdmin();
+  if (supabase) {
+    try {
+      const updates: Record<string, unknown> = {
+        status: action === "approve" ? "approved" : "rejected",
+      };
+      if (action === "approve") updates.approved_at = new Date().toISOString();
+      else updates.rejected_at = new Date().toISOString();
+      await supabase.from("bookings").update(updates).eq("booking_number", data.bookingNumber);
+    } catch (e) {
+      console.error("[booking/" + action + "] status update failed:", e);
+    }
+  }
 
   if (process.env.RESEND_API_KEY) {
     const resend = new Resend(process.env.RESEND_API_KEY);
