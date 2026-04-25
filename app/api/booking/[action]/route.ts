@@ -37,7 +37,7 @@ export async function GET(request: Request, { params }: Props) {
 
   const nights = getNights(data.checkIn, data.checkOut);
 
-  // Update lead status — fail-safe (email path is the existing fallback)
+  // Update booking status — fail-safe (email path is the existing fallback)
   const supabase = getSupabaseAdmin();
   if (supabase) {
     try {
@@ -46,9 +46,9 @@ export async function GET(request: Request, { params }: Props) {
       };
       if (action === "approve") updates.approved_at = new Date().toISOString();
       else updates.rejected_at = new Date().toISOString();
-      await supabase.from("leads").update(updates).eq("booking_number", data.bookingNumber);
+      await supabase.from("bookings").update(updates).eq("booking_number", data.bookingNumber);
     } catch (e) {
-      console.error("[booking/" + action + "] lead status update failed:", e);
+      console.error("[booking/" + action + "] status update failed:", e);
     }
   }
 

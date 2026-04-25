@@ -34,18 +34,21 @@ export async function POST(request: Request) {
     const totalGuests = data.guestsAdults + data.guestsChildren;
     const propertyName = data.property === "apartment" ? "Poolwohnung" : "Gesamtes Haus";
 
-    // ---- Persist lead in DB FIRST so we don't lose it if email fails ----
+    // ---- Persist inquiry in `bookings` FIRST so we don't lose it if email fails ----
+    // bookings already has booking_number, status (default 'pending'), approval_token,
+    // approved_at, rejected_at, stripe fields. We only add UTM/attribution columns.
     const supabase = getSupabaseAdmin();
     if (supabase) {
       const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "";
       const ipHash = ip ? createHash("sha256").update(ip).digest("hex").slice(0, 32) : null;
       const userAgent = request.headers.get("user-agent")?.slice(0, 500) || null;
+      const propertyType = (data.property || "haus") === "apartment" ? "apartment" : "house";
 
       try {
-        const { error } = await supabase.from("leads").insert({
+        const { error } = await supabase.from("bookings").insert({
           booking_number: bookingNumber,
-          status: "inquiry",
-          property: data.property || "haus",
+          status: "pending",
+          property_type: propertyType,
           check_in: data.checkIn,
           check_out: data.checkOut,
           guests_adults: data.guestsAdults,
@@ -55,19 +58,27 @@ export async function POST(request: Request) {
           guest_email: data.guestEmail,
           guest_phone: data.guestPhone || null,
           guest_message: data.guestMessage || null,
+          guest_language: "de",
+          // Pricing not yet known at inquiry stage — Wieland sets on approve
+          price_per_night: 0,
+          total_accommodation: 0,
+          total_price: 0,
+          deposit_amount: 0,
+          remaining_amount: 0,
           source: deriveSource(data.utmSource, data.utmMedium, data.referrer),
           utm_source: data.utmSource || null,
           utm_medium: data.utmMedium || null,
           utm_campaign: data.utmCampaign || null,
+          referrer: data.referrer || null,
           user_agent: userAgent,
           ip_hash: ipHash,
         });
         if (error) {
           // Log but do not fail — email path is the existing fallback.
-          console.error("[booking] lead insert failed:", error.message);
+          console.error("[booking] inquiry persist failed:", error.message);
         }
       } catch (e) {
-        console.error("[booking] lead insert exception:", e);
+        console.error("[booking] inquiry persist exception:", e);
       }
     }
 
