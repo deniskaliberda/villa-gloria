@@ -5,6 +5,23 @@ import { bookingInquirySchema } from "@/lib/validations";
 import { createBookingToken } from "@/lib/booking-token";
 import { formatDate, getNights } from "@/lib/utils";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { type Season, isApartmentAllowedForRange } from "@/lib/seasons";
+
+async function loadSeasons(): Promise<Season[]> {
+  const supabase = getSupabaseAdmin();
+  if (!supabase) return [];
+  const { data, error } = await supabase
+    .from("seasons")
+    .select("name, start_date, end_date, apt_available, min_nights");
+  if (error || !data) return [];
+  return data.map((row) => ({
+    name: row.name as string,
+    start_date: row.start_date as string,
+    end_date: row.end_date as string,
+    apt_available: Boolean(row.apt_available),
+    min_nights: (row.min_nights as number) ?? 3,
+  }));
+}
 
 function deriveSource(utmSource?: string, utmMedium?: string, referrer?: string): string {
   if (utmMedium === "cpc" || utmSource === "google_ads") return "paid_search";
@@ -29,6 +46,24 @@ export async function POST(request: Request) {
     }
 
     const data = result.data;
+
+    // Saison-Geschaeftsregel (Maren, 2026-04-24):
+    // Poolwohnung darf in Hochsaison nicht separat gebucht werden — nur als Teil des Gesamthauses.
+    if (data.property === "apartment") {
+      const seasons = await loadSeasons();
+      const aptCheck = isApartmentAllowedForRange(data.checkIn, data.checkOut, seasons);
+      if (!aptCheck.available) {
+        return NextResponse.json(
+          {
+            error:
+              "Die Poolwohnung ist in der gewählten Zeit nur als Teil des Gesamthauses buchbar.",
+            blockingSeason: aptCheck.blockingSeason,
+          },
+          { status: 400 }
+        );
+      }
+    }
+
     const bookingNumber = `VG-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase()}`;
     const nights = getNights(data.checkIn, data.checkOut);
     const totalGuests = data.guestsAdults + data.guestsChildren;

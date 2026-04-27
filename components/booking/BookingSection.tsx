@@ -1,10 +1,16 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { Home, Building2 } from "lucide-react";
+import { Home, Building2, Info } from "lucide-react";
 import { AvailabilityCalendar } from "./AvailabilityCalendar";
 import { BookingForm } from "./BookingForm";
+import {
+  type Season,
+  apartmentBlockedDates,
+  isApartmentAllowedForRange,
+  minNightsForCheckIn,
+} from "@/lib/seasons";
 
 interface BookingSectionProps {
   locale: string;
@@ -15,6 +21,38 @@ export function BookingSection({ locale }: BookingSectionProps) {
   const [property, setProperty] = useState<"haus" | "apartment">("haus");
   const [checkIn, setCheckIn] = useState<string | null>(null);
   const [checkOut, setCheckOut] = useState<string | null>(null);
+  const [seasons, setSeasons] = useState<Season[]>([]);
+
+  useEffect(() => {
+    fetch("/api/seasons")
+      .then((r) => r.json())
+      .then((data: { seasons: Season[] }) => setSeasons(data.seasons ?? []))
+      .catch(() => setSeasons([]));
+  }, []);
+
+  const apartmentBlocked = useMemo(
+    () => apartmentBlockedDates(seasons),
+    [seasons]
+  );
+
+  const minNights = useMemo(
+    () => minNightsForCheckIn(checkIn, seasons),
+    [checkIn, seasons]
+  );
+
+  const apartmentCheck = useMemo(() => {
+    if (!checkIn || !checkOut) {
+      return { available: true, blockingSeason: null as string | null };
+    }
+    return isApartmentAllowedForRange(checkIn, checkOut, seasons);
+  }, [checkIn, checkOut, seasons]);
+
+  // If user picks dates that don't allow apartment, snap selection back to house.
+  useEffect(() => {
+    if (property === "apartment" && !apartmentCheck.available) {
+      setProperty("haus");
+    }
+  }, [property, apartmentCheck.available]);
 
   const handleRangeChange = useCallback(
     (newCheckIn: string | null, newCheckOut: string | null) => {
@@ -88,13 +126,24 @@ export function BookingSection({ locale }: BookingSectionProps) {
             </div>
           </button>
         </div>
+
+        {/* Saison-Hinweis: Poolwohnung nur in Vor-/Nachsaison separat buchbar */}
+        <div className="mt-3 flex items-start gap-2 rounded-card border border-sand-300 bg-warm-50/40 p-3 text-xs text-dark-light">
+          <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-terracotta-500" />
+          <p>
+            {locale === "de"
+              ? "Die Poolwohnung kann nur in der Vor- und Nachsaison separat gemietet werden. In der Hochsaison (Juli/August) ist sie ausschließlich Teil des Gesamthauses."
+              : "The pool apartment can only be rented separately in the pre- and post-season. During high season (July/August) it is included only as part of the entire house."}
+          </p>
+        </div>
       </div>
 
       {/* Interactive Availability Calendar */}
       <AvailabilityCalendar
         locale={locale}
         property={property}
-        minNights={3}
+        minNights={minNights}
+        extraBlockedDates={property === "apartment" ? apartmentBlocked : []}
         onRangeChange={handleRangeChange}
       />
 

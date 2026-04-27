@@ -12,6 +12,7 @@ interface AvailabilityCalendarProps {
   locale: string;
   property: "haus" | "apartment";
   minNights: number;
+  extraBlockedDates?: string[];
   onRangeChange: (checkIn: string | null, checkOut: string | null) => void;
 }
 
@@ -21,6 +22,7 @@ export function AvailabilityCalendar({
   locale,
   property,
   minNights,
+  extraBlockedDates,
   onRangeChange,
 }: AvailabilityCalendarProps) {
   const [range, setRange] = useState<DateRange | undefined>();
@@ -52,18 +54,24 @@ export function AvailabilityCalendar({
 
   const today = startOfDay(new Date());
 
-  const disabledDays = [{ before: today }, ...blockedDates];
+  const extraBlocked = (extraBlockedDates ?? []).map((d) =>
+    startOfDay(parseISO(d))
+  );
+
+  const allBlocked = [...blockedDates, ...extraBlocked];
+
+  const disabledDays = [{ before: today }, ...allBlocked];
 
   const isRangeBlocked = useCallback(
     (from: Date, to: Date): boolean => {
-      for (const blocked of blockedDates) {
+      for (const blocked of allBlocked) {
         if (blocked >= from && blocked < to) {
           return true;
         }
       }
       return false;
     },
-    [blockedDates]
+    [allBlocked]
   );
 
   const handleReset = () => {
