@@ -1,12 +1,21 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle, Mail, Clock, CalendarCheck } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const GOOGLE_ADS_CONVERSION_SEND_TO = "AW-18043426877/vIDtCNrg6accEL2w45tD";
+const GOOGLE_ADS_CONVERSION_VALUE = 50;
 
 export default function ConfirmationPage() {
   return (
@@ -27,6 +36,17 @@ function ConfirmationContent() {
   const tNav = useTranslations("nav");
   const searchParams = useSearchParams();
   const bookingNumber = searchParams.get("booking");
+
+  useEffect(() => {
+    if (!bookingNumber) return;
+    if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+    window.gtag("event", "conversion", {
+      send_to: GOOGLE_ADS_CONVERSION_SEND_TO,
+      value: GOOGLE_ADS_CONVERSION_VALUE,
+      currency: "EUR",
+      transaction_id: bookingNumber,
+    });
+  }, [bookingNumber]);
 
   return (
     <main className="pt-24 pb-20">
