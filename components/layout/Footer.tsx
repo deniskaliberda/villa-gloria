@@ -121,6 +121,16 @@ export function Footer() {
           <p className="mt-2 text-sm text-warm/60">
             {t("copyright", { year: currentYear })}
           </p>
+          <p className="mt-2 text-xs text-warm/40">
+            <a
+              href="https://myhiwi.de"
+              target="_blank"
+              rel="noopener"
+              className="transition-colors hover:text-terracotta-400"
+            >
+              Website &amp; Buchung: MyHiwi
+            </a>
+          </p>
         </div>
       </div>
     </footer>
