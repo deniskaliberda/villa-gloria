@@ -8,6 +8,7 @@
     "reviews": "Reviews",
     "contact": "Contact",
     "blog": "Blog",
+    "arrival": "Arrival",
     "bookNow": "Book now"
   },
   "common": {
@@ -194,6 +195,68 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions"
   },
+  "arrival": {
+    "title": "Arrival & Documents",
+    "intro": "To make your stay at Villa Gloria al Padre as smooth as possible, we've put together all the key documents for you to download – checklists, house rules and practical tips.",
+    "groups": {
+      "beforeArrival": {
+        "title": "Before arrival",
+        "description": "What to prepare and check in advance."
+      },
+      "onSite": {
+        "title": "On site",
+        "description": "Notes and instructions for your stay at the house."
+      },
+      "beforeDeparture": {
+        "title": "Before departure",
+        "description": "Short check-out checklists – to make leaving the villa smooth and easy."
+      }
+    },
+    "files": {
+      "checklistDe": {
+        "title": "Abreise-Checkliste (German)",
+        "description": "Check-out steps before you leave – dishes, waste, keys and more. German version.",
+        "filename": "abreise-checkliste-de.pdf"
+      },
+      "checklistEn": {
+        "title": "Check-out Checklist",
+        "description": "Check-out steps before you leave – dishes, waste, keys and more. Ideal for international guests.",
+        "filename": "abreise-checkliste-en.pdf"
+      },
+      "passport": {
+        "title": "Passport Info",
+        "description": "Details on the passport / ID information we need to register you with the Croatian authorities.",
+        "filename": "passport-info-en.pdf"
+      },
+      "hausordnung": {
+        "title": "House Rules",
+        "description": "Our house rules – so that all guests and neighbours feel equally at home.",
+        "filename": "hausordnung-de.pdf"
+      },
+      "safe": {
+        "title": "Safe Manual",
+        "description": "Instructions for the in-house safe – setting the PIN, opening and closing (DE/EN).",
+        "filename": "safe-bedienungsanleitung-de-en.pdf"
+      },
+      "utilities": {
+        "title": "Saving Water & Electricity",
+        "description": "Practical tips on using water and electricity responsibly at the villa.",
+        "filename": "wasser-strom-sparen-de.pdf"
+      }
+    },
+    "downloadCta": "Download PDF",
+    "fileMetaSeparator": " · ",
+    "languageLabels": {
+      "de": "Deutsch",
+      "en": "English",
+      "deEn": "Deutsch / English"
+    },
+    "questionsBlock": {
+      "title": "Any questions?",
+      "description": "If anything is unclear or you need additional information, don't hesitate to reach out – we're happy to help.",
+      "cta": "Contact us"
+    }
+  },
   "footer": {
     "quickLinks": "Quick Links",
     "contactInfo": "Contact",
@@ -239,6 +302,10 @@
     "blog": {
       "title": "Blog – Villa Gloria al Padre",
       "description": "Tips and inspiration for your Istria holiday"
+    },
+    "arrival": {
+      "title": "Arrival & Documents – Villa Gloria al Padre",
+      "description": "All key documents, checklists and house information for your arrival at Villa Gloria al Padre in Kaštelir, Istria – available as PDF downloads."
     },
     "impressum": {
       "title": "Legal Notice – Villa Gloria al Padre",
