@@ -7,6 +7,7 @@ declare global {
 }
 
 import { Mail, MessageCircle, Phone } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 interface ContactBypassProps {
   locale: string;
@@ -43,6 +44,9 @@ export function ContactBypass({ locale, property, variant = "full", source = "bo
         source,
       });
     }
+    // Unified MyHiwi vocabulary (Vercel Web Analytics).
+    const mapped = channel === "email" ? "mail" : channel === "phone" ? "tel" : "whatsapp";
+    analytics.contactClick(mapped, "content");
   };
 
   const waText =

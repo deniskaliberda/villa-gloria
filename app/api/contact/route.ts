@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { track } from "@vercel/analytics/server";
 
 export async function POST(request: Request) {
   try {
@@ -16,7 +17,7 @@ export async function POST(request: Request) {
     // Send email via Resend
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      await resend.emails.send({
+      const sent = await resend.emails.send({
         from:
           process.env.RESEND_FROM_EMAIL ||
           "Villa Gloria <noreply@villa-gloria.com>",
@@ -33,6 +34,16 @@ export async function POST(request: Request) {
           <p>${message.replace(/\n/g, "<br>")}</p>
         `,
       });
+      if (sent.error) {
+        console.error("[contact] resend failed:", sent.error.message);
+        return NextResponse.json({ error: "Mail delivery failed" }, { status: 502 });
+      }
+      // Server-side lead event, counted only after the mail really went out. Never blocks the response.
+      try {
+        await track("lead", { type: "formular", topic: "kontakt", source: "unbekannt", page: "/kontakt" });
+      } catch (e) {
+        console.error("[contact] analytics track failed:", e);
+      }
     } else {
       console.log("Contact form (Resend not configured):", {
         name,

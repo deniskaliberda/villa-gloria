@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TrackedLink } from "@/components/ui/TrackedLink";
 
 interface ContactFormData {
   name: string;
@@ -146,7 +147,16 @@ export function ContactContent() {
                     <p className="font-accent font-semibold text-dark">
                       E-Mail
                     </p>
-                    <p className="text-dark-light">info@villa-gloria-istrien.de</p>
+                    <p>
+                      <TrackedLink
+                        channel="mail"
+                        placement="content"
+                        href="mailto:info@villa-gloria-istrien.de"
+                        className="text-dark-light"
+                      >
+                        info@villa-gloria-istrien.de
+                      </TrackedLink>
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -157,8 +167,15 @@ export function ContactContent() {
                     <p className="font-accent font-semibold text-dark">
                       Telefon
                     </p>
-                    <p className="text-dark-light">
-                      +49 172 5642200
+                    <p>
+                      <TrackedLink
+                        channel="tel"
+                        placement="content"
+                        href="tel:+491725642200"
+                        className="text-dark-light"
+                      >
+                        +49 172 5642200
+                      </TrackedLink>
                     </p>
                   </div>
                 </div>

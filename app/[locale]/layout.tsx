@@ -11,6 +11,7 @@ import { MobileBookButton } from "@/components/layout/MobileBookButton";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { FloatingContactButton } from "@/components/ui/FloatingContactButton";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -149,6 +150,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <CookieBanner />
           <GoogleAnalytics />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

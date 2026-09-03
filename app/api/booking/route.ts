@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { track } from "@vercel/analytics/server";
 import { createHash } from "node:crypto";
 import { bookingInquirySchema } from "@/lib/validations";
 import { createBookingToken } from "@/lib/booking-token";
@@ -105,7 +106,7 @@ export async function POST(request: Request) {
       const fromEmail = process.env.RESEND_FROM_EMAIL || "Villa Gloria <buchung@villa-gloria-istrien.de>";
 
       // Email 1: Anfrage an Vermieter + CC Wieland
-      await resend.emails.send({
+      const ownerMail = await resend.emails.send({
         from: fromEmail,
         to: "info@urlaubsbleibe.de",
         cc: "wieland.oswald@fahrzeugbau-pfaff.de",
@@ -138,6 +139,23 @@ export async function POST(request: Request) {
           </div>
         `,
       });
+
+      if (ownerMail.error) {
+        console.error("[booking] owner mail failed:", ownerMail.error.message);
+      } else {
+        // Server-side lead event, counted only after the inquiry mail really went out.
+        // No personal data: source is the derived attribution bucket, not the raw referrer.
+        try {
+          await track("lead", {
+            type: "formular",
+            topic: "anfrage",
+            source: deriveSource(data.utmSource, data.utmMedium, data.referrer),
+            page: "/buchen",
+          });
+        } catch (e) {
+          console.error("[booking] analytics track failed:", e);
+        }
+      }
 
       // Email 2: Bestätigung an Gast
       await resend.emails.send({

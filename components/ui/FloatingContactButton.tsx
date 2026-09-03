@@ -8,6 +8,7 @@ declare global {
 
 import { useEffect, useState } from "react";
 import { MessageCircle, X, Mail, Phone } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 /**
  * Floating WhatsApp + Email + Phone bubble, bottom-right on every page.
@@ -56,6 +57,11 @@ export function FloatingContactButton() {
   const track = (event: string, channel?: string) => {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("event", event, { channel: channel || "menu", path });
+    }
+    // Unified MyHiwi vocabulary (Vercel Web Analytics): the floating bubble counts as "content".
+    if (event === "floating_contact_click" && channel) {
+      const mapped = channel === "email" ? "mail" : channel === "phone" ? "tel" : "whatsapp";
+      analytics.contactClick(mapped, "content");
     }
   };
 
